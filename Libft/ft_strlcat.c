@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jora <jora@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jcallejo <jcallejo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 10:52:08 by jora              #+#    #+#             */
-/*   Updated: 2024/04/09 11:07:32 by jora             ###   ########.fr       */
+/*   Created: 2024/04/09 17:17:55 by jcallejo          #+#    #+#             */
+/*   Updated: 2024/04/09 17:18:41 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "libft.h"
 
-int	ft_isdigit(int c)
+size_t	strlcat(char *dst, const char *src, size_t size)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	
 }

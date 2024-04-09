@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jora <jora@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jcallejo <jcallejo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 11:01:14 by jora              #+#    #+#             */
-/*   Updated: 2024/04/09 11:03:41 by jora             ###   ########.fr       */
+/*   Created: 2024/04/09 11:13:41 by jora              #+#    #+#             */
+/*   Updated: 2024/04/09 13:27:34 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "libft.h"
 
-int	ft_isalnum(int c)
+int	ft_strlen(char *str)
 {
-	return (ft_isalpha(c) && ft_isdigit(c));
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }

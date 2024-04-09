@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jora <jora@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jcallejo <jcallejo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 11:34:10 by jora              #+#    #+#             */
-/*   Updated: 2024/04/09 11:48:20 by jora             ###   ########.fr       */
+/*   Created: 2024/04/09 10:52:08 by jora              #+#    #+#             */
+/*   Updated: 2024/04/09 13:27:15 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int	ft_isdigit(int c)
 {
-	size_t	i;
-	char	*saux;
-	char	*daux;
-
-	i = 0;
-	daux = dest;
-	saux = src;
-	while (i < n)
-	{
-		daux[i] = saux[i];
-		i++;
-	}
-	return (daux);
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

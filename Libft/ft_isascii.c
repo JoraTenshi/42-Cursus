@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jora <jora@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jcallejo <jcallejo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 11:12:09 by jora              #+#    #+#             */
-/*   Updated: 2024/04/09 11:13:28 by jora             ###   ########.fr       */
+/*   Created: 2024/04/09 11:08:21 by jora              #+#    #+#             */
+/*   Updated: 2024/04/09 13:27:13 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "libft.h"
 
-int	ft_isprint(int c)
+int	ft_isascii(int c)
 {
-	if (c >= 32 && c <= 126)
+	if (c >= 0 && c <= 127)
 		return (1);
 	return (0);
 }

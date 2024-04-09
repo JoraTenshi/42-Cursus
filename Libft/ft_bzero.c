@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jora <jora@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jcallejo <jcallejo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 11:15:07 by jora              #+#    #+#             */
-/*   Updated: 2024/04/09 11:23:32 by jora             ###   ########.fr       */
+/*   Created: 2024/04/09 11:25:14 by jora              #+#    #+#             */
+/*   Updated: 2024/04/09 13:27:07 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "libft.h"
 
-void	ft_memset(void *str, int c, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-	size_t			i;
-	unsigned char	*a;
+	char	*aux;
+	size_t	i;
 
+	aux = s;
 	i = 0;
-	a = str;
 	while (i < n)
 	{
-		a[i] = c;
+		aux[i] = '\0';
 		i++;
 	}
-	return (str);
 }
