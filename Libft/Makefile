@@ -11,10 +11,11 @@ ft_memcpy\
 ft_memmove\
 ft_strlcpy\
 ft_strlcat\
-#ft_toupper\
+ft_toupper\
 ft_tolower\
 ft_strchr\
-ft_strncmp\
+ft_strrchr\
+#ft_strncmp\
 ft_memchr\
 ft_memchr\
 ft_memcmp\
