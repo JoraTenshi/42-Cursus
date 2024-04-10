@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcallejo <jcallejo@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 12:10:20 by jora              #+#    #+#             */
-/*   Updated: 2024/04/09 13:27:23 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/04/10 15:27:11 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	i = 0;
 	saux = (char *)src;
 	daux = dest;
-	if (src == NULL || dest == NULL)
+	if (src == NULL && dest == NULL && n > 0)
 		return (dest);
 	if (src < dest)
 	{

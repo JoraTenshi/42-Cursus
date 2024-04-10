@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcallejo <jcallejo@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 11:34:10 by jora              #+#    #+#             */
-/*   Updated: 2024/04/09 13:27:20 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/04/10 15:28:02 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	daux = dest;
 	saux = (char *)src;
-	if (src == NULL || dest == NULL)
+	if (src == NULL && dest == NULL && n > 0)
 		return (dest);
 	while (i < n)
 	{
