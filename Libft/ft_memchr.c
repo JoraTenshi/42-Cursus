@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jcallejo <jcallejo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 12:46:41 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/04/11 13:16:31 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/04/12 10:45:41 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (i < n)
 	{
 		if (saux[i] == (unsigned char)c)
-			return ((char *)&s[i]);
+			return (&saux[i]);
 		i++;
 	}
 	return (0);
