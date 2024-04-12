@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcallejo <jcallejo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/12 12:13:34 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/04/12 15:03:47 by jcallejo         ###   ########.fr       */
+/*   Created: 2024/04/12 15:04:39 by jcallejo          #+#    #+#             */
+/*   Updated: 2024/04/12 15:05:26 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	**ft_split(char const *s, char c)
 {
-	size_t		slen;
-	char		*aux;
-
-	if (!s1 || !set)
-		return (NULL);
-	while (*s1 && ft_strchr(set, *s1))
-		s1++;
-	slen = ft_strlen(s1);
-	while (slen > 0 && ft_strchr(set, s1[slen]))
-		slen--;
-	aux = ft_substr((char *) s1, 0, slen + 1);
-	return (aux);
+	
 }
