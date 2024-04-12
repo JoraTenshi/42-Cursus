@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcallejo <jcallejo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/12 10:54:35 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/04/12 11:19:14 by jcallejo         ###   ########.fr       */
+/*   Created: 2024/04/12 12:13:34 by jcallejo          #+#    #+#             */
+/*   Updated: 2024/04/12 12:20:55 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*aux;
-	int		len;
-	int		i;
+	int		slen;
 
-	i = 0;
-	len = ft_strlen(s);
-	aux = (char *) malloc(len + 1);
-	if (!aux)
+	if (!s1 || !set)
 		return (NULL);
-	while (s[i])
-	{
-		aux[i] = s[i];
-		i++;
-	}
-	aux[i] = '\0';
-	return (aux);
+	slen = ft_strlen(s1);
+	
 }

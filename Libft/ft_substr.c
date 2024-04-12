@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcallejo <jcallejo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/12 10:54:35 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/04/12 11:19:14 by jcallejo         ###   ########.fr       */
+/*   Created: 2024/04/12 11:05:10 by jcallejo          #+#    #+#             */
+/*   Updated: 2024/04/12 11:46:58 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*aux;
-	int		len;
-	int		i;
+	size_t	i;
+	size_t	slen;
 
 	i = 0;
-	len = ft_strlen(s);
-	aux = (char *) malloc(len + 1);
+	slen = ft_strlen(s);
+	if (start >= slen)
+	{
+		aux = malloc(1);
+		if (!aux)
+			return (NULL);
+		aux[0] = '\0';
+		return (aux);
+	}
+	if (len > (size_t)ft_strlen(&s[start]))
+		len = ft_strlen(&s[start]);
+	aux = malloc(len + 1);
 	if (!aux)
 		return (NULL);
-	while (s[i])
-	{
-		aux[i] = s[i];
-		i++;
-	}
+	while (i < len && s[start] != '\0')
+		aux[i++] = s[start++];
 	aux[i] = '\0';
 	return (aux);
 }
