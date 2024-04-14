@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 15:04:39 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/04/13 11:04:26 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/04/14 10:21:07 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,51 @@ static int	word_count(char *str, char c)
 	return (count);
 }
 
-char	**ft_split(char const *s, char c)
+static char	*word_cpy(char *s, char c)
 {
-	int	i;
+	char	*res;
+	int		i;
 
 	i = 0;
+	while (s[i] && s[i] != c)
+		i++;
+	res = malloc(i + 1);
+	if (!res)
+		return (NULL);
+	i = 0;
+	while (s[i] && s[i] != c)
+	{
+		res[i] = s[i];
+		i++;
+	}
+	res[i] = 0;
+	return (res);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int		i;
+	int		count;
+	char	*aux;
+	char	**split;
+
+	i = 0;
+	aux = (char *)s;
+	count = word_count((char *)s, c);
+	split = malloc (sizeof(char *) * (count + 1));
+	if (!split)
+		return (NULL);
+	while (i < count && *aux)
+	{
+		while (*aux == c && *aux)
+			aux++;
+		split[i] = word_cpy(aux, c);
+		if (!split[i])
+			return (0);
+		i++;
+		while (*aux != c && *aux)
+			aux++;
+	}
+	split[i] = 0;
+	return (split);
 }
