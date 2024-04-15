@@ -34,8 +34,8 @@ ft_putnbr_fd\
 ft_putstr_fd\
 ft_putendl_fd\
 
-LIBFT_NAMEB = #ft_lstnew_bonus\
-ft_lstadd_front_bonus\
+LIBFT_NAMEB = ft_lstnew_bonus\
+#ft_lstadd_front_bonus\
 ft_lstsize_bonus\
 ft_lstlast_bonus\
 ft_lstadd_back_bonus\
