@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 11:03:59 by jora              #+#    #+#             */
-/*   Updated: 2024/04/15 16:12:24 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/04/15 21:22:15 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 
 /**
- * @brief Copies string src to string dst.
+ * @brief Copies string src to string dst with len length
  * 
  * @param dst 
  * @param src 
@@ -121,7 +121,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 /**
- * @brief Concatenates string dst onto string dst.
+ * @brief Concatenates string dst onto string dst and returns total len.
  * 
  * @param dst 
  * @param src 
@@ -131,7 +131,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 
 /**
- * @brief Transforms character c into its uppercase variant if available.
+ * @brief Transforms character c into its uppercase variant if it's a letter.
  * 
  * @param c 
  * @return int 
@@ -139,7 +139,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 int		ft_toupper(int c);
 
 /**
- * @brief Transforms character c into its lowercase variant if available.
+ * @brief Transforms character c into its lowercase variant if it's a letter.
  * 
  * @param c 
  * @return int 
@@ -147,7 +147,7 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 
 /**
- * @brief Locates the first occurrence of c in the string pointed to by s.
+ * @brief Locates the first occurrence of character c in the string s.
  * 
  * @param s 
  * @param c 
@@ -156,7 +156,7 @@ int		ft_tolower(int c);
 char	*ft_strchr(const char *s, int c);
 
 /**
- * @brief Locates the last occurrence of c in the string pointed to by s.
+ * @brief Locates the last occurrence of character c in the string s.
  * 
  * @param s 
  * @param c 
@@ -176,7 +176,8 @@ char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 /**
- * @brief Locates the first occurrence of c in string s.
+ * @brief Locates the first occurrence of character c in 
+ * 			memory of string s.
  * 
  * @param s 
  * @param c 
@@ -398,5 +399,18 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
  * @param f 
  */
 void	ft_lstiter(t_list *lst, void (*f)(void *));
+
+/**
+ * @brief Iterates every node after lst while applying the function
+ * 		  f to every one of them and creating a new list.
+ * 		  The function pointed by del is used to free everything if
+ * 		  anything fails.
+ * 
+ * @param lst 
+ * @param f 
+ * @param del 
+ * @return t_list* 
+ */
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif

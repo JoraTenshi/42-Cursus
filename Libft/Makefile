@@ -1,84 +1,79 @@
-LIBFT_NAME = \
-ft_isalpha\
-ft_isdigit\
-ft_isalnum\
-ft_isascii\
-ft_isprint\
-ft_strlen\
-ft_memset\
-ft_bzero\
-ft_memcpy\
-ft_memmove\
-ft_strlcpy\
-ft_strlcat\
-ft_toupper\
-ft_tolower\
-ft_strchr\
-ft_strrchr\
-ft_strncmp\
-ft_memchr\
-ft_memcmp\
-ft_strnstr\
-ft_atoi\
-ft_calloc\
-ft_strdup\
-ft_substr\
-ft_strjoin\
-ft_strtrim\
-ft_split\
-ft_itoa\
-ft_strmapi\
-ft_striteri\
-ft_putchar_fd\
-ft_putnbr_fd\
-ft_putstr_fd\
-ft_putendl_fd\
+CFILES = ft_atoi.c\
+ft_isascii.c\
+ft_memchr.c\
+ft_putendl_fd.c\
+ft_strdup.c\
+ft_strlen.c\
+ft_strtrim.c\
+ft_bzero.c\
+ft_isdigit.c\
+ft_memcpy.c\
+ft_putnbr_fd.c\
+ft_striteri.c\
+ft_strmapi.c\
+ft_substr.c\
+ft_calloc.c\
+ft_isprint.c\
+ft_memmove.c\
+ft_putstr_fd.c\
+ft_strjoin.c\
+ft_strncmp.c\
+ft_tolower.c\
+ft_isalnum.c\
+ft_itoa.c\
+ft_memset.c\
+ft_split.c\
+ft_strlcat.c\
+ft_strnstr.c\
+ft_toupper.c\
+ft_isalpha.c\
+ft_memcmp.c\
+ft_putchar_fd.c\
+ft_strchr.c\
+ft_strlcpy.c\
+ft_strrchr.c
 
-LIBFT_NAMEB = ft_lstnew_bonus\
-ft_lstadd_front_bonus\
-ft_lstsize_bonus\
-ft_lstlast_bonus\
-ft_lstadd_back_bonus\
-ft_lstdelone_bonus\
-#ft_lstclear_bonus\
-ft_lstiter_bonus\
-ft_lstmap_bonus\
+CBONUS = ft_lstadd_back_bonus.c\
+ft_lstclear_bonus.c\
+ft_lstiter_bonus.c\
+ft_lstmap_bonus.c\
+ft_lstsize_bonus.c\
+ft_lstadd_front_bonus.c\
+ft_lstdelone_bonus.c\
+ft_lstlast_bonus.c\
+ft_lstnew_bonus.c
 
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 
-LIBFT_SRC = ./
-LIBFT_OBJ = ./
-LIBFT_OBJB = ./
-
-LIBFT_FILES = $(addprefix $(LIBFT_SRC), $(addsuffix .c, $(LIBFT_NAME)))
-LIBFT_OBJECT = $(addprefix $(LIBFT_OBJ), $(addsuffix .o, $(LIBFT_NAME)))
-LIBFT_FILESB = $(addprefix $(LIBFT_SRC), $(addsuffix .c, $(LIBFT_NAMEB)))
-LIBFT_OBJECTB = $(addprefix $(LIBFT_OBJ), $(addsuffix .o, $(LIBFT_NAMEB)))
-
-ARC = ar rcs
+ARCHIVER = ar rcs
 NAME = libft.a
+OFILES = $(CFILES:.c=.o)
+OBONUS = $(CBONUS:.c=.o)
+HEADER_FILE = libft.h
+
+RM = rm -f
 
 all: $(NAME)
 
-$(NAME): $(LIBFT_OBJECT)
-	@$(ARC) $(NAME) $(LIBFT_OBJECT)
+$(NAME): $(OFILES) $(HEADER_FILE)
+	$(ARCHIVER) $(NAME) $(OFILES)
 
-$(LIBFT_OBJECT): $(LIBFT_FILES)
-	@mkdir -p $(LIBFT_OBJ)
-	@gcc -Wall -Wextra -Werror -c $(LIBFT_FILES)
+$(OFILES): $(CFILES)
+	$(CC) $(CFLAGS) -c $(CFILES)
 
-bonus: $(LIBFT_OBJECTB) $(LIBFT_OBJECT)
-	@$(ARC) $(NAME) $(LIBFT_OBJECT) $(LIBFT_OBJECTB)
+$(OBONUS): $(CBONUS)
+	$(CC) $(CFLAGS) -c $(CBONUS)
 
-$(LIBFT_OBJECTB): $(LIBFT_FILESB)
-	@mkdir -p $(LIBFT_OBJB)
-	@gcc -Wall -Wextra -Werror -c $(LIBFT_FILESB)
+bonus: $(OFILES) $(OBONUS)
+	$(ARCHIVER) $(NAME) $(OFILES) $(OBONUS)
 
 clean:
-	@rm -rf *.o
+	$(RM) $(OFILES)
 
-fclean:
-	@rm -rf $(NAME) *.o
+fclean: clean
+	$(RM) $(NAME) $(OFILES)
 
 re: fclean all
 
-.PHONY : all clean fclean re
+.PHONY: clean fclean re
