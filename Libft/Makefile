@@ -34,6 +34,15 @@ ft_putnbr_fd\
 ft_putstr_fd\
 ft_putendl_fd\
 
+LIBFT_NAMEB = #ft_lstnew_bonus\
+ft_lstadd_front_bonus\
+ft_lstsize_bonus\
+ft_lstlast_bonus\
+ft_lstadd_back_bonus\
+ft_lstdelone_bonus\
+ft_lstclear_bonus\
+ft_lstiter_bonus\
+ft_lstmap_bonus\
 
 
 LIBFT_SRC = ./
@@ -41,6 +50,8 @@ LIBFT_OBJ = ./
 
 LIBFT_FILES = $(addprefix $(LIBFT_SRC), $(addsuffix .c, $(LIBFT_NAME)))
 LIBFT_OBJECT = $(addprefix $(LIBFT_OBJ), $(addsuffix .o, $(LIBFT_NAME)))
+LIBFT_FILESB = $(addprefix $(LIBFT_SRC), $(addsuffix .c, $(LIBFT_NAMEB)))
+LIBFT_OBJECTB = $(addprefix $(LIBFT_OBJ), $(addsuffix .o, $(LIBFT_NAMEB)))
 
 ARC = ar rcs
 NAME = libft.a
@@ -53,7 +64,13 @@ $(NAME): $(LIBFT_OBJECT)
 $(LIBFT_OBJECT): $(LIBFT_FILES)
 	@mkdir -p $(LIBFT_OBJ)
 	@gcc -Wall -Wextra -Werror -c $(LIBFT_FILES)
-#	@mv $(addsuffix .o, $(LIBFT_NAMES)) $(LIBFT_OBJ)
+
+bonus: $(LIBFT_OBJECTB) $(LIBFT_OBJECT)
+	@$(ARC) $(NAME) $(LIBFT_OBJECT) $(LIBFT_OBJECTB)
+
+$(LIBFT_OBJECTB): $(LIBFT_FILESB)
+	@mkdir -p $(LIBFT_OBJB)
+	@gcc -Wall -Wextra -Werror -c $(LIBFT_FILESB)
 
 clean:
 	@rm -rf *.o
