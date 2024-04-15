@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 15:04:39 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/04/14 10:21:07 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/04/15 12:34:54 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,17 @@ static char	*word_cpy(char *s, char c)
 	return (res);
 }
 
+static char	**failsafe(char **split, int i)
+{
+	while (i >= 0)
+	{
+		free(split[i]);
+		i--;
+	}
+	free(split);
+	return (0);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	int		i;
@@ -64,8 +75,8 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	aux = (char *)s;
 	count = word_count((char *)s, c);
-	split = malloc (sizeof(char *) * (count + 1));
-	if (!split)
+	split = malloc(sizeof(char *) * (count + 1));
+	if (!split || !s)
 		return (NULL);
 	while (i < count && *aux)
 	{
@@ -73,7 +84,7 @@ char	**ft_split(char const *s, char c)
 			aux++;
 		split[i] = word_cpy(aux, c);
 		if (!split[i])
-			return (0);
+			return (failsafe(split, i));
 		i++;
 		while (*aux != c && *aux)
 			aux++;

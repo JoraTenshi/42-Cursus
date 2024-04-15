@@ -26,13 +26,14 @@ ft_substr\
 ft_strjoin\
 ft_strtrim\
 ft_split\
-#ft_itoa\
+ft_itoa\
 ft_strmapi\
 ft_striteri\
 ft_putchar_fd\
+ft_putnbr_fd\
 ft_putstr_fd\
 ft_putendl_fd\
-ft_putnbr_fd\
+
 
 
 LIBFT_SRC = ./
@@ -55,10 +56,10 @@ $(LIBFT_OBJECT): $(LIBFT_FILES)
 #	@mv $(addsuffix .o, $(LIBFT_NAMES)) $(LIBFT_OBJ)
 
 clean:
-	rm -rf obj/
+	@rm -rf *.o
 
 fclean:
-	rm -rf $(NAME) obj/
+	@rm -rf $(NAME) *.o
 
 re: fclean all
 
