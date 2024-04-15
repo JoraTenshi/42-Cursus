@@ -47,6 +47,7 @@ ft_lstmap_bonus\
 
 LIBFT_SRC = ./
 LIBFT_OBJ = ./
+LIBFT_OBJB = ./
 
 LIBFT_FILES = $(addprefix $(LIBFT_SRC), $(addsuffix .c, $(LIBFT_NAME)))
 LIBFT_OBJECT = $(addprefix $(LIBFT_OBJ), $(addsuffix .o, $(LIBFT_NAME)))
