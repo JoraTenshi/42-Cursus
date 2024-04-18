@@ -1,79 +1,105 @@
-CFILES = ft_atoi.c\
-ft_isascii.c\
-ft_memchr.c\
-ft_putendl_fd.c\
-ft_strdup.c\
-ft_strlen.c\
-ft_strtrim.c\
-ft_bzero.c\
-ft_isdigit.c\
-ft_memcpy.c\
-ft_putnbr_fd.c\
-ft_striteri.c\
-ft_strmapi.c\
-ft_substr.c\
-ft_calloc.c\
-ft_isprint.c\
-ft_memmove.c\
-ft_putstr_fd.c\
-ft_strjoin.c\
-ft_strncmp.c\
-ft_tolower.c\
-ft_isalnum.c\
-ft_itoa.c\
-ft_memset.c\
-ft_split.c\
-ft_strlcat.c\
-ft_strnstr.c\
-ft_toupper.c\
-ft_isalpha.c\
-ft_memcmp.c\
-ft_putchar_fd.c\
-ft_strchr.c\
-ft_strlcpy.c\
-ft_strrchr.c
+LIBFT_NAMES = ft_atoi\
+ft_bzero\
+ft_calloc\
+ft_isalnum\
+ft_isalpha\
+ft_isascii\
+ft_isdigit\
+ft_isprint\
+ft_itoa\
+ft_memchr\
+ft_memcmp\
+ft_memcpy\
+ft_memmove\
+ft_memset\
+ft_putchar_fd\
+ft_putendl_fd\
+ft_putnbr_fd\
+ft_putstr_fd\
+ft_split\
+ft_strchr\
+ft_strdup\
+ft_striteri\
+ft_strjoin\
+ft_strlcat\
+ft_strlcpy\
+ft_strlen\
+ft_strmapi\
+ft_strncmp\
+ft_strnstr\
+ft_strrchr\
+ft_strtrim\
+ft_substr\
+ft_tolower\
+ft_toupper\
+ft_lstadd_back\
+ft_lstadd_front\
+ft_lstclear\
+ft_lstdelone\
+ft_lstiter\
+ft_lstlast\
+ft_lstmap\
+ft_lstnew\
+ft_lstsize
 
-CBONUS = ft_lstadd_back_bonus.c\
-ft_lstclear_bonus.c\
-ft_lstiter_bonus.c\
-ft_lstmap_bonus.c\
-ft_lstsize_bonus.c\
-ft_lstadd_front_bonus.c\
-ft_lstdelone_bonus.c\
-ft_lstlast_bonus.c\
-ft_lstnew_bonus.c
+PRINTF_NAMES = ft_printf\
+ft_hexadecimal\
+ft_itoa\
+ft_numbers\
+ft_strings\
+ft_strlen\
+ft_utoa
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+GET_NEXT_LINE_NAMES = get_next_line\
+get_next_line_utils
+
+LIBFT_SRC = src/libft/
+LIBFT_OBJ = obj/libft/
+
+PRINTF_SRC = src/printf/
+PRINTF_OBJ = obj/printf/
+
+GET_NEXT_LINE_SRC = src/get_next_line/
+GET_NEXT_LINE_OBJ = obj/get_next_line/
+
+LIBFT_FILES = $(addprefix $(LIBFT_SRC), $(addsuffix .c, $(LIBFT_NAMES)))
+LIBFT_OBJECT = $(addprefix $(LIBFT_OBJ), $(addsuffix .o, $(LIBFT_NAMES)))
+
+PRINTF_FILES = $(addprefix $(PRINTF_SRC), $(addsuffix .c, $(PRINTF_NAMES)))
+PRINTF_OBJECT = $(addprefix $(PRINTF_OBJ), $(addsuffix .o, $(PRINTF_NAMES)))
+
+GET_NEXT_LINE_FILES = $(addprefix $(GET_NEXT_LINE_SRC), $(addsuffix .c, $(GET_NEXT_LINE_NAMES)))
+GET_NEXT_LINE_OBJECT = $(addprefix $(GET_NEXT_LINE_OBJ), $(addsuffix .o, $(GET_NEXT_LINE_NAMES)))
 
 ARCHIVER = ar rcs
 NAME = libft.a
-OFILES = $(CFILES:.c=.o)
-OBONUS = $(CBONUS:.c=.o)
-HEADER_FILE = libft.h
-
-RM = rm -f
 
 all: $(NAME)
 
-$(NAME): $(OFILES) $(HEADER_FILE)
-	$(ARCHIVER) $(NAME) $(OFILES)
+$(NAME): $(LIBFT_OBJECT) $(PRINTF_OBJECT) $(GET_NEXT_LINE_OBJECT)
+	@$(ARCHIVER) $(NAME) $(LIBFT_OBJECT) $(PRINTF_OBJECT) $(GET_NEXT_LINE_OBJECT)
 
-$(OFILES): $(CFILES)
-	$(CC) $(CFLAGS) -c $(CFILES)
+$(LIBFT_OBJECT): $(LIBFT_FILES)
+	@mkdir -p $(LIBFT_OBJ)
+	@gcc -Wall -Wextra -Werror -c $(LIBFT_FILES)
+	@mv $(addsuffix .o, $(LIBFT_NAMES)) $(LIBFT_OBJ)
 
-$(OBONUS): $(CBONUS)
-	$(CC) $(CFLAGS) -c $(CBONUS)
+$(PRINTF_OBJECT): $(PRINTF_FILES)
+	@mkdir -p $(PRINTF_OBJ)
+	@gcc -Wall -Wextra -Werror -c $(PRINTF_FILES)
+	@mv $(addsuffix .o, $(PRINTF_NAMES)) $(PRINTF_OBJ)
 
-bonus: $(OFILES) $(OBONUS)
-	$(ARCHIVER) $(NAME) $(OFILES) $(OBONUS)
+$(GET_NEXT_LINE_OBJECT): $(GET_NEXT_LINE_FILES)
+	@mkdir -p $(GET_NEXT_LINE_OBJ)
+	@gcc -Wall -Wextra -Werror -c $(GET_NEXT_LINE_FILES)
+	@mv $(addsuffix .o, $(GET_NEXT_LINE_NAMES)) $(GET_NEXT_LINE_OBJ)
 
 clean:
-	$(RM) $(OFILES)
+	rm -rf obj/
 
-fclean: clean
-	$(RM) $(NAME) $(OFILES)
+fclean:
+	rm -rf $(NAME) obj/
 
 re: fclean all
 
-.PHONY: clean fclean re
+.PHONY : all clean fclean re
