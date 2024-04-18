@@ -6,13 +6,13 @@
 /*   By: jcallejo <jcallejo@student.42.fr>>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:24:04 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/04/18 10:24:33 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/04/18 11:44:12 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	return (write(1, &c, 1));
 }

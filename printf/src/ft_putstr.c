@@ -6,13 +6,13 @@
 /*   By: jcallejo <jcallejo@student.42.fr>>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:54:44 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/04/18 10:55:43 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/04/18 11:50:53 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-void	ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
 	while (*s)
 	{

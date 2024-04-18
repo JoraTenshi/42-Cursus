@@ -6,9 +6,10 @@
 /*   By: jcallejo <jcallejo@student.42.fr>>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:16:49 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/04/18 11:17:03 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/04/18 11:52:33 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
+int	ft_puthex(unsigned int n, char format)

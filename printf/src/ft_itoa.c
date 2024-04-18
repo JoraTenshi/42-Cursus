@@ -1,32 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunbr.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcallejo <jcallejo@student.42.fr>>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 11:10:11 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/04/18 11:50:37 by jcallejo         ###   ########.fr       */
+/*   Created: 2024/04/15 10:57:01 by jcallejo          #+#    #+#             */
+/*   Updated: 2024/04/18 11:47:04 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-static void	ft_print(int nb)
+static int	n_len(int n)
 {
-	int	rest;
+	int	i;
 
-	if (nb != 0)
+	i = 0;
+	while (n != 0)
 	{
-		ft_print(nb / 10);
-		rest = nb % 10;
-		ft_putchar(rest + '0');
+		n /= 10;
+		i++;
 	}
+	return (i);
 }
 
-int	ft_putunbr(int nb)
+char	*ft_itoa(int n)
 {
-	if (nb == 0)
-		ft_putchar('0');
-	ft_print(nb);
+	int		i;
+	int		res;
+	char	*aux;
+
+	i = n_len(n);
+	if (n < 0 || n == 0)
+		i++;
+	aux = malloc(i + 1);
+	if (!aux)
+		return (NULL);
+	aux[i] = 0;
+	if (n < 0)
+		aux[0] = '-';
+	else if (n == 0)
+		aux[0] = '0';
+	while (n != 0)
+	{
+		res = n % 10;
+		if (res < 0)
+			res = -res;
+		n /= 10;
+		aux[--i] = res + '0';
+	}
+	return (aux);
 }

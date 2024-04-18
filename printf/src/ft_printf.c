@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 09:53:33 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/04/18 11:15:14 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/04/18 11:42:14 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static int	format_parse(char format, va_list node)
 	else if (format == 's')
 		return (ft_putstr((va_arg(node, char *))));
 	else if (format == 'p')
+		return (((va_arg(node, __UINTPTR_TYPE__))));
 	else if (format == 'd')
 		return (ft_putnbr((va_arg(node, int))));
 	else if (format == 'i')
