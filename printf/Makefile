@@ -7,7 +7,7 @@ ARCHIVER = ar rcs
 NAME = libftprintf.a
 CSRC = src/
 OBJ = obj/
-HEADER_FILE = ft_printf.h
+HEADER_FILE = printf.h
 
 CFILES = $(addprefix $(CSRC), $(addsuffix .c, $(C_NAMES)))
 OFILES = $(addprefix $(OBJ), $(addsuffix .o, $(C_NAMES)))
