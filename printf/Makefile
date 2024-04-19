@@ -1,4 +1,4 @@
-C_NAMES = ft_printf.c ft_hexadecimal.c ft_numbers.c ft_strings.c ft_itoa.c ft_utoa.c ft_strlen.c
+C_NAMES = ft_itoa ft_printf ft_putchar ft_puthex ft_putnbr_base ft_putnbr ft_putptr ft_putstr ft_putunbr ft_strlen ft_utoa
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -22,7 +22,7 @@ $(NAME): $(OFILES) $(HEADER_FILE)
 $(OFILES): $(CFILES)
 	@mkdir -p $(OBJ)
 	@gcc -Wall -Wextra -Werror -c $(CFILES)
-	@mv $(addsuffix .o, $(C_NAMES)) $(ONJ)
+	@mv $(addsuffix .o, $(C_NAMES)) $(OBJ)
 
 clean:
 	rm -rf obj/

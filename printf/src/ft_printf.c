@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 09:53:33 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/04/19 13:13:22 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/04/19 13:28:52 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ static int	format_parse(char format, va_list node)
 	else if (format == 'X')
 		return (ft_puthex(va_arg(node, unsigned int), format));
 	else if (format == '%')
-		ft_putchar('%');
+		return (ft_putchar('%'));
+	return (0);
 }
 
 int	ft_printf(const char *str, ...)
@@ -46,10 +47,11 @@ int	ft_printf(const char *str, ...)
 	while (str[i])
 	{
 		if (str[i] == '%')
-			len += format_parse(node, str[i]);
+			len += format_parse(str[i], node);
 		else
 			len += ft_putchar(str[i]);
 		i++;
 	}
+	va_end(node);
 	return (len);
 }
