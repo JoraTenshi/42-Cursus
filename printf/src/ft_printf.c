@@ -6,11 +6,11 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 09:53:33 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/04/19 13:28:52 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/04/22 10:53:21 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/printf.h"
+#include "../inc/ft_printf.h"
 
 static int	format_parse(char format, va_list node)
 {
@@ -19,7 +19,7 @@ static int	format_parse(char format, va_list node)
 	else if (format == 's')
 		return (ft_putstr(va_arg(node, char *)));
 	else if (format == 'p')
-		return ((va_arg(node, __UINTPTR_TYPE__)));
+		return (ft_putptr(va_arg(node, __UINTPTR_TYPE__)));
 	else if (format == 'd')
 		return (ft_putnbr(va_arg(node, int)));
 	else if (format == 'i')
@@ -47,7 +47,7 @@ int	ft_printf(const char *str, ...)
 	while (str[i])
 	{
 		if (str[i] == '%')
-			len += format_parse(str[i], node);
+			len += format_parse(str[++i], node);
 		else
 			len += ft_putchar(str[i]);
 		i++;

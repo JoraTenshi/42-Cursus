@@ -1,4 +1,4 @@
-C_NAMES = ft_itoa ft_printf ft_putchar ft_puthex ft_putnbr_base ft_putnbr ft_putptr ft_putstr ft_putunbr ft_strlen ft_utoa
+C_NAMES = ft_itoa ft_printf ft_putchar ft_puthex ft_putnbr ft_putptr ft_putstr ft_putunbr ft_strlen ft_utoa
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -7,7 +7,7 @@ ARCHIVER = ar rcs
 NAME = libftprintf.a
 CSRC = src/
 OBJ = obj/
-HEADER_FILE = printf.h
+HEADER_FILE = inc/ft_printf.h
 
 CFILES = $(addprefix $(CSRC), $(addsuffix .c, $(C_NAMES)))
 OFILES = $(addprefix $(OBJ), $(addsuffix .o, $(C_NAMES)))

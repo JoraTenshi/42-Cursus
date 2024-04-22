@@ -6,11 +6,11 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:57:01 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/04/18 19:29:47 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/04/22 10:01:46 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/printf.h"
+#include "../inc/ft_printf.h"
 
 static int	n_len(int n)
 {

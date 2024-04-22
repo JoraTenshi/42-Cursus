@@ -6,13 +6,13 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:16:49 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/04/19 10:31:04 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/04/22 10:52:23 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/printf.h"
+#include "../inc/ft_printf.h"
 
-static int	ft_hlen(unsigned int n)
+int	ft_hlen(long unsigned int n)
 {
 	int	i;
 
@@ -37,13 +37,9 @@ int	ft_puthex(unsigned int n, char format)
 		return (1);
 	}
 	if (format == 'x')
-		base = "123456789abcdef";
-	else if (format == 'X')
-		base = "123456789ABCDEF";
-	if (n > 15)
-	{
-		ft_puthex(n / 16, format);
-		ft_putchar(base[n % 16]);
-	}
+		base = "0123456789abcdef";
+	else
+		base = "0123456789ABCDEF";
+	ft_phex(n, base);
 	return (i);
 }
