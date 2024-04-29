@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 11:40:45 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/04/25 10:38:01 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/04/29 11:01:04 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,22 @@ char	*get_next_line(int fd);
  * @return char* 
  */
 char	*ft_strjoin(char const *s1, char const *s2);
+
+/**
+ * @brief Function to get the lenth of a string
+ * 
+ * @param str 
+ * @return int 
+ */
+int		ft_strlen(const char *str);
+
+/**
+ * @brief Locates the first occurrence of character c in the string s.
+ * 
+ * @param s 
+ * @param c 
+ * @return char* 
+ */
+char	*ft_strchr(const char *s, int c);
 
 #endif
