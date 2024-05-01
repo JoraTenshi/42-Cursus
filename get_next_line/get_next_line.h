@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jcallejo <jcallejo@student.42.fr>>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 11:40:45 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/04/29 11:01:04 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/01 09:19:57 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define GET_NEXT_LINE_H
 
 # include <stddef.h>
+# include <unistd.h>
+# include <stdlib.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -53,5 +55,16 @@ int		ft_strlen(const char *str);
  * @return char* 
  */
 char	*ft_strchr(const char *s, int c);
+
+/**
+ * @brief Extracts a substring of size len from string s. Starts
+ * 		  at the given start value.
+ * 
+ * @param s 
+ * @param start 
+ * @param len 
+ * @return char* 
+ */
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
