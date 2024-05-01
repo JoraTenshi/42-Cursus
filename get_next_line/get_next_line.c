@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 11:40:15 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/01 09:24:59 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/01 09:32:14 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ char	*get_next_line(int fd)
 	static char	*buff;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || !buff)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	if ((*buff && !ft_strchr(buff, '\n')) || !buff)
 		buff = f_read(fd, buff);
