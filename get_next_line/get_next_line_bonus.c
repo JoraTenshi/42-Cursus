@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 12:15:04 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/03 13:39:05 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/03 13:46:06 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static char	*f_read(int fd, char *buff)
 {
@@ -39,15 +39,15 @@ static char	*f_read(int fd, char *buff)
 
 char	*get_next_line(int fd)
 {
-	static char	*buff;
+	static char	*buff[4096];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	buff = f_read(fd, buff);
-	if (!buff)
+	buff[fd] = f_read(fd, buff[fd]);
+	if (!buff[fd])
 		return (NULL);
-	line = ft_getline(buff);
-	buff = cut_buff(buff);
+	line = ft_getline(buff[fd]);
+	buff[fd] = cut_buff(buff[fd]);
 	return (line);
 }
