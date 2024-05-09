@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcallejo <jcallejo@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: jcallejo <jcallejo@student.42.fr>>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 11:03:59 by jora              #+#    #+#             */
-/*   Updated: 2024/04/15 21:22:15 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/09 11:45:28 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -412,5 +412,23 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
  * @return t_list* 
  */
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/**
+ * @brief Prints parameter provided after % symbol, 
+ * 		functions like printf with same formats
+ * 
+ * @param str 
+ * @param ... 
+ * @return int 
+ */
+int		ft_printf(const char *str, ...);
+
+/**
+ * @brief Get the next line from provided file descriptor
+ * 
+ * @param fd 
+ * @return char* 
+ */
+char	*get_next_line(int fd);
 
 #endif

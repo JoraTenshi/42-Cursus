@@ -1,0 +1,54 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/15 10:57:01 by jcallejo          #+#    #+#             */
+/*   Updated: 2024/04/22 10:01:46 by jcallejo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../inc/ft_printf.h"
+
+static int	n_len(int n)
+{
+	int	i;
+
+	i = 0;
+	while (n != 0)
+	{
+		n /= 10;
+		i++;
+	}
+	return (i);
+}
+
+char	*ft_itoa(int n)
+{
+	int		i;
+	int		res;
+	char	*aux;
+
+	i = n_len(n);
+	if (n < 0 || n == 0)
+		i++;
+	aux = malloc(i + 1);
+	if (!aux)
+		return (NULL);
+	aux[i] = 0;
+	if (n < 0)
+		aux[0] = '-';
+	else if (n == 0)
+		aux[0] = '0';
+	while (n != 0)
+	{
+		res = n % 10;
+		if (res < 0)
+			res = -res;
+		n /= 10;
+		aux[--i] = res + '0';
+	}
+	return (aux);
+}
