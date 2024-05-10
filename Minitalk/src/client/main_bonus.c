@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:21:59 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/09 18:57:16 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/10 13:12:44 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	ft_msg(int signal)
 {
 	if (signal)
-		ft_print("Message received\n");
+		ft_printf("Message received\n");
 }
 
 void	ft_bit_send(int pid, char c)
