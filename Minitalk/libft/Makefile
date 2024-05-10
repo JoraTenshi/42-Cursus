@@ -42,13 +42,7 @@ ft_lstmap\
 ft_lstnew\
 ft_lstsize
 
-PRINTF_NAMES = ft_printf\
-ft_hexadecimal\
-ft_itoa\
-ft_numbers\
-ft_strings\
-ft_strlen\
-ft_utoa
+PRINTF_NAMES = ft_itoa ft_printf ft_putchar ft_puthex ft_putnbr ft_putptr ft_putunbr ft_utoa ft_putstr
 
 GET_NEXT_LINE_NAMES = get_next_line\
 get_next_line_utils
@@ -95,10 +89,10 @@ $(GET_NEXT_LINE_OBJECT): $(GET_NEXT_LINE_FILES)
 	@mv $(addsuffix .o, $(GET_NEXT_LINE_NAMES)) $(GET_NEXT_LINE_OBJ)
 
 clean:
-	rm -rf obj/
+	@rm -rf obj/
 
 fclean:
-	rm -rf $(NAME) obj/
+	@rm -rf $(NAME) obj/
 
 re: fclean all
 

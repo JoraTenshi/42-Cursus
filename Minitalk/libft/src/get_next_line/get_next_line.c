@@ -6,11 +6,11 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 12:15:04 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/03 13:39:05 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/10 09:26:57 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../../inc/get_next_line/get_next_line.h"
 
 static char	*f_read(int fd, char *buff)
 {

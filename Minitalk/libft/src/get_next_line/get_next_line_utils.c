@@ -6,11 +6,11 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 11:45:36 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/03 13:34:38 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/10 09:26:57 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../../inc/get_next_line/get_next_line.h"
 
 char	*ft_strjoin(char *s1, char *s2)
 {

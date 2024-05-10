@@ -6,11 +6,11 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 09:53:33 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/04/22 10:53:21 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/10 09:25:54 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ft_printf.h"
+#include "../../inc/printf/ft_printf.h"
 
 static int	format_parse(char format, va_list node)
 {

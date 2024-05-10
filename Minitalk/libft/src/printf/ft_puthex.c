@@ -6,11 +6,11 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:16:49 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/04/22 10:52:23 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/10 09:25:54 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ft_printf.h"
+#include "../../inc/printf/ft_printf.h"
 
 int	ft_hlen(long unsigned int n)
 {
