@@ -6,11 +6,11 @@
 /*   By: jcallejo <jcallejo@student.42.fr>>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 10:03:20 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/17 10:55:40 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/17 12:05:30 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../inc/so_long.h"
 
 int	main(int argc, char **argv)
 {
@@ -30,5 +30,5 @@ int	main(int argc, char **argv)
 	else if (argc > 2)
 		ft_printf("Provide only one map\n");
 	else
-		ft_printf("Provide a functioning map\n")
+		ft_printf("Provide a functioning map\n");
 }
