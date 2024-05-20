@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcallejo <jcallejo@student.42.fr>>         +#+  +:+       +#+        */
+/*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 09:58:41 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/17 12:46:32 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/20 10:58:17 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,21 @@
 
 typedef struct s_data
 {
-	mlx_t	*mlx;
-	char	**map;
-	int		x;
-	int		y;
-	int		size_x;
-	int		size_y;
-	int		moves;
-	int		p_collectibles;
-	int		t_collectibles;
+	mlx_t		*mlx;
+	char		**map;
+	int			x;
+	int			y;
+	int			size_x;
+	int			size_y;
+	int			moves;
+	int			p_collectibles;
+	int			t_collectibles;
+	mlx_image_t	*player;
+	t_textures	*textures;
+	mlx_image_t	**collectible_images;
+	mlx_image_t	**exit_image;
+	int			key_pressed;
+	int			end;
 }	t_data;
 
 /**
@@ -40,7 +46,7 @@ typedef struct s_data
  * @param str 
  * @return int 
  */
-int	ft_check_rectangle(char **str);
+int		ft_check_rectangle(char **str);
 
 /**
  * @brief Function to check the map is surrounded by 1s
@@ -48,7 +54,7 @@ int	ft_check_rectangle(char **str);
  * @param str 
  * @return int 
  */
-int	ft_check_walls(char **str);
+int		ft_check_walls(char **str);
 
 /**
  * @brief Function to check if map characters are valid
@@ -57,6 +63,36 @@ int	ft_check_walls(char **str);
  * @param c 
  * @return int 
  */
-int	ft_check_content(char **str, char c);
+int		ft_check_content(char **str, char c);
+
+/**
+ * @brief Function to get the map size using rows
+ * 
+ * @param map 
+ * @return int 
+ */
+int		ft_map_size(char *map);
+
+/**
+ * @brief Function to read the map it is given
+ * 
+ * @param map 
+ * @param data 
+ */
+void	ft_read_map(char *map, t_data *data);
+
+/**
+ * @brief Function to get the starting position of the player
+ * 
+ * @param data 
+ */
+void	ft_start_pos(t_data *data);
+
+/**
+ * @brief Funciton to get the number of collectibles
+ * 
+ * @param data 
+ */
+void	ft_get_collectibles(t_data *data);
 
 #endif
