@@ -6,33 +6,33 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 11:25:06 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/20 10:29:44 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/28 12:13:03 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-int	ft_map_size(char *map)
+int	ft_map_size(char *file)
 {
 	int		i;
 	int		fd;
 
 	i = 0;
-	fd = open(map, O_RDONLY);
+	fd = open(file, O_RDONLY);
 	while (get_next_line(fd) != 0)
 		i++;
 	return (i);
 }
 
-void	ft_read_map(char *map, t_data *data)
+void	ft_read_map(char *file, t_data *data)
 {
 	char	**map;
 	char	*row;
 	int		fd;
 	int		i;
 
-	fd = open(map, O_RDONLY);
-	i = ft_map_size(map);
+	fd = open(file, O_RDONLY);
+	i = ft_map_size(file);
 	map = malloc((i + 1) * sizeof(char **));
 	if (!map)
 		return ;
@@ -94,5 +94,26 @@ void	ft_get_collectibles(t_data *data)
 			x++;
 		}
 		y++;
+	}
+}
+
+int	ft_map(char *file)
+{
+	t_data	data;
+
+	ft_init(&data);
+	ft_read_map(file, &data);
+	ft_start_pos(&data);
+	ft_get_collectibles(&data);
+	if (ft_valid_map(data) == 1
+		&& ft_check_characters(data.map, data.size_x, data.size_y))
+	{
+		ft_freemap(&data);
+		ft_read_map(file, &data);
+		data.mlx = mlx_init(data.size_x * 32, data.size_y * 32,
+				"So_long", false);
+		if (!data.mlx)
+			return (EXIT_FAILURE);
+		mlx_loop_hook(data.mlx, ft_update, &data);
 	}
 }

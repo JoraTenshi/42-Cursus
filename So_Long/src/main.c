@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 10:03:20 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/20 09:51:52 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:33:03 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	main(int argc, char **argv)
 			if (!fd)
 				return (ft_printf("Map error, try again\n"), -1);
 			close(fd);
+			return (check_map());
 		}
 		else
 			ft_printf("Provide a .ber map\n");

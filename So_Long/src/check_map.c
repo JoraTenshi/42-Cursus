@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:05:05 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/20 09:45:43 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:08:53 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,13 @@ int	ft_check_rectangle(char **str)
 int	ft_check_walls(char **str)
 {
 	int	len;
+	int	i;
 
 	len = ft_strlen(str[0]);
-	while (**str && **str == '1')
-		*str++;
-	if (**str != '\n')
+	i = 0;
+	while (*str[i] && *str[i] == '1')
+		i++;
+	if (*str[i] != '\n')
 		return (0);
 	while (str[1])
 	{
@@ -64,9 +66,10 @@ int	ft_check_walls(char **str)
 		if (*str[0] != '1' && *str[len - 2] != '1')
 			return (0);
 	}
-	while (**str && **str == '1')
-		*str++;
-	if (**str != '\n')
+	i = 0;
+	while (*str[i] && *str[i] == '1')
+		i++;
+	if (*str[i] != '\n')
 		return (0);
 	return (1);
 }
