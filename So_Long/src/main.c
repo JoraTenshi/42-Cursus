@@ -6,11 +6,16 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 10:03:20 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/28 11:33:03 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/29 10:43:31 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
+
+void	ft_void(void)
+{
+	system("leaks -q so_long");
+}
 
 int	ft_check_ber(char	*argv)
 {
@@ -34,6 +39,7 @@ int	main(int argc, char **argv)
 {
 	int	fd;
 
+	atexit(ft_void);
 	if (argc == 2)
 	{
 		if (ft_check_ber(argv[1]))
@@ -42,7 +48,7 @@ int	main(int argc, char **argv)
 			if (!fd)
 				return (ft_printf("Map error, try again\n"), -1);
 			close(fd);
-			return (check_map());
+			return (ft_map(argv[1]));
 		}
 		else
 			ft_printf("Provide a .ber map\n");

@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 11:25:06 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/28 12:13:03 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/29 10:43:05 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,11 @@ int	ft_map(char *file)
 		if (!data.mlx)
 			return (EXIT_FAILURE);
 		mlx_loop_hook(data.mlx, ft_update, &data);
+		mlx_loop(data.mlx);
+		ft_terminate(&data);
+		return (EXIT_SUCCESS);
 	}
+	ft_freemap(&data);
+	ft_printf("Map is not valid\n");
+	return (EXIT_FAILURE);
 }

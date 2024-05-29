@@ -1,4 +1,4 @@
-CFILES = src/main.c src/ft_read_map.c src/ft_init.c src/check_map.c
+CFILES = src/main.c src/ft_read_map.c src/ft_init.c src/ft_check_map.c src/ft_clean.c src/ft_movement.c
 
 LIBFT = Libft/libft.a
 MLX42 = MLX42/libmlx42.a

@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 10:35:56 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/28 11:52:51 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/29 10:13:58 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	ft_init(t_data *data)
 	data->textures = NULL;
 	data->collectible_images = NULL;
 	data->exit_image = NULL;
-	data->key_pressed = 0;
 	data->end = 0;
 }
 

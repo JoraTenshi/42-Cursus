@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 09:58:41 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/28 13:00:06 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/29 11:48:07 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,12 @@
 
 typedef struct s_textures
 {
-	mlx_image_t	*wall;
-	mlx_image_t	*floor;
-	mlx_image_t	*collectible;
-	mlx_image_t	*exit;
+	mlx_texture_t	*wall;
+	mlx_texture_t	*floor;
+	mlx_texture_t	*collectible;
+	mlx_texture_t	*exit_open;
+	mlx_texture_t	*exit_closed;
+	mlx_texture_t	*player;
 }	t_textures;
 
 typedef struct s_data
@@ -143,6 +145,45 @@ void	ft_freemap(t_data *data);
  * @param param 
  * @return void* 
  */
-void	*ft_update(void *param);
+void	ft_update(void *param);
+
+/**
+ * @brief Function to close game window
+ * 
+ * @param data 
+ */
+void	ft_close(t_data *data);
+
+/**
+ * @brief Function to check if upon touching the exit you have all collectibles
+ * 
+ * @param data 
+ */
+void	ft_check_game_status(t_data *data);
+
+/**
+ * @brief Function to clean MLX after finishing the game
+ * 
+ * @param data 
+ */
+void	ft_terminate(t_data *data);
+
+/**
+ * @brief Function to initialize struct 
+ * 
+ * @param data 
+ */
+void	ft_init(t_data *data);
+
+/**
+ * @brief Function to render the sprite of a given texture
+ * 
+ * @param i 
+ * @param j 
+ * @param data 
+ * @param texture 
+ * @return int 
+ */
+int		ft_render_sprite(int i, int j, t_data *data, mlx_texture_t *texture);
 
 #endif
