@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   ft_check_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:05:05 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/28 11:08:53 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/30 12:56:49 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,40 +37,51 @@ void	ft_flood_fill(int x, int y, t_data *data, int *exit)
 
 int	ft_check_rectangle(char **str)
 {
+	int	plen;
 	int	len;
+	int	i;
 
-	len = ft_strlen(str[0]);
-	while (*str)
+	i = 0;
+	plen = ft_strlen(str[0]);
+	if (str[i][plen - 1] == '\n')
+		plen--;
+	while (str[i])
 	{
-		if (ft_strlen(*str) != len)
+		len = ft_strlen(str[i]);
+		if (str[i][len - 1] == '\n')
+			len--;
+		if (plen != len)
 			return (0);
-		str++;
+		i++;
+		plen = len;
 	}
 	return (1);
 }
 
-int	ft_check_walls(char **str)
+int	ft_check_walls(char **str, int size_x, int size_y)
 {
-	int	len;
+	int	j;
 	int	i;
 
-	len = ft_strlen(str[0]);
 	i = 0;
-	while (*str[i] && *str[i] == '1')
-		i++;
-	if (*str[i] != '\n')
-		return (0);
-	while (str[1])
-	{
-		str++;
-		if (*str[0] != '1' && *str[len - 2] != '1')
+	j = 0;
+	while (j < size_x)
+		if (str[i][j++] != '1')
 			return (0);
-	}
+	j = 0;
+	while (i < size_y)
+		if (str[i++][j] != '1')
+			return (0);
+	i = size_y - 1;
+	j = 0;
+	while (j < size_x)
+		if (str[i][j++] != '1')
+			return (0);
 	i = 0;
-	while (*str[i] && *str[i] == '1')
-		i++;
-	if (*str[i] != '\n')
-		return (0);
+	j = size_x - 1;
+	while (i < size_y)
+		if (str[i++][j] != '1')
+			return (0);
 	return (1);
 }
 
@@ -103,7 +114,7 @@ int	ft_valid_map(t_data data)
 	exit = 0;
 	if (data.size_y >= 3 && data.size_x >= 4
 		&& ft_check_rectangle(data.map) == 1
-		&& ft_check_walls(data.map) == 1
+		&& ft_check_walls(data.map, data.size_x, data.size_y) == 1
 		&& ft_check_content(data.map, 'P') == 1
 		&& ft_check_content(data.map, 'E') == 1
 		&& ft_check_content(data.map, 'C') > 0)

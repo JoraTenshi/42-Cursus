@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 09:58:41 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/29 11:48:07 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/30 12:57:40 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int		ft_check_rectangle(char **str);
  * @param str 
  * @return int 
  */
-int		ft_check_walls(char **str);
+int		ft_check_walls(char **str, int size_x, int size_y);
 
 /**
  * @brief Function to check if map characters are valid
@@ -185,5 +185,57 @@ void	ft_init(t_data *data);
  * @return int 
  */
 int		ft_render_sprite(int i, int j, t_data *data, mlx_texture_t *texture);
+
+/**
+ * @brief Function to check exit status
+ * 
+ * @param data 
+ */
+void	ft_exit_status(t_data *data);
+
+/**
+ * @brief Function to convert textures to images and put them
+ * 			in the given array position
+ * 
+ * @param i 
+ * @param j 
+ * @param data 
+ * @param texture 
+ * @return int 
+ */
+int		ft_render_sprite(int i, int j, t_data *data, mlx_texture_t *texture);
+
+/**
+ * @brief Function to check how many collectibles are left and 
+ * 			if the player is in a collectible space
+ * 
+ * @param data 
+ */
+void	ft_check_collectibles(t_data *data);
+
+/**
+ * @brief Function to fill collectible array
+ * 
+ * @param data 
+ * @param image 
+ * @return int 
+ */
+int		ft_collectible_array(t_data *data, mlx_image_t *image);
+
+/**
+ * @brief Function to render all textures
+ * 
+ * @param data 
+ * @return int 
+ */
+int		ft_render(t_data *data);
+
+/**
+ * @brief Function to fill map with textures
+ * 
+ * @param data 
+ * @return int 
+ */
+int		ft_fill_map(t_data *data);
 
 #endif

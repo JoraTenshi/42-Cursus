@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 10:35:56 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/29 10:13:58 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/30 13:08:32 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,14 @@ int	ft_check_characters(char **map, int size_x, int size_y)
 		while (j < size_x)
 		{
 			if (map[i][j] != 'P' && map[i][j] != 'E' && map[i][j] != 'C'
-				&& map[i][j] != '0' && map[i][j] != '1' && map[i][j] != '\n')
-				return (1);
+				&& map[i][j] != '0' && map[i][j] != '1' && map[i][j] != '\n'
+				&& map[i][j] != '*')
+				return (0);
 			j++;
 		}
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
 void	ft_print_data(t_data *data)
