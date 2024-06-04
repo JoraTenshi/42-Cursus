@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:11:45 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/04 11:31:55 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/04 13:22:36 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	ft_moveup(t_data *data)
 static void	ft_movedown(t_data *data)
 {
 	if (mlx_is_key_down(data->mlx, MLX_KEY_S)
-		&& data->y + 1 >= data->size_y && data->time >= 0.8)
+		&& data->y + 1 <= data->size_y && data->time >= 0.8)
 	{
 		if (data->map[data->y + 1][data->x] != '1')
 		{
@@ -66,7 +66,7 @@ static void	ft_moveright(t_data *data)
 {
 	if ((mlx_is_key_down(data->mlx, MLX_KEY_D)
 			|| mlx_is_key_down(data->mlx, MLX_KEY_RIGHT))
-		&& data->x + 1 >= data->size_x && data->time >= 0.8)
+		&& data->x + 1 <= data->size_x && data->time >= 0.8)
 	{
 		if (data->map[data->y][data->x + 1] != '1')
 		{
