@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 09:58:41 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/30 12:57:40 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/04 11:23:58 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct s_data
 	int				end;
 	double			time;
 	double			atime;
+	char			keypressed;
 }	t_data;
 
 /**
@@ -237,5 +238,12 @@ int		ft_render(t_data *data);
  * @return int 
  */
 int		ft_fill_map(t_data *data);
+
+/**
+ * @brief Function to print data
+ * 
+ * @param data 
+ */
+void	ft_print_data(t_data *data);
 
 #endif

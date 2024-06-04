@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 11:25:06 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/29 10:43:05 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/04 10:45:27 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ int	ft_map(char *file)
 		if (!data.mlx)
 			return (EXIT_FAILURE);
 		mlx_loop_hook(data.mlx, ft_update, &data);
+		ft_render(&data);
 		mlx_loop(data.mlx);
 		ft_terminate(&data);
 		return (EXIT_SUCCESS);
