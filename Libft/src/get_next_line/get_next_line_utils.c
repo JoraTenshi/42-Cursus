@@ -6,13 +6,13 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 11:45:36 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/10 09:26:57 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:11:37 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/get_next_line/get_next_line.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_custom(char *s1, char *s2)
 {
 	char	*aux;
 	int		i;
@@ -38,18 +38,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	aux[ft_strlen(s1) + ft_strlen(s2)] = 0;
 	free(s1);
 	return (aux);
-}
-
-size_t	ft_strlen(char *str)
-{
-	size_t	i;
-
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i] != '\0')
-		i++;
-	return (i);
 }
 
 char	*ft_strchr(const char *s, int c)

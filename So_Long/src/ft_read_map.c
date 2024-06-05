@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 11:25:06 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/04 10:45:27 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/05 12:45:29 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,19 @@ int	ft_map_size(char *file)
 {
 	int		i;
 	int		fd;
+	char	*row;
 
 	i = 0;
 	fd = open(file, O_RDONLY);
-	while (get_next_line(fd) != 0)
+	row = get_next_line(fd);
+	while (row != 0)
+	{
+		free(row);
+		row = get_next_line(fd);
 		i++;
+	}
+	if (!row)
+		free(row);
 	return (i);
 }
 
@@ -110,7 +118,7 @@ int	ft_map(char *file)
 	{
 		ft_freemap(&data);
 		ft_read_map(file, &data);
-		data.mlx = mlx_init(data.size_x * 32, data.size_y * 32,
+		data.mlx = mlx_init(data.size_x * 64, data.size_y * 64,
 				"So_long", false);
 		if (!data.mlx)
 			return (EXIT_FAILURE);
@@ -120,7 +128,7 @@ int	ft_map(char *file)
 		ft_terminate(&data);
 		return (EXIT_SUCCESS);
 	}
-	ft_freemap(&data);
+	ft_terminate(&data);
 	ft_printf("Map is not valid\n");
 	return (EXIT_FAILURE);
 }

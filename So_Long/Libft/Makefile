@@ -85,8 +85,9 @@ $(PRINTF_OBJECT): $(PRINTF_FILES)
 
 $(GET_NEXT_LINE_OBJECT): $(GET_NEXT_LINE_FILES)
 	@mkdir -p $(GET_NEXT_LINE_OBJ)
-	@gcc -Wall -Wextra -Werror -c $(GET_NEXT_LINE_FILES)
+	@gcc -Wall -Wextra -Werror -g -c $(GET_NEXT_LINE_FILES)
 	@mv $(addsuffix .o, $(GET_NEXT_LINE_NAMES)) $(GET_NEXT_LINE_OBJ)
+
 
 clean:
 	@rm -rf obj/

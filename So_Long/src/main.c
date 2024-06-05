@@ -6,16 +6,16 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 10:03:20 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/29 10:43:31 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/05 12:34:56 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-void	ft_void(void)
-{
-	system("leaks -q so_long");
-}
+// void	ft_void(void)
+// {
+// 	system("leaks -q so_long");
+// }
 
 int	ft_check_ber(char	*argv)
 {
@@ -28,18 +28,19 @@ int	ft_check_ber(char	*argv)
 	{
 		if (*aux == '.')
 			if (*aux + 1 && *aux + 2 && *aux + 3)
-				if (aux[1] == 'b' && aux[2] == 'e' && aux[3] == 'r')
+				if (aux[1] == 'b' && aux[2] == 'e' && aux[3] == 'r' && !aux[4])
 					return (1);
 		aux--;
 	}
 	return (0);
 }
 
+//atexit(ft_void); Meter al main
+
 int	main(int argc, char **argv)
 {
 	int	fd;
 
-	atexit(ft_void);
 	if (argc == 2)
 	{
 		if (ft_check_ber(argv[1]))

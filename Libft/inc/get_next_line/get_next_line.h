@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 11:40:45 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/03 13:34:58 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:12:01 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # include <stddef.h>
+# include "../libft/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 
@@ -33,13 +34,7 @@ char	*get_next_line(int fd);
  * @brief Joins new line to buffer
  * 
  */
-char	*ft_strjoin(char *s1, char *s2);
-
-/**
- * @brief Returns lenth of string
- * 
- */
-size_t	ft_strlen(char *str);
+char	*ft_strjoin_custom(char *s1, char *s2);
 
 /**
  * @brief Returns first ocurrence of character in string

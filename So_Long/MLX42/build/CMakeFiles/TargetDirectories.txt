@@ -1,0 +1,7 @@
+/home/jcallejo/Desktop/42-Cursus/So_Long/MLX42/build/CMakeFiles/mlx42.dir
+/home/jcallejo/Desktop/42-Cursus/So_Long/MLX42/build/CMakeFiles/edit_cache.dir
+/home/jcallejo/Desktop/42-Cursus/So_Long/MLX42/build/CMakeFiles/rebuild_cache.dir
+/home/jcallejo/Desktop/42-Cursus/So_Long/MLX42/build/CMakeFiles/list_install_components.dir
+/home/jcallejo/Desktop/42-Cursus/So_Long/MLX42/build/CMakeFiles/install.dir
+/home/jcallejo/Desktop/42-Cursus/So_Long/MLX42/build/CMakeFiles/install/local.dir
+/home/jcallejo/Desktop/42-Cursus/So_Long/MLX42/build/CMakeFiles/install/strip.dir

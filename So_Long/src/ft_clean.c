@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean.c                                            :+:      :+:    :+:   */
+/*   ft_clean.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:53:06 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/29 10:27:41 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/05 12:40:28 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_close(t_data *data)
 
 void	ft_check_game_status(t_data *data)
 {
-	if (data->p_collectibles == data->t_collectibles)
+	if (data->p_collectibles == 0)
 	{
 		mlx_close_window(data->mlx);
 		ft_printf("CONGRATULATIONS, YOU WON!\n");
@@ -47,5 +47,6 @@ void	ft_terminate(t_data *data)
 {
 	ft_freemap(data);
 	free(data->collectible_images);
+	free(data->exit_image);
 	mlx_terminate(data->mlx);
 }

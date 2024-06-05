@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 11:19:19 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/04 11:05:25 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/05 12:08:49 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_render_sprite(int i, int j, t_data *data, mlx_texture_t *texture)
 	image = mlx_texture_to_image(data->mlx, texture);
 	if (!image)
 		return (EXIT_FAILURE);
-	if (mlx_image_to_window(data->mlx, image, j * 32, i * 32) == -1)
+	if (mlx_image_to_window(data->mlx, image, j * 64, i * 64) == -1)
 		return (EXIT_FAILURE);
 	if (texture == data->textures->collectible)
 		return (ft_collectible_array(data, image));
@@ -32,7 +32,7 @@ void	ft_textures(t_textures *textures)
 	textures->exit_closed = mlx_load_png("textures/Tiles/PuertaCerrada.png");
 	textures->exit_open = mlx_load_png("textures/Tiles/PuertaAbierta.png");
 	textures->floor = mlx_load_png("textures/Tiles/Suelo1.png");
-	textures->wall = mlx_load_png("textures/Tiles/Pared.png");
+	textures->wall = mlx_load_png("textures/Tiles/Pared2.png");
 	textures->player = mlx_load_png("textures/Wizard/tile002.png");
 }
 
@@ -46,17 +46,18 @@ void	ft_free_textures(t_textures *textures)
 	mlx_delete_texture(textures->player);
 }
 
+//ft_print_data(data);
+
 int	ft_render_player(t_data *data)
 {
 	ft_start_pos(data);
-	ft_print_data(data);
 	if (!data->textures->player)
 		return (EXIT_FAILURE);
 	data->player = mlx_texture_to_image(data->mlx, data->textures->player);
 	if (!data->player)
 		return (EXIT_FAILURE);
 	if (mlx_image_to_window(data->mlx, data->player,
-			data->x * 32, data->y * 32) < 0)
+			data->x * 64, data->y * 64) < 0)
 		return (EXIT_FAILURE);
 	data->player->instances[0].enabled = 1;
 	return (0);

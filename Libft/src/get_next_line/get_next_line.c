@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 12:15:04 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/10 09:26:57 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:11:47 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static char	*f_read(int fd, char *buff)
 			return (NULL);
 		}
 		aux[byte] = 0;
-		buff = ft_strjoin(buff, aux);
+		buff = ft_strjoin_custom(buff, aux);
 	}
 	free(aux);
 	return (buff);
