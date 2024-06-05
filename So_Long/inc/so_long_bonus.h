@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 09:58:41 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/05 12:49:00 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/05 12:48:32 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # define WIDTH 256
 # define HEIGHT 256
@@ -48,6 +48,7 @@ typedef struct s_data
 	mlx_image_t		**exit_image;
 	int				end;
 	double			time;
+	double			atime;
 	char			keypressed;
 }	t_data;
 

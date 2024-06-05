@@ -6,11 +6,11 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:11:45 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/05 12:49:19 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/05 12:50:07 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/so_long.h"
+#include "../inc/so_long_bonus.h"
 
 static void	ft_moveup(t_data *data)
 {
@@ -87,6 +87,8 @@ void	ft_update(void *param)
 	data = param;
 	if (data->time < 1)
 		data->time += data->mlx->delta_time;
+	if (data->atime < 1)
+		data->atime += data->mlx->delta_time;
 	ft_moveup(data);
 	ft_movedown(data);
 	ft_moveleft(data);
