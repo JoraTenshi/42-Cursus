@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 11:19:19 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/05 12:50:23 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/06 13:10:58 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,19 @@ int	ft_render_sprite(int i, int j, t_data *data, mlx_texture_t *texture)
 
 void	ft_textures(t_textures *textures)
 {
-	textures->collectible = mlx_load_png("textures/Tiles/Moneda.png");
+	textures->collectible = mlx_load_png("textures/Tiles/Llave.png");
 	textures->exit_closed = mlx_load_png("textures/Tiles/PuertaCerrada.png");
 	textures->exit_open = mlx_load_png("textures/Tiles/PuertaAbierta.png");
 	textures->floor = mlx_load_png("textures/Tiles/Suelo1.png");
 	textures->wall = mlx_load_png("textures/Tiles/Pared2.png");
-	textures->player = mlx_load_png("textures/Wizard/tile002.png");
+	textures->playerup = mlx_load_png("textures/Wizard/Up.png");
+	textures->playerdown = mlx_load_png("textures/Wizard/Down.png");
+	textures->playerleft = mlx_load_png("textures/Wizard/Left.png");
+	textures->playerright = mlx_load_png("textures/Wizard/right.png");
+	textures->slimeup = mlx_load_png("textures/Slime/Up.png");
+	textures->slimedown = mlx_load_png("textures/Slime/Down.png");
+	textures->slimeleft = mlx_load_png("textures/Slime/Left.png");
+	textures->slimeright = mlx_load_png("textures/Slime/Right.png");
 }
 
 void	ft_free_textures(t_textures *textures)
@@ -43,7 +50,14 @@ void	ft_free_textures(t_textures *textures)
 	mlx_delete_texture(textures->collectible);
 	mlx_delete_texture(textures->exit_open);
 	mlx_delete_texture(textures->exit_closed);
-	mlx_delete_texture(textures->player);
+	mlx_delete_texture(textures->playerup);
+	mlx_delete_texture(textures->playerdown);
+	mlx_delete_texture(textures->playerleft);
+	mlx_delete_texture(textures->playerright);
+	mlx_delete_texture(textures->slimeup);
+	mlx_delete_texture(textures->slimedown);
+	mlx_delete_texture(textures->slimeleft);
+	mlx_delete_texture(textures->slimeright);
 }
 
 //ft_print_data(data);

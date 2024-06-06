@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:11:45 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/05 12:49:19 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/06 13:20:53 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,15 @@ void	ft_update(void *param)
 	ft_moveright(data);
 	if (data->map[data->y][data->x] == 'C')
 		ft_check_collectibles(data);
-	else if (data->map[data->y][data->x] == 'E')
+	else if (data->map[data->y][data->x] == 'E'
+			&& !mlx_is_key_down(data->mlx, MLX_KEY_W)
+			&& !mlx_is_key_down(data->mlx, MLX_KEY_A)
+			&& !mlx_is_key_down(data->mlx, MLX_KEY_S)
+			&& !mlx_is_key_down(data->mlx, MLX_KEY_D)
+			&& !mlx_is_key_down(data->mlx, MLX_KEY_UP)
+			&& !mlx_is_key_down(data->mlx, MLX_KEY_DOWN)
+			&& !mlx_is_key_down(data->mlx, MLX_KEY_LEFT)
+			&& !mlx_is_key_down(data->mlx, MLX_KEY_RIGHT))
 		ft_check_game_status(data);
 	ft_close(data);
 }

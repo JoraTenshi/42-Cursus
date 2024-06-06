@@ -6,11 +6,11 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:05:05 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/05/30 12:56:49 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/05 12:49:33 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/so_long.h"
+#include "../inc/so_long_bonus.h"
 
 void	ft_flood_fill(int x, int y, t_data *data, int *exit)
 {

@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 10:35:56 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/05 12:50:03 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/06 12:34:11 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_check_characters(char **map, int size_x, int size_y)
 		{
 			if (map[i][j] != 'P' && map[i][j] != 'E' && map[i][j] != 'C'
 				&& map[i][j] != '0' && map[i][j] != '1' && map[i][j] != '\n'
-				&& map[i][j] != '*')
+				&& map[i][j] != '*' && map[i][j] != 'M')
 				return (0);
 			j++;
 		}

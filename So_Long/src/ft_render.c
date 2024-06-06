@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 11:19:19 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/05 12:08:49 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/06 13:18:40 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ int	ft_render_sprite(int i, int j, t_data *data, mlx_texture_t *texture)
 
 void	ft_textures(t_textures *textures)
 {
-	textures->collectible = mlx_load_png("textures/Tiles/Moneda.png");
+	textures->collectible = mlx_load_png("textures/Tiles/Llave.png");
 	textures->exit_closed = mlx_load_png("textures/Tiles/PuertaCerrada.png");
 	textures->exit_open = mlx_load_png("textures/Tiles/PuertaAbierta.png");
 	textures->floor = mlx_load_png("textures/Tiles/Suelo1.png");
 	textures->wall = mlx_load_png("textures/Tiles/Pared2.png");
-	textures->player = mlx_load_png("textures/Wizard/tile002.png");
+	textures->player = mlx_load_png("textures/Wizard/Down.png");
 }
 
 void	ft_free_textures(t_textures *textures)

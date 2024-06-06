@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 09:58:41 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/05 12:48:32 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/06 13:07:33 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,24 @@ typedef struct s_textures
 	mlx_texture_t	*collectible;
 	mlx_texture_t	*exit_open;
 	mlx_texture_t	*exit_closed;
-	mlx_texture_t	*player;
+	mlx_texture_t	*playerup;
+	mlx_texture_t	*playerdown;
+	mlx_texture_t	*playerleft;
+	mlx_texture_t	*playerright;
+	mlx_texture_t	*slimeup;
+	mlx_texture_t	*slimedown;
+	mlx_texture_t	*slimeleft;
+	mlx_texture_t	*slimeright;
 }	t_textures;
+
+typedef struct s_anim
+{
+	mlx_image_t	*up;
+	mlx_image_t	*down;
+	mlx_image_t	*left;
+	mlx_image_t	*right;
+	char		direction;
+}	t_anim;
 
 typedef struct s_data
 {
@@ -42,7 +58,8 @@ typedef struct s_data
 	int				moves;
 	int				p_collectibles;
 	int				t_collectibles;
-	mlx_image_t		*player;
+	t_anim			*player;
+	t_anim			*slime;
 	t_textures		*textures;
 	mlx_image_t		**collectible_images;
 	mlx_image_t		**exit_image;
@@ -50,6 +67,7 @@ typedef struct s_data
 	double			time;
 	double			atime;
 	char			keypressed;
+	mlx_image_t		*wmoves;
 }	t_data;
 
 /**
@@ -245,5 +263,20 @@ int		ft_fill_map(t_data *data);
  * @param data 
  */
 void	ft_print_data(t_data *data);
+
+/**
+ * @brief Function to print moves on window
+ * 
+ * @param data 
+ */
+void	ft_moves(t_data *data);
+
+/**
+ * @brief Function to render slimes
+ * 
+ * @param data 
+ * @return int 
+ */
+int		ft_render_enemies(t_data *data);
 
 #endif
