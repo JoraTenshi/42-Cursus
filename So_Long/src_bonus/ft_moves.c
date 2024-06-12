@@ -6,11 +6,11 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 12:51:15 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/06 10:49:26 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/12 11:18:51 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long_bonus.h"
+#include "../inc/so_long_bonus.h"
 
 void	ft_moves(t_data *data)
 {

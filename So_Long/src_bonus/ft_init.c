@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 10:35:56 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/06 12:34:11 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/12 11:30:12 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_init(t_data *data)
 {
+	srand(data->mlx);
 	data->mlx = NULL;
 	data->map = NULL;
 	data->x = 0;
@@ -24,10 +25,17 @@ void	ft_init(t_data *data)
 	data->p_collectibles = 0;
 	data->t_collectibles = 0;
 	data->player = NULL;
+	data->slime = NULL;
 	data->textures = NULL;
 	data->collectible_images = NULL;
 	data->exit_image = NULL;
 	data->end = 0;
+	data->time = 0;
+	data->atime = 0;
+	data->keypressed = 0;
+	data->wmoves = NULL;
+	data->r_slimes = 0;
+	data->t_slimes = 0;
 }
 
 int	ft_check_characters(char **map, int size_x, int size_y)

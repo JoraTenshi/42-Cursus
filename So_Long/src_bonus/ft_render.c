@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 11:19:19 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/06 13:10:58 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/12 10:58:11 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,26 @@ void	ft_free_textures(t_textures *textures)
 int	ft_render_player(t_data *data)
 {
 	ft_start_pos(data);
-	if (!data->textures->player)
+	if (!data->textures->playerup || !data->textures->playerdown
+		|| !data->textures->playerleft || !data->textures->playerright)
 		return (EXIT_FAILURE);
-	data->player = mlx_texture_to_image(data->mlx, data->textures->player);
+	data->player->up = mlx_texture_to_image(data->mlx,
+			data->textures->playerup);
+	data->player->down = mlx_texture_to_image(data->mlx,
+			data->textures->playerdown);
+	data->player->left = mlx_texture_to_image(data->mlx,
+			data->textures->playerleft);
+	data->player->right = mlx_texture_to_image(data->mlx,
+			data->textures->playerright);
 	if (!data->player)
 		return (EXIT_FAILURE);
 	if (mlx_image_to_window(data->mlx, data->player,
 			data->x * 64, data->y * 64) < 0)
 		return (EXIT_FAILURE);
-	data->player->instances[0].enabled = 1;
+	data->player->up->instances[0].enabled = 0;
+	data->player->down->instances[0].enabled = 1;
+	data->player->left->instances[0].enabled = 0;
+	data->player->right->instances[0].enabled = 0;
 	return (0);
 }
 

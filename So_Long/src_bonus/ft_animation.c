@@ -6,11 +6,11 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 12:51:00 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/06 12:52:27 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/12 11:19:18 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long_bonus.h"
+#include "../inc/so_long_bonus.h"
 
 void	ft_anim_init(t_anim *anim)
 {
@@ -64,4 +64,12 @@ void	ft_anim_horizontal(t_anim *anim, char direction)
 		anim->left->instances[0].y += 64;
 		anim->right->instances[0].y += 64;
 	}
+}
+
+void	ft_animation(t_anim *anim, char direction)
+{
+	ft_anim_init(anim);
+	ft_disable(anim);
+	ft_anim_vertical(anim, direction);
+	ft_anim_horizontal(anim, direction);
 }

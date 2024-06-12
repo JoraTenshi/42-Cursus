@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 09:58:41 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/06 13:07:33 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/12 11:29:59 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 # include "../Libft/inc/libft/libft.h"
 # include <unistd.h>
+# include <stdlib.h>
 # include <fcntl.h>
 # include "../MLX42/include/MLX42/MLX42.h"
 
@@ -59,7 +60,7 @@ typedef struct s_data
 	int				p_collectibles;
 	int				t_collectibles;
 	t_anim			*player;
-	t_anim			*slime;
+	t_anim			**slime;
 	t_textures		*textures;
 	mlx_image_t		**collectible_images;
 	mlx_image_t		**exit_image;
@@ -68,6 +69,8 @@ typedef struct s_data
 	double			atime;
 	char			keypressed;
 	mlx_image_t		*wmoves;
+	int				r_slimes;
+	int				t_slimes;
 }	t_data;
 
 /**
@@ -278,5 +281,13 @@ void	ft_moves(t_data *data);
  * @return int 
  */
 int		ft_render_enemies(t_data *data);
+
+/**
+ * @brief Function to call all other anim functions
+ * 
+ * @param anim 
+ * @param direction 
+ */
+void	ft_animation(t_anim *anim, char direction);
 
 #endif
