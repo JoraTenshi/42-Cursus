@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 12:50:47 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/12 11:54:37 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/18 11:13:43 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ int	ft_render_slime(t_data *data, int i)
 			data->textures->slimeright);
 	if (!data->slime)
 		return (EXIT_FAILURE);
-	if (mlx_image_to_window(data->mlx, data->slime,
-			data->x * 64, data->y * 64) < 0)
+	if (ft_aux_render_slime(data, i) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	data->slime[i]->up->instances[0].enabled = 0;
 	data->slime[i]->down->instances[0].enabled = 1;
@@ -79,18 +78,17 @@ void	ft_slime_list(t_data *data, int x, int y)
 {
 	if (data->r_slimes == 0)
 	{
-		data->t_slimes = ft_check_content('M', data->map);
+		data->t_slimes = ft_check_content(data->map, 'M');
 		data->slime = malloc((sizeof(mlx_image_t) * data->t_slimes) + 1);
 		if (!data->slime)
 			return ;
-		data->slime[0] = image;
-		ft_add_slime(data, image->instances[0].x, image->instances[0].y);
+		ft_add_slime(data, x, y);
 		data->slime[data->t_slimes] = 0;
 		data->r_slimes++;
 	}
 	else
 	{
-		ft_add_slime(data, image->instances[0].x, image->instances[0].y);
+		ft_add_slime(data, x, y);
 		data->r_slimes++;
 	}
 }

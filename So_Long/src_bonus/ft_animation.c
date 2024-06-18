@@ -6,19 +6,20 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 12:51:00 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/12 11:19:18 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/18 12:01:08 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long_bonus.h"
 
-void	ft_anim_init(t_anim *anim)
+/*void	ft_anim_init(t_anim *anim)
 {
 	anim->up = NULL;
 	anim->down = NULL;
 	anim->left = NULL;
 	anim->right = NULL;
 }
+*/
 
 void	ft_disable(t_anim *anim)
 {
@@ -68,7 +69,6 @@ void	ft_anim_horizontal(t_anim *anim, char direction)
 
 void	ft_animation(t_anim *anim, char direction)
 {
-	ft_anim_init(anim);
 	ft_disable(anim);
 	ft_anim_vertical(anim, direction);
 	ft_anim_horizontal(anim, direction);

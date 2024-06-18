@@ -6,15 +6,23 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 10:35:56 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/12 11:30:12 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/18 10:38:03 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long_bonus.h"
 
+unsigned int	ft_seed(t_data *data)
+{
+	int	x;
+	int	y;
+
+	mlx_get_mouse_pos(data->mlx, &x, &y);
+	return (x ^ y);
+}
+
 void	ft_init(t_data *data)
 {
-	srand(data->mlx);
 	data->mlx = NULL;
 	data->map = NULL;
 	data->x = 0;

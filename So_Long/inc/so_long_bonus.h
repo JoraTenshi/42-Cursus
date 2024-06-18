@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 09:58:41 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/12 11:29:59 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/18 11:42:28 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ typedef struct s_data
  * @param str 
  * @return int 
  */
-int		ft_check_rectangle(char **str);
+int					ft_check_rectangle(char **str);
 
 /**
  * @brief Function to check the map is surrounded by 1s
@@ -87,7 +87,7 @@ int		ft_check_rectangle(char **str);
  * @param str 
  * @return int 
  */
-int		ft_check_walls(char **str, int size_x, int size_y);
+int					ft_check_walls(char **str, int size_x, int size_y);
 
 /**
  * @brief Function to check if map characters are valid
@@ -96,7 +96,7 @@ int		ft_check_walls(char **str, int size_x, int size_y);
  * @param c 
  * @return int 
  */
-int		ft_check_content(char **str, char c);
+int					ft_check_content(char **str, char c);
 
 /**
  * @brief Function to get the map size using rows
@@ -104,7 +104,7 @@ int		ft_check_content(char **str, char c);
  * @param map 
  * @return int 
  */
-int		ft_map_size(char *file);
+int					ft_map_size(char *file);
 
 /**
  * @brief Function to read the map it is given
@@ -112,21 +112,21 @@ int		ft_map_size(char *file);
  * @param map 
  * @param data 
  */
-void	ft_read_map(char *file, t_data *data);
+void				ft_read_map(char *file, t_data *data);
 
 /**
  * @brief Function to get the starting position of the player
  * 
  * @param data 
  */
-void	ft_start_pos(t_data *data);
+void				ft_start_pos(t_data *data);
 
 /**
  * @brief Funciton to get the number of collectibles
  * 
  * @param data 
  */
-void	ft_get_collectibles(t_data *data);
+void				ft_get_collectibles(t_data *data);
 
 /**
  * @brief Function to check everything on the map provided
@@ -134,7 +134,7 @@ void	ft_get_collectibles(t_data *data);
  * @param file 
  * @return int 
  */
-int		ft_map(char *file);
+int					ft_map(char *file);
 
 /**
  * @brief Function to check every possible map error
@@ -142,7 +142,7 @@ int		ft_map(char *file);
  * @param data 
  * @return int 
  */
-int		ft_valid_map(t_data data);
+int					ft_valid_map(t_data data);
 
 /**
  * @brief Function to check the characters are correct
@@ -152,14 +152,14 @@ int		ft_valid_map(t_data data);
  * @param size_y 
  * @return int 
  */
-int		ft_check_characters(char **map, int size_x, int size_y);
+int					ft_check_characters(char **map, int size_x, int size_y);
 
 /**
  * @brief Function to free map after floodfill
  * 
  * @param map 
  */
-void	ft_freemap(t_data *data);
+void				ft_freemap(t_data *data);
 
 /**
  * @brief Function that executes every frame
@@ -167,35 +167,35 @@ void	ft_freemap(t_data *data);
  * @param param 
  * @return void* 
  */
-void	ft_update(void *param);
+void				ft_update(void *param);
 
 /**
  * @brief Function to close game window
  * 
  * @param data 
  */
-void	ft_close(t_data *data);
+void				ft_close(t_data *data);
 
 /**
  * @brief Function to check if upon touching the exit you have all collectibles
  * 
  * @param data 
  */
-void	ft_check_game_status(t_data *data);
+void				ft_check_game_status(t_data *data);
 
 /**
  * @brief Function to clean MLX after finishing the game
  * 
  * @param data 
  */
-void	ft_terminate(t_data *data);
+void				ft_terminate(t_data *data);
 
 /**
  * @brief Function to initialize struct 
  * 
  * @param data 
  */
-void	ft_init(t_data *data);
+void				ft_init(t_data *data);
 
 /**
  * @brief Function to render the sprite of a given texture
@@ -206,14 +206,15 @@ void	ft_init(t_data *data);
  * @param texture 
  * @return int 
  */
-int		ft_render_sprite(int i, int j, t_data *data, mlx_texture_t *texture);
+int					ft_render_sprite(int i, int j, t_data *data,
+						mlx_texture_t *texture);
 
 /**
  * @brief Function to check exit status
  * 
  * @param data 
  */
-void	ft_exit_status(t_data *data);
+void				ft_exit_status(t_data *data);
 
 /**
  * @brief Function to convert textures to images and put them
@@ -225,7 +226,8 @@ void	ft_exit_status(t_data *data);
  * @param texture 
  * @return int 
  */
-int		ft_render_sprite(int i, int j, t_data *data, mlx_texture_t *texture);
+int					ft_render_sprite(int i, int j, t_data *data,
+						mlx_texture_t *texture);
 
 /**
  * @brief Function to check how many collectibles are left and 
@@ -233,7 +235,7 @@ int		ft_render_sprite(int i, int j, t_data *data, mlx_texture_t *texture);
  * 
  * @param data 
  */
-void	ft_check_collectibles(t_data *data);
+void				ft_check_collectibles(t_data *data);
 
 /**
  * @brief Function to fill collectible array
@@ -242,7 +244,7 @@ void	ft_check_collectibles(t_data *data);
  * @param image 
  * @return int 
  */
-int		ft_collectible_array(t_data *data, mlx_image_t *image);
+int					ft_collectible_array(t_data *data, mlx_image_t *image);
 
 /**
  * @brief Function to render all textures
@@ -250,7 +252,7 @@ int		ft_collectible_array(t_data *data, mlx_image_t *image);
  * @param data 
  * @return int 
  */
-int		ft_render(t_data *data);
+int					ft_render(t_data *data);
 
 /**
  * @brief Function to fill map with textures
@@ -258,21 +260,21 @@ int		ft_render(t_data *data);
  * @param data 
  * @return int 
  */
-int		ft_fill_map(t_data *data);
+int					ft_fill_map(t_data *data);
 
 /**
  * @brief Function to print data
  * 
  * @param data 
  */
-void	ft_print_data(t_data *data);
+void				ft_print_data(t_data *data);
 
 /**
  * @brief Function to print moves on window
  * 
  * @param data 
  */
-void	ft_moves(t_data *data);
+void				ft_moves(t_data *data);
 
 /**
  * @brief Function to render slimes
@@ -280,7 +282,7 @@ void	ft_moves(t_data *data);
  * @param data 
  * @return int 
  */
-int		ft_render_enemies(t_data *data);
+int					ft_render_enemies(t_data *data);
 
 /**
  * @brief Function to call all other anim functions
@@ -288,6 +290,35 @@ int		ft_render_enemies(t_data *data);
  * @param anim 
  * @param direction 
  */
-void	ft_animation(t_anim *anim, char direction);
+void				ft_animation(t_anim *anim, char direction);
+
+/**
+ * @brief Function to render player character
+ * 
+ * @param data 
+ * @return int 
+ */
+void				ft_render_player(t_data *data, t_anim *player);
+
+/**
+ * @brief Function to get mouse position for srand
+ * 
+ * @param data 
+ * @return unsigned int 
+ */
+unsigned int		ft_seed(t_data *data);
+
+/**
+ * @brief Aux function to ft_render_player to check errors
+ * 
+ */
+int					ft_aux_render_player(t_data *data, t_anim *player);
+
+/**
+ * @brief Aux function to ft_render_slime to check errors
+ * 
+ * @param data 
+ */
+int					ft_aux_render_slime(t_data *data, int i);
 
 #endif

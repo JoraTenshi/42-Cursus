@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 11:19:19 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/12 10:58:11 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/18 11:55:19 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_textures(t_textures *textures)
 	textures->playerup = mlx_load_png("textures/Wizard/Up.png");
 	textures->playerdown = mlx_load_png("textures/Wizard/Down.png");
 	textures->playerleft = mlx_load_png("textures/Wizard/Left.png");
-	textures->playerright = mlx_load_png("textures/Wizard/right.png");
+	textures->playerright = mlx_load_png("textures/Wizard/Right.png");
 	textures->slimeup = mlx_load_png("textures/Slime/Up.png");
 	textures->slimedown = mlx_load_png("textures/Slime/Down.png");
 	textures->slimeleft = mlx_load_png("textures/Slime/Left.png");
@@ -62,40 +62,38 @@ void	ft_free_textures(t_textures *textures)
 
 //ft_print_data(data);
 
-int	ft_render_player(t_data *data)
+void	ft_render_player(t_data *data, t_anim *player)
 {
 	ft_start_pos(data);
 	if (!data->textures->playerup || !data->textures->playerdown
 		|| !data->textures->playerleft || !data->textures->playerright)
-		return (EXIT_FAILURE);
-	data->player->up = mlx_texture_to_image(data->mlx,
+		return ;
+	player->up = mlx_texture_to_image(data->mlx,
 			data->textures->playerup);
-	data->player->down = mlx_texture_to_image(data->mlx,
+	player->down = mlx_texture_to_image(data->mlx,
 			data->textures->playerdown);
-	data->player->left = mlx_texture_to_image(data->mlx,
+	player->left = mlx_texture_to_image(data->mlx,
 			data->textures->playerleft);
-	data->player->right = mlx_texture_to_image(data->mlx,
+	player->right = mlx_texture_to_image(data->mlx,
 			data->textures->playerright);
-	if (!data->player)
-		return (EXIT_FAILURE);
-	if (mlx_image_to_window(data->mlx, data->player,
-			data->x * 64, data->y * 64) < 0)
-		return (EXIT_FAILURE);
-	data->player->up->instances[0].enabled = 0;
-	data->player->down->instances[0].enabled = 1;
-	data->player->left->instances[0].enabled = 0;
-	data->player->right->instances[0].enabled = 0;
-	return (0);
+	if (ft_aux_render_player(data, player) != EXIT_FAILURE)
+		return ;
+	player->up->instances[0].enabled = 0;
+	player->down->instances[0].enabled = 1;
+	player->left->instances[0].enabled = 0;
+	player->right->instances[0].enabled = 0;
 }
 
 int	ft_render(t_data *data)
 {
 	t_textures	textures;
+	t_anim		player;
 
 	ft_textures(&textures);
 	data->textures = &textures;
 	ft_fill_map(data);
-	ft_render_player(data);
+	ft_render_player(data, &player);
+	data->player = &player;
 	ft_free_textures(data->textures);
 	return (0);
 }
