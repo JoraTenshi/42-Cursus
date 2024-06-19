@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:11:45 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/18 12:02:47 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/19 12:52:48 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,10 @@ static void	ft_moveup(t_data *data)
 	{
 		if (data->map[data->y - 1][data->x] != '1')
 		{
-			data->player->up->instances[0].y -= 64;
-			data->player->down->instances[0].y -= 64;
-			data->player->left->instances[0].y -= 64;
-			data->player->right->instances[0].y -= 64;
+			ft_animation(data->player, 'W');
 			data->y -= 1;
 			data->moves += 1;
 			ft_moves(data);
-			ft_animation(data->player, 'W');
 		}
 		data->time = 0;
 	}
@@ -41,14 +37,10 @@ static void	ft_movedown(t_data *data)
 	{
 		if (data->map[data->y + 1][data->x] != '1')
 		{
-			data->player->up->instances[0].y += 64;
-			data->player->down->instances[0].y += 64;
-			data->player->left->instances[0].y += 64;
-			data->player->right->instances[0].y += 64;
+			ft_animation(data->player, 'S');
 			data->y += 1;
 			data->moves += 1;
 			ft_moves(data);
-			ft_animation(data->player, 'S');
 		}
 		data->time = 0;
 	}
@@ -62,14 +54,10 @@ static void	ft_moveleft(t_data *data)
 	{
 		if (data->map[data->y][data->x - 1] != '1')
 		{
-			data->player->up->instances[0].x -= 64;
-			data->player->down->instances[0].x -= 64;
-			data->player->left->instances[0].x -= 64;
-			data->player->right->instances[0].x -= 64;
+			ft_animation(data->player, 'A');
 			data->x -= 1;
 			data->moves += 1;
 			ft_moves(data);
-			ft_animation(data->player, 'A');
 		}
 		data->time = 0;
 	}
@@ -83,14 +71,10 @@ static void	ft_moveright(t_data *data)
 	{
 		if (data->map[data->y][data->x + 1] != '1')
 		{
-			data->player->up->instances[0].x += 64;
-			data->player->down->instances[0].x += 64;
-			data->player->left->instances[0].x += 64;
-			data->player->right->instances[0].x += 64;
+			ft_animation(data->player, 'D');
 			data->x += 1;
 			data->moves += 1;
 			ft_moves(data);
-			ft_animation(data->player, 'D');
 		}
 		data->time = 0;
 	}
@@ -100,7 +84,7 @@ void	ft_update(void *param)
 {
 	t_data	*data;
 
-	data = param;
+	data = (t_data *)param;
 	if (data->time < 1)
 		data->time += data->mlx->delta_time;
 	if (data->atime < 1)

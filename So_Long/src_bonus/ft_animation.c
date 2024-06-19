@@ -6,20 +6,11 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 12:51:00 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/18 12:01:08 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/19 12:54:38 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long_bonus.h"
-
-/*void	ft_anim_init(t_anim *anim)
-{
-	anim->up = NULL;
-	anim->down = NULL;
-	anim->left = NULL;
-	anim->right = NULL;
-}
-*/
 
 void	ft_disable(t_anim *anim)
 {
@@ -31,13 +22,13 @@ void	ft_disable(t_anim *anim)
 
 void	ft_anim_vertical(t_anim	*anim, char direction)
 {
-	ft_disable(anim);
 	if (direction == 'W')
 	{
 		anim->up->instances[0].y -= 64;
 		anim->down->instances[0].y -= 64;
 		anim->left->instances[0].y -= 64;
 		anim->right->instances[0].y -= 64;
+		anim->up->enabled = 1;
 	}
 	else if (direction == 'S')
 	{
@@ -45,25 +36,27 @@ void	ft_anim_vertical(t_anim	*anim, char direction)
 		anim->down->instances[0].y += 64;
 		anim->left->instances[0].y += 64;
 		anim->right->instances[0].y += 64;
+		anim->down->enabled = 1;
 	}
 }
 
 void	ft_anim_horizontal(t_anim *anim, char direction)
 {
-	ft_disable(anim);
 	if (direction == 'A')
 	{
-		anim->up->instances[0].y -= 64;
-		anim->down->instances[0].y -= 64;
-		anim->left->instances[0].y -= 64;
-		anim->right->instances[0].y -= 64;
+		anim->up->instances[0].x -= 64;
+		anim->down->instances[0].x -= 64;
+		anim->left->instances[0].x -= 64;
+		anim->right->instances[0].x -= 64;
+		anim->left->enabled = 1;
 	}
 	else if (direction == 'D')
 	{
-		anim->up->instances[0].y += 64;
-		anim->down->instances[0].y += 64;
-		anim->left->instances[0].y += 64;
-		anim->right->instances[0].y += 64;
+		anim->up->instances[0].x += 64;
+		anim->down->instances[0].x += 64;
+		anim->left->instances[0].x += 64;
+		anim->right->instances[0].x += 64;
+		anim->right->enabled = 1;
 	}
 }
 
