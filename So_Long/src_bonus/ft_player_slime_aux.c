@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 10:42:40 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/18 11:42:09 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/20 12:24:48 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,16 @@ int	ft_aux_render_slime(t_data *data, int i)
 			data->x * 64, data->y * 64) < 0)
 		return (EXIT_FAILURE);
 	return (1);
+}
+
+void	ft_count_slime(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (data->slime[i])
+	{
+		ft_render_slime(data, i);
+		i++;
+	}
 }

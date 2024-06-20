@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 12:50:47 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/18 11:13:43 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/20 12:44:52 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	ft_render_slime(t_data *data, int i)
 {
-	ft_start_pos(data);
 	if (!data->textures->slimeup || !data->textures->slimedown
 		|| !data->textures->slimeleft || !data->textures->slimeright)
 		return (EXIT_FAILURE);
@@ -40,21 +39,24 @@ int	ft_render_slime(t_data *data, int i)
 void	ft_slime_to_screen(t_data *data, int x, int y)
 {
 	if (mlx_image_to_window(data->mlx,
-			data->slime[data->r_slimes]->up, x, y) < 0)
+			data->slime[data->r_slimes]->up, x * 64, y * 64) < 0)
 		return ;
 	if (mlx_image_to_window(data->mlx,
-			data->slime[data->r_slimes]->down, x, y) < 0)
+			data->slime[data->r_slimes]->down, x * 64, y * 64) < 0)
 		return ;
 	if (mlx_image_to_window(data->mlx,
-			data->slime[data->r_slimes]->left, x, y) < 0)
+			data->slime[data->r_slimes]->left, x * 64, y * 64) < 0)
 		return ;
 	if (mlx_image_to_window(data->mlx,
-			data->slime[data->r_slimes]->right, x, y) < 0)
+			data->slime[data->r_slimes]->right, x * 64, y * 64) < 0)
 		return ;
 }
 
 void	ft_add_slime(t_data *data, int x, int y)
 {
+	t_anim	slime;
+
+	data->slime[data->r_slimes] = &slime;
 	data->slime[data->r_slimes]->up = mlx_texture_to_image(data->mlx,
 			data->textures->slimeup);
 	if (!data->slime[data->r_slimes]->up)
@@ -95,5 +97,21 @@ void	ft_slime_list(t_data *data, int x, int y)
 
 void	ft_slime_movement(t_data *data)
 {
-	
+	int	i;
+	int	rng;
+
+	i = 0;
+	while (data->slime[i])
+	{
+		rng = rand() % 4;
+		if (rng == 0)
+			ft_animation(data->slime[i], 'W');
+		else if (rng == 1)
+			ft_animation(data->slime[i], 'S');
+		else if (rng == 2)
+			ft_animation(data->slime[i], 'D');
+		else if (rng == 3)
+			ft_animation(data->slime[i], 'A');
+		i++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 11:19:19 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/18 11:55:19 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/20 12:26:17 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ int	ft_render_sprite(int i, int j, t_data *data, mlx_texture_t *texture)
 {
 	mlx_image_t	*image;
 
+	if (texture == data->textures->slimedown)
+	{
+		ft_slime_list(data, j, i);
+		return (0);
+	}
 	image = mlx_texture_to_image(data->mlx, texture);
 	if (!image)
 		return (EXIT_FAILURE);

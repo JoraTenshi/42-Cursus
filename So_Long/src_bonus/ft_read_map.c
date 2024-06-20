@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 11:25:06 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/18 12:03:22 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/20 12:39:19 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,31 +105,29 @@ void	ft_get_collectibles(t_data *data)
 	}
 }
 
-int	ft_map(char *file)
+int	ft_map(char *file, t_data *data)
 {
-	t_data	data;
-
-	ft_init(&data);
-	ft_read_map(file, &data);
-	ft_start_pos(&data);
-	ft_get_collectibles(&data);
-	if (ft_valid_map(data) == 1
-		&& ft_check_characters(data.map, data.size_x, data.size_y))
+	ft_init(data);
+	ft_read_map(file, data);
+	ft_start_pos(data);
+	ft_get_collectibles(data);
+	if (ft_valid_map(*data) == 1
+		&& ft_check_characters(data->map, data->size_x, data->size_y))
 	{
-		ft_freemap(&data);
-		ft_read_map(file, &data);
-		data.mlx = mlx_init(data.size_x * 64, data.size_y * 64,
+		ft_freemap(data);
+		ft_read_map(file, data);
+		data->mlx = mlx_init(data->size_x * 64, data->size_y * 64,
 				"So_long", false);
-		if (!data.mlx)
+		if (!data->mlx)
 			return (EXIT_FAILURE);
-		srand(ft_seed(&data));
-		ft_render(&data);
-		mlx_loop_hook(data.mlx, ft_update, &data);
-		mlx_loop(data.mlx);
-		ft_terminate(&data);
+		srand(ft_seed(data));
+		ft_render(data);
+		mlx_loop_hook(data->mlx, ft_update, data);
+		mlx_loop(data->mlx);
+		ft_terminate(data);
 		return (EXIT_SUCCESS);
 	}
-	ft_terminate(&data);
+	ft_terminate(data);
 	ft_printf("Map is not valid\n");
 	return (EXIT_FAILURE);
 }

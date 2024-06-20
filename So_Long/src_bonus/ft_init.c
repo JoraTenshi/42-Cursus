@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 10:35:56 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/18 10:38:03 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/20 12:53:56 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	ft_init(t_data *data)
 	data->wmoves = NULL;
 	data->r_slimes = 0;
 	data->t_slimes = 0;
+	data->slime_time = 0;
 }
 
 int	ft_check_characters(char **map, int size_x, int size_y)

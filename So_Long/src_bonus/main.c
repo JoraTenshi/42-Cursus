@@ -40,7 +40,8 @@ int	ft_check_ber(char	*argv)
 
 int	main(int argc, char **argv)
 {
-	int	fd;
+	int		fd;
+	t_data	data;
 
 	if (argc == 2)
 	{
@@ -50,7 +51,7 @@ int	main(int argc, char **argv)
 			if (!fd)
 				return (ft_printf("Map error, try again\n"), -1);
 			close(fd);
-			return (ft_map(argv[1]));
+			return (ft_map(argv[1], &data));
 		}
 		else
 			ft_printf("Provide a .ber map\n");

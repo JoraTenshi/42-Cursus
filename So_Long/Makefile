@@ -1,7 +1,6 @@
 CFILES = src/ft_check_map.c  src/ft_clean.c  src/ft_init.c  src/ft_movement.c  src/ft_read_map.c  src/ft_render.c  src/ft_render_map.c  src/ft_sprites.c  src/main.c
 
-CBONUS = src_bonus/ft_check_map.c  src_bonus/ft_clean.c  src_bonus/ft_init.c  src_bonus/ft_movement.c  src_bonus/ft_read_map.c  src_bonus/ft_render.c  src_bonus/ft_render_map.c  src_bonus/ft_sprites.c  src_bonus/main.c src_bonus/ft_moves.c src_bonus/ft_animation.c src_bonus/ft_player_slime_aux.c 
-#src_bonus/ft_enemies.c
+CBONUS = src_bonus/ft_check_map.c  src_bonus/ft_clean.c  src_bonus/ft_init.c  src_bonus/ft_movement.c  src_bonus/ft_read_map.c  src_bonus/ft_render.c  src_bonus/ft_render_map.c  src_bonus/ft_sprites.c  src_bonus/main.c src_bonus/ft_moves.c src_bonus/ft_animation.c src_bonus/ft_player_slime_aux.c src_bonus/ft_enemies.c
 
 LIBFT = Libft/libft.a
 MLX42 = MLX42/build/libmlx42.a

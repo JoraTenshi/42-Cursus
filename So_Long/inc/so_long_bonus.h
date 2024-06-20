@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 09:58:41 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/18 11:42:28 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/20 12:53:42 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ typedef struct s_data
 	mlx_image_t		*wmoves;
 	int				r_slimes;
 	int				t_slimes;
+	double			slime_time;
 }	t_data;
 
 /**
@@ -134,7 +135,7 @@ void				ft_get_collectibles(t_data *data);
  * @param file 
  * @return int 
  */
-int					ft_map(char *file);
+int					ft_map(char *file, t_data *data);
 
 /**
  * @brief Function to check every possible map error
@@ -215,19 +216,6 @@ int					ft_render_sprite(int i, int j, t_data *data,
  * @param data 
  */
 void				ft_exit_status(t_data *data);
-
-/**
- * @brief Function to convert textures to images and put them
- * 			in the given array position
- * 
- * @param i 
- * @param j 
- * @param data 
- * @param texture 
- * @return int 
- */
-int					ft_render_sprite(int i, int j, t_data *data,
-						mlx_texture_t *texture);
 
 /**
  * @brief Function to check how many collectibles are left and 
@@ -320,5 +308,37 @@ int					ft_aux_render_player(t_data *data, t_anim *player);
  * @param data 
  */
 int					ft_aux_render_slime(t_data *data, int i);
+
+/**
+ * @brief Function to render slimes
+ * 
+ * @param data 
+ * @param i 
+ * @return int 
+ */
+int					ft_render_slime(t_data *data, int i);
+
+/**
+ * @brief Function to fill slime list
+ * 
+ * @param data 
+ * @param x 
+ * @param y 
+ */
+void				ft_slime_list(t_data *data, int x, int y);
+
+/**
+ * @brief Function to get i for render_slime
+ * 
+ * @param data 
+ */
+void				ft_count_slime(t_data *data);
+
+/**
+ * @brief Function to make slimes movement
+ * 
+ * @param data 
+ */
+void				ft_slime_movement(t_data *data);
 
 #endif

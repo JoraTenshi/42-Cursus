@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:11:45 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/19 12:52:48 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/20 12:55:10 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,10 @@ void	ft_update(void *param)
 		data->time += data->mlx->delta_time;
 	if (data->atime < 1)
 		data->atime += data->mlx->delta_time;
+	if (data->slime_time < 1)
+		data->slime_time += data->mlx->delta_time;
+	if (data->slime_time >= 1)
+		ft_slime_movement(data);
 	ft_moveup(data);
 	ft_movedown(data);
 	ft_moveleft(data);
