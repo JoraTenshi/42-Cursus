@@ -6,11 +6,20 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 10:35:56 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/25 11:12:23 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/20 12:53:56 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long_bonus.h"
+
+unsigned int	ft_seed(t_data *data)
+{
+	int	x;
+	int	y;
+
+	mlx_get_mouse_pos(data->mlx, &x, &y);
+	return (x ^ y);
+}
 
 void	ft_init(t_data *data)
 {
@@ -24,10 +33,18 @@ void	ft_init(t_data *data)
 	data->p_collectibles = 0;
 	data->t_collectibles = 0;
 	data->player = NULL;
+	data->slime = NULL;
 	data->textures = NULL;
 	data->collectible_images = NULL;
 	data->exit_image = NULL;
 	data->end = 0;
+	data->time = 0;
+	data->atime = 0;
+	data->keypressed = 0;
+	data->wmoves = NULL;
+	data->r_slimes = 0;
+	data->t_slimes = 0;
+	data->slime_time = 0;
 }
 
 int	ft_check_characters(char **map, int size_x, int size_y)
@@ -43,7 +60,7 @@ int	ft_check_characters(char **map, int size_x, int size_y)
 		{
 			if (map[i][j] != 'P' && map[i][j] != 'E' && map[i][j] != 'C'
 				&& map[i][j] != '0' && map[i][j] != '1' && map[i][j] != '\n'
-				&& map[i][j] != '*')
+				&& map[i][j] != '*' && map[i][j] != 'M')
 				return (0);
 			j++;
 		}

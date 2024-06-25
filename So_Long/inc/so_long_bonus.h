@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 09:58:41 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/20 12:53:42 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/25 11:13:04 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <fcntl.h>
 # include "../MLX42/include/MLX42/MLX42.h"
 
-typedef struct s_textures
+/*typedef struct s_textures
 {
 	mlx_texture_t	*wall;
 	mlx_texture_t	*floor;
@@ -46,32 +46,42 @@ typedef struct s_anim
 	mlx_image_t	*left;
 	mlx_image_t	*right;
 	char		direction;
-}	t_anim;
+}	t_anim;*/
+
+typedef struct s_textures
+{
+	mlx_texture_t	*wall;
+	mlx_texture_t	*floor;
+	mlx_texture_t	*collectible;
+	mlx_texture_t	*exit_open;
+	mlx_texture_t	*exit_closed;
+	mlx_texture_t	*player;
+}	t_textures;
 
 typedef struct s_data
 {
-	mlx_t			*mlx;
-	char			**map;
-	int				x;
-	int				y;
-	int				size_x;
-	int				size_y;
-	int				moves;
-	int				p_collectibles;
-	int				t_collectibles;
-	t_anim			*player;
-	t_anim			**slime;
-	t_textures		*textures;
-	mlx_image_t		**collectible_images;
-	mlx_image_t		**exit_image;
-	int				end;
-	double			time;
-	double			atime;
-	char			keypressed;
-	mlx_image_t		*wmoves;
-	int				r_slimes;
-	int				t_slimes;
-	double			slime_time;
+	mlx_t				*mlx;
+	char				**map;
+	int					x;
+	int					y;
+	int					size_x;
+	int					size_y;
+	int					moves;
+	int					p_collectibles;
+	int					t_collectibles;
+	mlx_image_t			*player;
+	mlx_image_t			**slime;
+	t_textures			*textures;
+	mlx_image_t			**collectible_images;
+	mlx_image_t			**exit_image;
+	int					end;
+	double				time;
+	double				atime;
+	char				keypressed;
+	mlx_image_t			*wmoves;
+	int					r_slimes;
+	int					t_slimes;
+	double				slime_time;
 }	t_data;
 
 /**
@@ -135,7 +145,7 @@ void				ft_get_collectibles(t_data *data);
  * @param file 
  * @return int 
  */
-int					ft_map(char *file, t_data *data);
+int					ft_map(char *file);
 
 /**
  * @brief Function to check every possible map error
@@ -278,7 +288,7 @@ int					ft_render_enemies(t_data *data);
  * @param anim 
  * @param direction 
  */
-void				ft_animation(t_anim *anim, char direction);
+//void				ft_animation(t_anim *anim, char direction);
 
 /**
  * @brief Function to render player character
@@ -286,7 +296,7 @@ void				ft_animation(t_anim *anim, char direction);
  * @param data 
  * @return int 
  */
-void				ft_render_player(t_data *data, t_anim *player);
+int					ft_render_player(t_data *data);
 
 /**
  * @brief Function to get mouse position for srand
@@ -300,7 +310,7 @@ unsigned int		ft_seed(t_data *data);
  * @brief Aux function to ft_render_player to check errors
  * 
  */
-int					ft_aux_render_player(t_data *data, t_anim *player);
+//int					ft_aux_render_player(t_data *data, t_anim *player);
 
 /**
  * @brief Aux function to ft_render_slime to check errors

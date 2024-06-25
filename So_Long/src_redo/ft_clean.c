@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:53:06 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/25 11:12:20 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/20 12:51:37 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ void	ft_terminate(t_data *data)
 	ft_freemap(data);
 	free(data->collectible_images);
 	free(data->exit_image);
+	free(data->slime);
 	mlx_terminate(data->mlx);
 }

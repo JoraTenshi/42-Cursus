@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 11:54:01 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/25 11:12:35 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/20 12:24:14 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int	ft_fill_map(t_data *data)
 				ft_render_sprite(i, j, data, data->textures->collectible);
 			else if (data->map[i][j] == 'E')
 				ft_render_exit(i, j, data);
+			else if (data->map[i][j] == 'M')
+				ft_render_sprite(i, j, data, data->textures->slimedown);
 			j++;
 		}
 		i++;

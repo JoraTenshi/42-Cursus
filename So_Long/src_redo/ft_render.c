@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 11:19:19 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/25 11:12:39 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/20 12:26:17 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ int	ft_render_sprite(int i, int j, t_data *data, mlx_texture_t *texture)
 {
 	mlx_image_t	*image;
 
+	if (texture == data->textures->slimedown)
+	{
+		ft_slime_list(data, j, i);
+		return (0);
+	}
 	image = mlx_texture_to_image(data->mlx, texture);
 	if (!image)
 		return (EXIT_FAILURE);
@@ -33,7 +38,14 @@ void	ft_textures(t_textures *textures)
 	textures->exit_open = mlx_load_png("textures/Tiles/PuertaAbierta.png");
 	textures->floor = mlx_load_png("textures/Tiles/Suelo1.png");
 	textures->wall = mlx_load_png("textures/Tiles/Pared2.png");
-	textures->player = mlx_load_png("textures/Wizard/Down.png");
+	textures->playerup = mlx_load_png("textures/Wizard/Up.png");
+	textures->playerdown = mlx_load_png("textures/Wizard/Down.png");
+	textures->playerleft = mlx_load_png("textures/Wizard/Left.png");
+	textures->playerright = mlx_load_png("textures/Wizard/Right.png");
+	textures->slimeup = mlx_load_png("textures/Slime/Up.png");
+	textures->slimedown = mlx_load_png("textures/Slime/Down.png");
+	textures->slimeleft = mlx_load_png("textures/Slime/Left.png");
+	textures->slimeright = mlx_load_png("textures/Slime/Right.png");
 }
 
 void	ft_free_textures(t_textures *textures)
@@ -43,34 +55,50 @@ void	ft_free_textures(t_textures *textures)
 	mlx_delete_texture(textures->collectible);
 	mlx_delete_texture(textures->exit_open);
 	mlx_delete_texture(textures->exit_closed);
-	mlx_delete_texture(textures->player);
+	mlx_delete_texture(textures->playerup);
+	mlx_delete_texture(textures->playerdown);
+	mlx_delete_texture(textures->playerleft);
+	mlx_delete_texture(textures->playerright);
+	mlx_delete_texture(textures->slimeup);
+	mlx_delete_texture(textures->slimedown);
+	mlx_delete_texture(textures->slimeleft);
+	mlx_delete_texture(textures->slimeright);
 }
 
 //ft_print_data(data);
 
-int	ft_render_player(t_data *data)
+void	ft_render_player(t_data *data, t_anim *player)
 {
 	ft_start_pos(data);
-	if (!data->textures->player)
-		return (EXIT_FAILURE);
-	data->player = mlx_texture_to_image(data->mlx, data->textures->player);
-	if (!data->player)
-		return (EXIT_FAILURE);
-	if (mlx_image_to_window(data->mlx, data->player,
-			data->x * 64, data->y * 64) < 0)
-		return (EXIT_FAILURE);
-	data->player->instances[0].enabled = 1;
-	return (0);
+	if (!data->textures->playerup || !data->textures->playerdown
+		|| !data->textures->playerleft || !data->textures->playerright)
+		return ;
+	player->up = mlx_texture_to_image(data->mlx,
+			data->textures->playerup);
+	player->down = mlx_texture_to_image(data->mlx,
+			data->textures->playerdown);
+	player->left = mlx_texture_to_image(data->mlx,
+			data->textures->playerleft);
+	player->right = mlx_texture_to_image(data->mlx,
+			data->textures->playerright);
+	if (ft_aux_render_player(data, player) != EXIT_FAILURE)
+		return ;
+	player->up->instances[0].enabled = 0;
+	player->down->instances[0].enabled = 1;
+	player->left->instances[0].enabled = 0;
+	player->right->instances[0].enabled = 0;
 }
 
 int	ft_render(t_data *data)
 {
 	t_textures	textures;
+	t_anim		player;
 
 	ft_textures(&textures);
 	data->textures = &textures;
 	ft_fill_map(data);
-	ft_render_player(data);
+	ft_render_player(data, &player);
+	data->player = &player;
 	ft_free_textures(data->textures);
 	return (0);
 }

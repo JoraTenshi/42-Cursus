@@ -6,11 +6,11 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:05:05 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/25 10:41:26 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/06 12:33:33 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/so_long.h"
+#include "../inc/so_long_bonus.h"
 
 void	ft_flood_fill(int x, int y, t_data *data, int *exit)
 {
@@ -117,7 +117,8 @@ int	ft_valid_map(t_data data)
 		&& ft_check_walls(data.map, data.size_x, data.size_y) == 1
 		&& ft_check_content(data.map, 'P') == 1
 		&& ft_check_content(data.map, 'E') == 1
-		&& ft_check_content(data.map, 'C') > 0)
+		&& ft_check_content(data.map, 'C') > 0
+		&& ft_check_content(data.map, 'M') >= 0)
 	{
 		ft_flood_fill(data.x, data.y, &data, &exit);
 		if (exit && data.p_collectibles == data.t_collectibles)

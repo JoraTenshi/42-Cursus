@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 10:54:05 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/25 11:12:43 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/12 11:08:15 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ void	ft_check_collectibles(t_data *data)
 		while (data->collectible_images[i])
 		{
 			if (data->collectible_images[i]->instances[0].x
-				== data->player->instances[0].x
+				== data->player->down->instances[0].x
 				&& data->collectible_images[i]->instances[0].y
-				== data->player->instances[0].y)
+				== data->player->down->instances[0].y)
 			{
 				data->collectible_images[i]->enabled = 0;
 				data->p_collectibles--;
