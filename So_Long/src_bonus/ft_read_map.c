@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 11:25:06 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/25 11:12:32 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/06/28 09:58:10 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,10 +116,10 @@ int	ft_map(char *file)
 	if (ft_valid_map(data) == 1
 		&& ft_check_characters(data.map, data.size_x, data.size_y))
 	{
-		ft_freemap(&data);
-		ft_read_map(file, &data);
 		data.mlx = mlx_init(data.size_x * 64, data.size_y * 64,
 				"So_long", false);
+		ft_freemap(&data);
+		ft_read_map(file, &data);
 		if (!data.mlx)
 			return (EXIT_FAILURE);
 		mlx_loop_hook(data.mlx, ft_update, &data);

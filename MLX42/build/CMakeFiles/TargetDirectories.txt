@@ -1,7 +1,7 @@
-/home/jora/42-Cursus/So_Long/MLX42/build/CMakeFiles/mlx42.dir
-/home/jora/42-Cursus/So_Long/MLX42/build/CMakeFiles/edit_cache.dir
-/home/jora/42-Cursus/So_Long/MLX42/build/CMakeFiles/rebuild_cache.dir
-/home/jora/42-Cursus/So_Long/MLX42/build/CMakeFiles/list_install_components.dir
-/home/jora/42-Cursus/So_Long/MLX42/build/CMakeFiles/install.dir
-/home/jora/42-Cursus/So_Long/MLX42/build/CMakeFiles/install/local.dir
-/home/jora/42-Cursus/So_Long/MLX42/build/CMakeFiles/install/strip.dir
+/srv/nfs4/sgoinfre/shared/MLX42/build/CMakeFiles/mlx42.dir
+/srv/nfs4/sgoinfre/shared/MLX42/build/CMakeFiles/edit_cache.dir
+/srv/nfs4/sgoinfre/shared/MLX42/build/CMakeFiles/rebuild_cache.dir
+/srv/nfs4/sgoinfre/shared/MLX42/build/CMakeFiles/list_install_components.dir
+/srv/nfs4/sgoinfre/shared/MLX42/build/CMakeFiles/install.dir
+/srv/nfs4/sgoinfre/shared/MLX42/build/CMakeFiles/install/local.dir
+/srv/nfs4/sgoinfre/shared/MLX42/build/CMakeFiles/install/strip.dir

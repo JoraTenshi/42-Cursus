@@ -32,7 +32,6 @@ clean:
 
 fclean: clean
 	@make fclean -C Libft
-	@make clean -C MLX42/build/
 
 re: fclean all
 rebug: fclean debug
