@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 11:25:06 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/28 09:58:10 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/04 17:04:03 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_read_map(char *file, t_data *data)
 	i = ft_map_size(file);
 	map = malloc((i + 1) * sizeof(char **));
 	if (!map)
-		return ;
+		exit(EXIT_FAILURE);
 	row = get_next_line(fd);
 	data->size_x = ft_strlen(row) - 1;
 	i = 0;

@@ -6,11 +6,40 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:53:06 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/28 10:05:03 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/04 17:34:49 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
+
+void	ft_check_textures(t_textures *textures)
+{
+	if (!textures->collectible)
+	{
+		ft_printf(RED"Error loading textures\n"DEFAULT);
+		exit(EXIT_FAILURE);
+	}
+	if (!textures->exit_closed)
+	{
+		ft_printf(RED"Error loading textures\n"DEFAULT);
+		exit(EXIT_FAILURE);
+	}
+	if (!textures->exit_open)
+	{
+		ft_printf(RED"Error loading textures\n"DEFAULT);
+		exit(EXIT_FAILURE);
+	}
+	if (!textures->floor)
+	{
+		ft_printf(RED"Error loading textures\n"DEFAULT);
+		exit(EXIT_FAILURE);
+	}
+	if (!textures->wall)
+	{
+		ft_printf(RED"Error loading textures\n"DEFAULT);
+		exit(EXIT_FAILURE);
+	}
+}
 
 void	ft_close(t_data *data)
 {

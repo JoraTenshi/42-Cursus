@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 10:03:20 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/05 12:34:56 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/02 13:22:15 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // void	ft_void(void)
 // {
 // 	system("leaks -q so_long");
-// }
+//}
 
 int	ft_check_ber(char	*argv)
 {

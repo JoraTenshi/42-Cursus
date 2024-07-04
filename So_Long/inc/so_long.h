@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 09:58:41 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/05 12:49:00 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/04 17:34:16 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include "../MLX42/include/MLX42/MLX42.h"
+
+# define RED "\033[0;31m"
+# define DEFAULT "\033[;0m"
+
+//# define malloc(...) NULL
 
 typedef struct s_textures
 {
@@ -244,5 +249,12 @@ int		ft_fill_map(t_data *data);
  * @param data 
  */
 void	ft_print_data(t_data *data);
+
+/**
+ * @brief Function to check textures are loaded properly
+ * 
+ * @param textures 
+ */
+void	ft_check_textures(t_textures *textures);
 
 #endif

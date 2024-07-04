@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 11:19:19 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/06 13:18:40 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/04 17:31:33 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	ft_textures(t_textures *textures)
 	textures->floor = mlx_load_png("textures/Tiles/Suelo1.png");
 	textures->wall = mlx_load_png("textures/Tiles/Pared2.png");
 	textures->player = mlx_load_png("textures/Wizard/Down.png");
+	ft_check_textures(textures);
 }
 
 void	ft_free_textures(t_textures *textures)

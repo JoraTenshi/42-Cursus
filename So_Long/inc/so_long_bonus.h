@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 09:58:41 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/25 11:13:04 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/04 17:30:02 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include "../MLX42/include/MLX42/MLX42.h"
+
+//# define malloc(...) NULL
 
 /*typedef struct s_textures
 {
@@ -350,5 +352,12 @@ void				ft_count_slime(t_data *data);
  * @param data 
  */
 void				ft_slime_movement(t_data *data);
+
+/**
+ * @brief Function to check textures are loaded properly
+ * 
+ * @param textures 
+ */
+void				ft_check_textures(t_textures *textures);
 
 #endif

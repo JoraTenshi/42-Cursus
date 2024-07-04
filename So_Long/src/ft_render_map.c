@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 11:54:01 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/05 12:05:16 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/04 17:04:28 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_render_exit(int i, int j, t_data *data)
 {
 	data->exit_image = malloc(sizeof(mlx_image_t *) * 2);
 	if (!data->exit_image)
-		return ;
+		exit(EXIT_FAILURE);
 	data->exit_image[0] = mlx_texture_to_image(data->mlx,
 			data->textures->exit_closed);
 	data->exit_image[1] = mlx_texture_to_image(data->mlx,
