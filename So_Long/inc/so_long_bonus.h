@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 09:58:41 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/04 17:30:02 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/04 17:37:59 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include "../MLX42/include/MLX42/MLX42.h"
+
+# define RED "\033[0;31m"
+# define DEFAULT "\033[;0m"
 
 //# define malloc(...) NULL
 

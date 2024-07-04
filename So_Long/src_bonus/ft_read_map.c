@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 11:25:06 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/04 17:04:03 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/04 17:38:22 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ void	ft_read_map(char *file, t_data *data)
 	if (!map)
 		exit(EXIT_FAILURE);
 	row = get_next_line(fd);
-	data->size_x = ft_strlen(row) - 1;
+	if (row != NULL)
+		data->size_x = ft_strlen(row) - 1;
 	i = 0;
 	while (row)
 	{
-		map[i] = ft_strdup(row);
-		i++;
+		map[i++] = ft_strdup(row);
 		free(row);
 		row = get_next_line(fd);
 	}
