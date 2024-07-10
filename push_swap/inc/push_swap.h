@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 11:00:40 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/06/28 12:02:51 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/10 11:46:02 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,18 @@
 # define PUSH_SWAP_H
 
 # include "../Libft/inc/libft/libft.h"
+# include <stdio.h>
 # include <limits.h>
 
 typedef struct s_stack
 {
-	/* data */
+	int				value;
+	int				index;
+	int				c_pos;
+	int				t_pos;
+	int				cost_a;
+	int				cost_b;
+	struct s_stack	*next;
 }	t_stack;
 
 typedef struct s_data
@@ -26,5 +33,33 @@ typedef struct s_data
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 }	t_data;
+
+void	pa(t_data *data);
+void	pb(t_data *data);
+void	sa(t_data *data);
+void	sb(t_data *data);
+void	ss(t_data *data);
+void	ra(t_data *data);
+void	rb(t_data *data);
+void	rr(t_data *data);
+void	rra(t_data *data);
+void	rrb(t_data *data);
+void	rrr(t_data *data);
+
+/**
+ * @brief Converts string to long
+ * 
+ * @param str 
+ * @return long 
+ */
+long	ft_atol(const char *str);
+
+/**
+ * @brief Function to get last node
+ * 
+ * @param stack 
+ * @return t_stack* 
+ */
+t_stack	*ft_last_node(t_stack *stack);
 
 #endif

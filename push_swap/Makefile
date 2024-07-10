@@ -1,7 +1,7 @@
 SRC = src/
 OBJ = obj/push_swap/
 
-CNAMES = 
+CNAMES = main ft_atol
 
 CHECKNAMES = 
 
