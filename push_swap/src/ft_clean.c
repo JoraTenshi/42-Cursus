@@ -1,49 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   ft_clean.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/10 11:44:15 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/12 12:39:39 by jcallejo         ###   ########.fr       */
+/*   Created: 2024/07/12 12:03:59 by jcallejo          #+#    #+#             */
+/*   Updated: 2024/07/12 12:10:16 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-t_stack	*ft_last_node(t_stack *stack)
+void	ft_clean_array(char **array)
 {
-	if (!stack)
-		return (NULL);
-	while (stack->next)
-		stack = stack->next;
-	return (stack);
-}
+	int	i;
 
-int	ft_check_sorted(t_stack *stack)
-{
-	t_stack	*aux;
-
-	aux = stack;
-	while (aux->next && aux->next->value > aux->value)
-		aux = aux->next;
-	if (aux->next == NULL)
-		return (1);
-	return (0);
-}
-
-int	ft_stack_size(t_stack *stack)
-{
-	t_stack	*aux;
-	int		i;
-
-	i = 0;
-	aux = stack;
-	while (aux)
+	if (array)
 	{
-		aux = aux->next;
-		i++;
+		i = 0;
+		while (array[i])
+		{
+			free(array[i]);
+			i++;
+		}
+		free(array);
 	}
-	return (i);
+}
+
+void	ft_clean_stack(t_stack *stack)
+{
+	t_stack	*node;
+
+	while (stack)
+	{
+		node = stack;
+		stack = stack->next;
+		free(node);
+	}
 }

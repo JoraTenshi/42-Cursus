@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 11:00:40 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/10 11:46:02 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/12 12:26:15 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,68 @@ long	ft_atol(const char *str);
  * @return t_stack* 
  */
 t_stack	*ft_last_node(t_stack *stack);
+
+/**
+ * @brief Creates the stack
+ * 
+ * @param argc 
+ * @param argv 
+ * @return t_stack 
+ */
+t_stack	*ft_init(int argc, char **argv);
+
+/**
+ * @brief Check all the members in stack are numbers
+ * 
+ * @param split 
+ * @return int 
+ */
+int		ft_check_numbers(char **split);
+
+/**
+ * @brief Check if all members in stack are int
+ * 
+ * @param split 
+ * @return int 
+ */
+int		ft_check_range(char **split);
+
+/**
+ * @brief Cleans arrays
+ * 
+ * @param array 
+ */
+void	ft_clean_array(char **array);
+
+/**
+ * @brief Cleans stacks
+ * 
+ * @param stack 
+ */
+void	ft_clean_stack(t_stack *stack);
+
+/**
+ * @brief Checks if provided stack is sorted
+ * 
+ * @param stack 
+ * @return int 
+ */
+int		ft_check_sorted(t_stack *stack);
+
+/**
+ * @brief Check errors in provided stack
+ * 
+ * @param data 
+ * @return int 
+ */
+int		ft_errors(t_data *data);
+
+/**
+ * @brief Strlen, but with stacks
+ * 
+ * @param stack 
+ * @return int 
+ */
+int		ft_stack_size(t_stack *stack);
 
 #endif
