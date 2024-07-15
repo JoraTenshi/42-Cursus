@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 11:00:25 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/12 12:43:02 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/15 11:59:05 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int	main(int argc, char **argv)
 		data.stack_a = ft_init(argc, argv);
 		if (!ft_errors(&data) && !ft_check_sorted(data.stack_a))
 		{
-			
+			ft_index(&data);
+			ft_sort(&data);
 		}
 		else
 			return (1);

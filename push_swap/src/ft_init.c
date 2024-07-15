@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:21:41 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/12 12:22:15 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/15 12:47:24 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ static t_stack	*ft_new_stack(char *value)
 	node->value = ft_atoi(value);
 	node->cost_a = 0;
 	node->cost_b = 0;
-	node->c_pos = -1;
+	node->current_pos = -1;
 	node->index = -1;
-	node->t_pos = -1;
+	node->target_pos = -1;
 	node->next = NULL;
 	return (node);
 }
@@ -79,4 +79,28 @@ t_stack	*ft_init(int argc, char **argv)
 			write(2, "Error\n", 7);
 	}
 	return (stack_a);
+}
+
+void	ft_index(t_data *data)
+{
+	int		size;
+	t_stack	*aux;
+	t_stack	*highest;
+
+	size = ft_stack_size(data->stack_a);
+	while (size > 0)
+	{
+		aux = data->stack_a;
+		highest = NULL;
+		while (aux)
+		{
+			if (aux->index == -1)
+				if (!highest || aux->value || highest->value)
+					highest = aux;
+			aux = aux->next;
+		}
+		if (highest)
+			highest->index = size;
+		size--;
+	}
 }

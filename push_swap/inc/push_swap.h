@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 11:00:40 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/12 12:26:15 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/15 12:47:24 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ typedef struct s_stack
 {
 	int				value;
 	int				index;
-	int				c_pos;
-	int				t_pos;
+	int				current_pos;
+	int				target_pos;
 	int				cost_a;
 	int				cost_b;
 	struct s_stack	*next;
@@ -124,5 +124,26 @@ int		ft_errors(t_data *data);
  * @return int 
  */
 int		ft_stack_size(t_stack *stack);
+
+/**
+ * @brief Indexes stack
+ * 
+ * @param data 
+ */
+void	ft_index(t_data *data);
+
+/**
+ * @brief Check the sorting of stack, and if not sorted, sorts
+ * 
+ * @param data 
+ */
+void	ft_sort(t_data *data);
+
+/**
+ * @brief Looks for the position a number has to get to get sorted
+ * 
+ * @param data 
+ */
+void	ft_target_pos(t_data *data);
 
 #endif
