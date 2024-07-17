@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 12:30:18 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/15 12:47:24 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/17 11:14:02 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,30 @@ static void	ft_set_pos(t_stack *stack)
 
 static	int	ft_get_target(t_stack *stack, int index_b, int index_t, int target)
 {
-	
+	t_stack	*aux;
+
+	aux = stack;
+	while (aux)
+	{
+		if (aux->index > index_b && aux->index < index_t)
+		{
+			index_t = aux->index;
+			target = aux->current_pos;
+		}
+		aux = aux->next;
+	}
+	if (index_t != INT_MAX)
+		return (target);
+	aux = stack;
+	while (aux)
+	{
+		if (aux->index < index_t)
+		{
+			index_t = aux->index;
+			target = aux->current_pos;
+		}
+		aux = aux->next;
+	}
 }
 
 void	ft_target_pos(t_data *data)

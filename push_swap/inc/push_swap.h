@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 11:00:40 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/15 12:47:24 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/17 12:02:09 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,5 +145,20 @@ void	ft_sort(t_data *data);
  * @param data 
  */
 void	ft_target_pos(t_data *data);
+
+/**
+ * @brief Calculates where to you have to move the stack
+ * 
+ * @param data 
+ */
+void	ft_calculate_cost(t_data *data);
+
+/**
+ * @brief Checks what is the cheaper move to make
+ * 
+ * @param data 
+ * @return t_stack* 
+ */
+t_stack	*ft_cheaper(t_data *data);
 
 #endif
