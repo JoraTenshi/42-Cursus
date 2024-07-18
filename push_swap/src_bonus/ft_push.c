@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 11:22:32 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/18 13:07:48 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/18 13:08:02 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	pa(t_data *data)
 			data->stack_a->next = aux;
 		}
 	}
-	write (1, "pa\n", 3);
 }
 
 void	pb(t_data *data)
@@ -55,5 +54,4 @@ void	pb(t_data *data)
 			data->stack_b->next = aux;
 		}
 	}
-	write (1, "pb\n", 3);
 }

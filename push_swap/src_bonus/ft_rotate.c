@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 11:22:54 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/18 13:12:46 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/18 13:11:59 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	ra(t_data *data)
 	last->next = data->stack_a;
 	data->stack_a = data->stack_a->next;
 	last->next->next = NULL;
-	write (1, "ra\n", 3);
 }
 
 void	rb(t_data *data)
@@ -35,7 +34,6 @@ void	rb(t_data *data)
 	last->next = data->stack_b;
 	data->stack_b = data->stack_b->next;
 	last->next->next = NULL;
-	write (1, "rb\n", 3);
 }
 
 void	rr(t_data *data)
@@ -52,5 +50,4 @@ void	rr(t_data *data)
 	last->next = data->stack_b;
 	data->stack_b = data->stack_b->next;
 	last->next->next = NULL;
-	write(1, "rr\n", 3);
 }
