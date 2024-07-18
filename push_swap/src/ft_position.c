@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 12:30:18 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/17 11:14:02 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/18 10:18:13 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ static	int	ft_get_target(t_stack *stack, int index_b, int index_t, int target)
 		}
 		aux = aux->next;
 	}
+	return (target);
 }
 
 void	ft_target_pos(t_data *data)

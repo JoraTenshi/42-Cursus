@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 11:36:50 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/17 12:37:30 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/18 11:35:14 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,9 +116,9 @@ void	ft_sort(t_data *data)
 	size = ft_stack_size(data->stack_a);
 	if (size == 1)
 		return ;
-	if (size == 2 && !ft_check_sorted(data->stack_a))
+	else if (size == 2 && !ft_check_sorted(data->stack_a))
 		sa(data);
-	if (size == 3 && !ft_check_sorted(data->stack_a))
+	else if (size == 3 && !ft_check_sorted(data->stack_a))
 		ft_three_sort(data);
 	else
 		ft_sort_stack(data);

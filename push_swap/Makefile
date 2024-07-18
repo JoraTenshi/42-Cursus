@@ -1,14 +1,12 @@
 SRC = src/
 OBJ = obj/push_swap/
 
-CNAMES = main ft_atol
-
-CHECKNAMES = 
+CNAMES = main ft_atol ft_push ft_rotate ft_rrotate ft_swap ft_clean ft_cost ft_errors ft_init ft_position ft_sort ft_utils 
 
 CFILES = $(addprefix $(SRC), $(addsuffix .c, $(CNAMES)))
 OFILES = $(addprefix $(OBJ), $(addsuffix .o, $(CNAMES)))
-CHECKFILES = $(addprefix $(SRCCHK), $(addsuffix .c, $(CHECKNAMES)))
-OCHECK = $(addprefix $(CHECKOBJ), $(addsuffix .o, $(CHECKNAMES)))
+#CHECKFILES = $(addprefix $(SRCCHK), $(addsuffix .c, $(CHECKNAMES)))
+#OCHECK = $(addprefix $(CHECKOBJ), $(addsuffix .o, $(CHECKNAMES)))
 
 LIBFT = Libft/libft.a
 
@@ -21,6 +19,7 @@ $(NAME): $(OFILES) $(LIBFT)
 
 $(OFILES): $(CFILES)
 	@mkdir -p $(OBJ)
+	@mkdir -p $(OBJ)/moves
 	@gcc -Wall -Wextra -Werror -c $(CFILES)
 	@mv *.o $(OBJ)
 
@@ -28,7 +27,7 @@ $(LIBFT):
 	@make -C Libft
 
 debug: $(LIBFT)
-	@gcc -Wall -Wextra -Werror $(CFILES) $(LIBFT) -o $(NAME) -g
+	@gcc -Wall -Wextra -Werror $(CFILES) $(LIBFT) -o $(NAME) -g -fsanitize=address
 
 clean:
 	@rm -rf $(NAME)
@@ -39,4 +38,6 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re debug py
+rebug: fclean debug
+
+.PHONY: all clean fclean re debug rebug

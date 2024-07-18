@@ -6,11 +6,11 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 11:22:56 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/10 11:43:51 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/18 10:20:52 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
 void	rra(t_data *data)
 {

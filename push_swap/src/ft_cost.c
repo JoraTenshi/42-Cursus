@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 11:31:12 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/17 12:01:42 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/18 11:39:09 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ void	ft_calculate_cost(t_data *data)
 		aux->cost_b = aux->current_pos;
 		if (aux->current_pos > sizeb / 2)
 			aux->cost_b = (sizeb - aux->current_pos) * -1;
-		aux->cost_a = aux->current_pos;
-		if (aux->current_pos > sizea / 2)
-			aux->cost_a = (sizea - aux->current_pos) * -1;
+		aux->cost_a = aux->target_pos;
+		if (aux->target_pos > sizea / 2)
+			aux->cost_a = (sizea - aux->target_pos) * -1;
+		aux = aux->next;
 	}
 }
 

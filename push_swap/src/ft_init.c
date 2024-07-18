@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:21:41 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/15 12:47:24 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/18 11:03:58 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	ft_index(t_data *data)
 		while (aux)
 		{
 			if (aux->index == -1)
-				if (!highest || aux->value || highest->value)
+				if (!highest || aux->value > highest->value)
 					highest = aux;
 			aux = aux->next;
 		}
