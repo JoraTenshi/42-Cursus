@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 11:27:54 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/30 13:05:28 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/31 11:42:26 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_init_data(t_data	*data, char **argv)
 		data->must_eat = ft_atoi(argv[5]);
 	else
 		data->must_eat = 0;
-	data->are_alive = 1;
+	data->still_breathing = 1;
 	data->forks = malloc(sizeof(pthread_mutex_t) * data->philo_n);
 	if (!data->forks)
 		return (ft_errors(ERROR_FORK_ARRAY, data));
@@ -31,6 +31,29 @@ void	ft_init_data(t_data	*data, char **argv)
 		return (ft_errors(ERROR_WRITE, data));
 	if (pthread_mutex_init(&data->check, NULL))
 		return (ft_errors(ERROR_CHECK, data));
+}
+
+static void	ft_create_forks(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < data->philo_n)
+	{
+		if (pthread_mutex_init(&data->forks[i], NULL))
+			return (ft_errors(ERROR_FORK, data));
+		i++;
+	}
+	i = 0;
+	while (i < data->philo_n)
+	{
+		data->philosophers[i]->rfork = &data->forks[i];
+		if (i == 0)
+			data->philosophers[i]->lfork = &data->forks[data->philo_n - 1];
+		else
+			data->philosophers[i]->lfork = &data->forks[i - 1];
+		i++;
+	}
 }
 
 void	ft_create_philo(t_data *data)
@@ -47,12 +70,27 @@ void	ft_create_philo(t_data *data)
 		if (!data->philosophers[i])
 			ft_errors(ERROR_PHILO, data);
 		data->philosophers[i]->times_nomd = 0;
-		data->philosophers[i]->philo_id = i + 1;
+		data->philosophers[i]->id = i + 1;
 		data->philosophers[i]->last_nom = ft_current_time(data);
 		data->philosophers[i]->data = data;
 		if (pthread_mutex_init(&data->philosophers[i]->lock, NULL))
 			return (ft_errors(ERROR_PHILO, data));
 		i++;
 	}
-	ft_create_forks(); //hacerla encima
+	ft_create_forks(data);
+}
+
+void	ft_philo_initializer(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < data->philo_n)
+	{
+		if (pthread_create(&data->philosophers[i]->thread, NULL,
+				&ft_routine, data->philosophers[i]))
+			return (ft_errors(ERROR_PHILO, data));
+		i++;
+		usleep(100);
+	}
 }

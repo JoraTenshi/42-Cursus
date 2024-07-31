@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 11:30:56 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/30 13:03:04 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/07/31 11:46:41 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define ERROR_WRITE 		4
 # define ERROR_CHECK 		5
 
-# define STATUS_PHILO		1
+# define STATUS_TINK		1
 # define STATUS_EEP			2
 # define STATUS_TAKE_FORK	3
 # define STATUS_NOM			4
@@ -40,7 +40,7 @@ typedef struct data
 	struct s_philosophers				**philosophers;
 	int									philo_n;
 	int									must_eat;
-	int									are_alive;
+	int									still_breathing;
 	long								start_time;
 	long								t_to_die;
 	long								t_to_eep;
@@ -52,7 +52,7 @@ typedef struct data
 typedef struct s_philosophers
 {
 	t_data				*data;
-	int					philo_id;
+	int					id;
 	int					times_nomd;
 	long				last_nom;
 	pthread_t			thread;
@@ -106,5 +106,37 @@ long	ft_current_time(t_data *data);
  * @return long 
  */
 long	ft_get_time(void);
+
+/**
+ * @brief Checks number of arguments and numbers are correct
+ * 
+ * @param argc 
+ * @param argv 
+ * @return int 
+ */
+int		ft_check(int argc, char **argv);
+
+/**
+ * @brief Checks is_alive and comunicates it to main
+ * 
+ * @param data 
+ * @return int 
+ */
+int		ft_are_still_breathing(t_data *data);
+
+/**
+ * @brief Function that call and manages the other routines
+ * 
+ * @param arg 
+ */
+void	ft_routine(void *arg);
+
+/**
+ * @brief Prints the status of each philosopher
+ * 
+ * @param philo 
+ * @param status 
+ */
+void	ft_print_routine(t_philo *philo, int status);
 
 #endif
