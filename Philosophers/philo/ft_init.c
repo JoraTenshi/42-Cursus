@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 11:27:54 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/31 11:42:26 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/08/01 12:20:32 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	ft_init_data(t_data	*data, char **argv)
 	data->t_to_eep = ft_atoi(argv[3]);
 	data->t_to_nom = ft_atoi(argv[4]);
 	if (argv[5])
-		data->must_eat = ft_atoi(argv[5]);
+		data->must_nom = ft_atoi(argv[5]);
 	else
-		data->must_eat = 0;
+		data->must_nom = 0;
 	data->still_breathing = 1;
 	data->forks = malloc(sizeof(pthread_mutex_t) * data->philo_n);
 	if (!data->forks)

@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 11:30:56 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/31 11:46:41 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/08/01 12:53:11 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct data
 	pthread_mutex_t						*forks;
 	struct s_philosophers				**philosophers;
 	int									philo_n;
-	int									must_eat;
+	int									must_nom;
 	int									still_breathing;
 	long								start_time;
 	long								t_to_die;
@@ -138,5 +138,27 @@ void	ft_routine(void *arg);
  * @param status 
  */
 void	ft_print_routine(t_philo *philo, int status);
+
+/**
+ * @brief Initializes each philosopher
+ * 
+ * @param data 
+ */
+void	ft_philo_initializer(t_data *data);
+
+/**
+ * @brief Checks if each philo is still alive
+ * 
+ * @param data 
+ * @return int 
+ */
+int		ft_alive_check(t_philo *philo);
+
+/**
+ * @brief Cleans up everything
+ * 
+ * @param data 
+ */
+void	ft_clean(t_data *data);
 
 #endif

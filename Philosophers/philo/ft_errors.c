@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 11:24:11 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/31 11:17:55 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/08/01 11:30:29 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,4 @@ int	ft_check(int argc, char **argv)
 		return (0);
 	}
 	return (1);
-}
-
-int	ft_are_still_breathing(t_data *data)
-{
-	pthread_mutex_lock(&data->check);
-	if (data->still_breathing)
-	{
-		pthread_mutex_unlock(&data->check);
-		return (1);
-	}
-	pthread_mutex_unlock(&data->check);
-	return (0);
 }
