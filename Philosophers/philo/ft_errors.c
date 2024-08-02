@@ -6,13 +6,13 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 11:24:11 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/08/01 11:30:29 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/08/02 11:22:41 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-int	ft_errors(int error_n, t_data *data)
+void	ft_errors(int error_n)
 {
 	if (error_n == ERROR_PHILO)
 		printf("Error creating philosopher\n");

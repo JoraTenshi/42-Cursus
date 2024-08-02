@@ -1,7 +1,7 @@
-SRC = src/
+SRC = ./
 OBJ = obj/
 
-CNAMES = main
+CNAMES = ft_atoi ft_clean ft_errors ft_init ft_routines ft_time ft_utils main
 
 CFILES = $(addprefix $(SRC), $(addsuffix .c, $(CNAMES)))
 OFILES = $(addprefix $(OBJ), $(addsuffix .o, $(CNAMES)))
@@ -20,14 +20,14 @@ $(OFILES): $(CFILES)
 	@mv *.o $(OBJ)
 
 debug:
-	@gcc -Wall -Wextra -Werror $(CFILES) -o $(NAME) -g -fsanitize=address
+	@gcc -Wall -Wextra -Werror $(CFILES) -o $(NAME) -g
 
 clean:
 	@rm -rf $(NAME)
-	@rm -rf obj/
 	@echo Cleaning...
 
 fclean: clean
+	@rm -rf obj/
 
 re: fclean all
 

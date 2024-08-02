@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 11:32:13 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/08/01 12:28:52 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/08/02 11:27:31 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,17 @@ int	ft_are_still_breathing(t_data *data)
 
 int	ft_alive_check(t_philo *philo)
 {
-	pthread_mutex_lock(philo->lock);
+	pthread_mutex_lock(&philo->lock);
 	if (philo->data->t_to_die < ft_current_time(philo->data) - philo->last_nom)
 	{
-		pthread_mutex_unlock(philo->lock);
-		pthread_mutex_lock(philo->data->check);
+		pthread_mutex_unlock(&philo->lock);
+		pthread_mutex_lock(&philo->data->check);
 		philo->data->still_breathing = 0;
-		pthread_mutex_unlock(philo->data->check);
+		pthread_mutex_unlock(&philo->data->check);
 		ft_print_routine(philo, STATUS_DIE);
 		return (0);
 	}
-	pthread_mutex_unlock(philo->lock);
+	pthread_mutex_unlock(&philo->lock);
 	return (1);
 }
 
@@ -84,18 +84,18 @@ int	ft_check_philos(t_data *data)
 	{
 		if (!ft_alive_check(data->philosophers[i]))
 			return (1);
-		pthread_mutex_lock(data->check);
+		pthread_mutex_lock(&data->check);
 		if (data->must_nom == 0
 			|| data->philosophers[i]->times_nomd < data->must_nom)
 			finish_nomming = 0;
-		pthread_mutex_unlock(data->check);
+		pthread_mutex_unlock(&data->check);
 		i++;
 	}
 	if (finish_nomming)
 	{
-		pthread_mutex_lock(data->check);
+		pthread_mutex_lock(&data->check);
 		data->still_breathing = 0;
-		pthread_mutex_unlock(data->check);
+		pthread_mutex_unlock(&data->check);
 	}
-	return (full_eat);
+	return (finish_nomming);
 }

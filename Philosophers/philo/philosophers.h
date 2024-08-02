@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 11:30:56 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/08/01 12:53:11 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/08/02 11:29:37 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int		ft_atoi(const char *str);
  * @param data 
  * @return int 
  */
-int		ft_errors(int error_n, t_data *data);
+void	ft_errors(int error_n);
 
 /**
  * @brief Initializes data, but not philosophers
@@ -129,7 +129,7 @@ int		ft_are_still_breathing(t_data *data);
  * 
  * @param arg 
  */
-void	ft_routine(void *arg);
+void	*ft_routine(void *arg);
 
 /**
  * @brief Prints the status of each philosopher
@@ -160,5 +160,13 @@ int		ft_alive_check(t_philo *philo);
  * @param data 
  */
 void	ft_clean(t_data *data);
+
+/**
+ * @brief Checks aliveness of philos and if they have finished eating
+ * 
+ * @param data 
+ * @return int 
+ */
+int		ft_check_philos(t_data *data);
 
 #endif

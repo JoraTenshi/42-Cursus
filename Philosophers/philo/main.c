@@ -6,11 +6,16 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 11:30:44 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/08/01 12:45:09 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/08/02 11:44:01 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
+// void	ft_void(void)
+// {
+// 	system("leaks -q so_long");
+// }
 
 static void	ft_loop(t_data *data)
 {
@@ -21,7 +26,9 @@ static void	ft_loop(t_data *data)
 	}
 }
 
-int	main(int argc, char const **argv)
+//	atexit(ft_void);
+
+int	main(int argc, char **argv)
 {
 	t_data	data;
 

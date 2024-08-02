@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 11:22:08 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/31 12:06:14 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/08/02 11:25:50 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static void	tink(t_philo *philo)
 	}
 }
 
-void	ft_routine(void *arg)
+void	*ft_routine(void *arg)
 {
 	t_philo	*philo;
 

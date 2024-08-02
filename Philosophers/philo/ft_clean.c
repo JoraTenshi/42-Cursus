@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:45:41 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/08/01 13:09:01 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/08/02 11:20:45 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	ft_free_philos(t_data *data)
 	i = 0;
 	while (i < data->philo_n)
 	{
-		pthread_mutex_destroy(data->philosophers[i]->lock);
+		pthread_mutex_destroy(&data->philosophers[i]->lock);
 		free (data->philosophers[i++]);
 	}
 	free (data->philosophers);
