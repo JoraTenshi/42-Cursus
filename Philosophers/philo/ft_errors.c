@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 11:24:11 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/08/02 11:22:41 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/08/09 11:07:02 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_check(int argc, char **argv)
 	{
 		if (ft_atoi(argv[i]) <= 0)
 		{
-			printf("Every argument has to be bigger than zero\n");
+			printf("Every argument has to be a number greater than zero\n");
 			return (0);
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 11:32:13 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/08/02 11:27:31 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/08/09 11:19:32 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	ft_print_routine(t_philo *philo, int status)
 		free_mutex(philo);
 		return ;
 	}
-	pthread_mutex_unlock(&philo->data->check);
 	if (status == STATUS_DIE)
 		printf(RED"%ld %d died\n"DEFAULT,
 			ft_current_time(philo->data), philo->id);
@@ -42,6 +41,7 @@ void	ft_print_routine(t_philo *philo, int status)
 	else if (status == STATUS_TAKE_FORK)
 		printf("%ld %d has taken a fork\n",
 			ft_current_time(philo->data), philo->id);
+	pthread_mutex_unlock(&philo->data->check);
 	pthread_mutex_unlock(&philo->data->write);
 }
 
