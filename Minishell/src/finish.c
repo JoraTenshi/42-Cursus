@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_clean.c                                         :+:      :+:    :+:   */
+/*   finish.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/12 12:03:59 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/11/26 12:46:13 by jcallejo         ###   ########.fr       */
+/*   Created: 2024/10/17 10:28:18 by aarenas-          #+#    #+#             */
+/*   Updated: 2024/11/08 11:54:51 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../include/minishell.h"
 
-void	ft_cl_ar(char **array)
+static void	ft_free_tenv(t_env **lst)
 {
-	int	i;
+	t_env	*aux;
 
-	if (array)
+	if (!lst)
+		return ;
+	while (*lst)
 	{
-		i = 0;
-		while (array[i])
-		{
-			free(array[i]);
-			i++;
-		}
-		free(array);
+		if ((*lst)->name)
+			free((*lst)->name);
+		if ((*lst)->value)
+			free((*lst)->value);
+		(*lst)->name = NULL;
+		(*lst)->value = NULL;
+		aux = *lst;
+		*lst = (*lst)->next;
+		free(aux);
 	}
 }
 
-void	ft_clean_stack(t_stack *stack)
+void	ft_free_data(t_data *data)
 {
-	t_stack	*node;
-
-	while (stack)
-	{
-		node = stack;
-		stack = stack->next;
-		free(node);
-	}
+	ft_free_tenv(&data->env);
+	ft_free_tenv(&data->env_export);
 }

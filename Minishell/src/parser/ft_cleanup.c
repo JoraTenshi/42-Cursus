@@ -1,16 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_clean.c                                         :+:      :+:    :+:   */
+/*   ft_cleanup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/12 12:03:59 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/11/26 12:46:13 by jcallejo         ###   ########.fr       */
+/*   Created: 2024/10/01 11:04:12 by jcallejo          #+#    #+#             */
+/*   Updated: 2024/11/28 10:34:53 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../include/minishell.h"
+
+void	ft_clean_cmd(t_data *data)
+{
+	t_cmd	*aux;
+	t_redir	*raux;
+
+	while (data->cmd)
+	{
+		aux = data->cmd;
+		data->cmd = data->cmd->next;
+		free(aux->path);
+		ft_cl_ar(aux->argv);
+		while (aux->redir)
+		{
+			raux = aux->redir;
+			aux->redir = aux->redir->next;
+			free(raux->file);
+			free(raux);
+		}
+		free(aux);
+	}
+	if (ft_get_flag() == 3)
+		data->error = 130;
+	else if (ft_get_flag() == 4)
+		data->error = 131;
+}
 
 void	ft_cl_ar(char **array)
 {
@@ -25,17 +51,5 @@ void	ft_cl_ar(char **array)
 			i++;
 		}
 		free(array);
-	}
-}
-
-void	ft_clean_stack(t_stack *stack)
-{
-	t_stack	*node;
-
-	while (stack)
-	{
-		node = stack;
-		stack = stack->next;
-		free(node);
 	}
 }

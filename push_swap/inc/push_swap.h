@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 11:00:40 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/17 12:02:09 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/11/26 12:46:13 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int		ft_check_range(char **split);
  * 
  * @param array 
  */
-void	ft_clean_array(char **array);
+void	ft_cl_ar(char **array);
 
 /**
  * @brief Cleans stacks

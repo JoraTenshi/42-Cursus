@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:21:41 by jcallejo          #+#    #+#             */
-/*   Updated: 2024/07/18 11:03:58 by jcallejo         ###   ########.fr       */
+/*   Updated: 2024/11/26 12:46:13 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ t_stack	*ft_init(int argc, char **argv)
 			stack_a = fill_stack(split);
 		else
 			write(2, "Error\n", 7);
-		ft_clean_array(split);
+		ft_cl_ar(split);
 	}
 	else
 	{
