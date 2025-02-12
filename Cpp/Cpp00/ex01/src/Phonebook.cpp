@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 12:22:47 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/02/11 13:24:31 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/02/12 12:46:35 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,19 @@ int	Phonebook::getMaxIndex() const
 	return maxIndex;
 }
 
+static bool	isDigits(std::string input)
+{
+	int	value;
+	
+	for (size_t i = 0; i < input.length(); i++)
+	{
+		value = input[i];
+		if (value < 48 || value > 57)
+			return (false);
+	}
+	return (true);
+}
+
 int	Phonebook::readIndex() const
 {
 	int				index;
@@ -66,18 +79,20 @@ int	Phonebook::readIndex() const
 	do {
 		std::cout << "Input index: ";
 		std::getline(std::cin, input);
-		index = std::atoi(input.c_str());
-		for (int i = 0; i < 8; i++)
+		if (std::cin.good() && isDigits(input) && input[0] != 0)
 		{
-			if (index >= 0 && contacts[i].getIndex() == index)
+			index = std::atoi(input.c_str());
+			for (int i = 0; i < 8; i++)
 			{
-				valid = true;
-				break;
+				if (index >= 0 && contacts[i].getIndex() == index)
+				{
+					valid = true;
+					break;
+				}
+				else
+					valid = false;
 			}
-			else
-				valid = false;
-		}
-					
+		}			
 	} while (!valid);
 	return (index);
 }
