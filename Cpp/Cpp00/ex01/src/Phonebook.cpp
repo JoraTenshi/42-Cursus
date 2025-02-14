@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 12:22:47 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/02/12 12:46:35 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/02/14 10:59:59 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	Phonebook::printTable() const
 
 void	Phonebook::printContact(int index) const 
 {
+	if (index == -1)
+		return ;
 	contacts[index % 8].printContact();
 }
 
@@ -79,6 +81,8 @@ int	Phonebook::readIndex() const
 	do {
 		std::cout << "Input index: ";
 		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return -1;
 		if (std::cin.good() && isDigits(input) && input[0] != 0)
 		{
 			index = std::atoi(input.c_str());

@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 10:46:39 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/02/12 12:27:33 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/02/14 12:32:55 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Account::Account(int initial_deposit)
 	_nbDeposits = 0;
 	_nbWithdrawals = 0;
 	Account::_nbAccounts++;
-	Account::_totalAmount = initial_deposit;
+	Account::_totalAmount += initial_deposit;
 	Account::_totalNbDeposits = 0;
 	Account::_totalNbWithdrawals = 0;
 	Account::_displayTimestamp();
