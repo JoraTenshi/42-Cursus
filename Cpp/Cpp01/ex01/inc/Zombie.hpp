@@ -5,23 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/14 11:24:59 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/02/18 11:38:26 by jcallejo         ###   ########.fr       */
+/*   Created: 2025/02/18 11:22:59 by jcallejo          #+#    #+#             */
+/*   Updated: 2025/02/18 11:38:13 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <iostream>
 
 #ifndef ZOMBIE_HPP
 #define ZOMBIE_HPP
 
-class Zombie
+#include <iostream>
+
+class	Zombie
 {
 	private:
-		std::string	_name;
-
+		std::string _name;
+		
 	public:
-
+		
 		/**
 		 * @brief Construct a new Zombie object
 		 * 
@@ -35,32 +35,26 @@ class Zombie
 		~Zombie();
 
 		/**
-		 * @brief Construct a new Zombie object
+		 * @brief Construct a new Zombie object with name
 		 * 
+		 * @param name 
 		 */
-		Zombie(std::string zombieName);
+		Zombie(std::string name);
 
 		/**
-		 * @brief Announces zombie with message
+		 * @brief Announces the zombie
 		 * 
 		 */
-		void	announce ( void ) const;
-		
-	};
-	
-/**
- * @brief Creates and allocates a zombie object
- * 
- * @param name 
- * @return Zombie* 
- */
-Zombie* newZombie (std::string name);
+		void	announce() const;
 
-/**
- * @brief Creates a Chump
- * 
- * @param name 
- */
-void	randomChump (std::string name);
+		/**
+		 * @brief Gives name to  a zombie
+		 * 
+		 * @param name 
+		 */
+		void	setName(std::string name);
+};
+
+Zombie* zombieHorde(int N, std::string name);
 
 #endif

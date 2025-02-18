@@ -1,4 +1,4 @@
-CNAMES = main newZombie randomChump Zombie
+CNAMES = main
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 
 
@@ -8,7 +8,7 @@ OBJ = obj/
 CFILES = $(addprefix $(SRC), $(addsuffix .cpp, $(CNAMES)))
 OFILES = $(addprefix $(OBJ), $(addsuffix .o, $(CNAMES)))
 
-NAME = Zombie
+NAME = Brain
 
 all: $(NAME)
 
