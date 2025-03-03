@@ -1,58 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   Sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 12:04:11 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/02/24 12:55:16 by jcallejo         ###   ########.fr       */
+/*   Created: 2025/02/24 13:13:19 by jcallejo          #+#    #+#             */
+/*   Updated: 2025/03/03 11:21:54 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-#define WEAPON_HPP
+#ifndef SED_HPP
+#define SED_HPP
 
 #include <iostream>
+#include <fstream>
 
-class Weapon
+class Sed
 {
 	private:
-		std::string	_type;
-		
+		std::string _filename;
+	
 	public:
 	
 		/**
-		 * @brief Construct a new Weapon object
+		 * @brief Construct a new Sed object
 		 * 
+		 * @param filename 
 		 */
-		Weapon();
-
-		/**
-		 * @brief Construct a new Weapon object
-		 * 
-		 * @param type 
-		 */
-		Weapon(std::string type);
-
-		/**
-		 * @brief Destroy the Weapon object
-		 * 
-		 */
-		~Weapon();
+		Sed(std::string filename);
 		
 		/**
-		 * @brief Get the Type object
+		 * @brief Destroy the Sed object
 		 * 
-		 * @return std::string 
 		 */
-		std::string	getType() const;
+		~Sed();
 
 		/**
-		 * @brief Set the Type object
+		 * @brief Replaces s1 with s2
 		 * 
+		 * @param s1 
+		 * @param s2 
 		 */
-		void		setType(std::string type);
+		void	replace(std::string s1, std::string s2);
 };
 
 #endif

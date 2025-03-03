@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 12:04:48 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/02/24 12:49:18 by jcallejo         ###   ########.fr       */
+/*   Created: 2025/03/03 10:46:39 by jcallejo          #+#    #+#             */
+/*   Updated: 2025/03/03 11:33:39 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Weapon.hpp"
+#include "../inc/Sed.hpp"
 
-Weapon::Weapon(){};
-
-Weapon::Weapon(std::string type)
+int	main(int argc, char **argv)
 {
-	this->_type = type;
-}
-
-Weapon::~Weapon()
-{
-	std::cout << "Weapon " << this->_type << " has been destroyed." << std::endl;
-}
-
-std::string Weapon::getType() const
-{
-	return (this->_type);
-}
-
-void	Weapon::setType(std::string type)
-{
-	this->_type = type;
+	if (argc != 4)
+	{
+		std::cerr << "Usage: ./sed [filename] [s1] [s2]" << std::endl;
+		return (1);
+	}
+	Sed	sed(argv[1]);
+	sed.replace(argv[2], argv[3]);
+	return (0);
 }

@@ -1,4 +1,4 @@
-CNAMES = HumanA HumanB main Weapon
+CNAMES = main Sed
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 
 
@@ -8,7 +8,7 @@ OBJ = obj/
 CFILES = $(addprefix $(SRC), $(addsuffix .cpp, $(CNAMES)))
 OFILES = $(addprefix $(OBJ), $(addsuffix .o, $(CNAMES)))
 
-NAME = violence
+NAME = Sed
 
 all: $(NAME)
 
