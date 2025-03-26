@@ -8,7 +8,7 @@ OBJ = obj/
 CFILES = $(addprefix $(SRC), $(addsuffix .cpp, $(CNAMES)))
 OFILES = $(addprefix $(OBJ), $(addsuffix .o, $(CNAMES)))
 
-NAME = fixedpoint
+NAME = fixednfloat
 
 all: $(NAME)
 
