@@ -1,0 +1,8 @@
+*.out
+*.o
+.vscode
+.dSYM
+.DS_Store
+*.a
+*.dSYM
+MLX42/

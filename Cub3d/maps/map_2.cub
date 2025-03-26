@@ -1,0 +1,12 @@
+NO ./textures/bluestone.png
+SO ./textures/colorstone.png
+WE ./textures/purplestone.png
+EA ./textures/greystone.png
+F 128,128,128
+C 150,30,0
+
+1111111111111111
+1000000000000001
+1000000N00000001
+1000000000000001
+1111111111111111
