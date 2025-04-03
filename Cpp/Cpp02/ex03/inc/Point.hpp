@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 10:34:05 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/03/27 10:36:17 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:50:51 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ class Point
 			Fixed getX() const;
 			Fixed getY() const;
 };
+
+bool bsp(Point const a, Point const b, Point const c, Point const point);
 
 std::ostream &operator<<(std::ostream &out, Point const &point);

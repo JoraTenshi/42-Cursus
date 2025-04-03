@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 10:56:46 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/03/26 12:42:44 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:53:00 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ Fixed& Fixed::operator = (const Fixed &fixed)
 
 int	Fixed::getRawBits() const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (_fixedPoint);
 }
 
