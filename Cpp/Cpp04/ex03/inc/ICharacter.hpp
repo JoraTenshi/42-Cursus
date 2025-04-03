@@ -6,13 +6,15 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 13:37:31 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/03 13:48:02 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:36:17 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {

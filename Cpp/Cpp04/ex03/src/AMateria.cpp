@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 13:54:54 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/03 13:58:07 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:20:17 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ AMateria::~AMateria()
 	std::cout << "AMateria destructor called" << std::endl;
 }
 
-AMateria & AMateria::operator=(AMateria const & rhs)
+AMateria & AMateria::operator=(AMateria const & src)
 {
 	std::cout << "AMateria assignment operator called" << std::endl;
-	if (this != &rhs)
-		this->_type = rhs._type;
+	if (this != &src)
+		this->_type = src._type;
 	return *this;
 }
 

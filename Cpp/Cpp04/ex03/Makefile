@@ -1,4 +1,4 @@
-CNAMES = main AMateria Character Cure Ice ICharacter IMateriaSource MateriaSource
+CNAMES = main AMateria Character Cure Ice MateriaSource
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 
 
@@ -8,7 +8,7 @@ OBJ = obj/
 CFILES = $(addprefix $(SRC), $(addsuffix .cpp, $(CNAMES)))
 OFILES = $(addprefix $(OBJ), $(addsuffix .o, $(CNAMES)))
 
-NAME = interfaces
+NAME = Materia
 
 all: $(NAME)
 
