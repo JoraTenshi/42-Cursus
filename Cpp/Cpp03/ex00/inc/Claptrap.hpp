@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 16:16:02 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/01 16:44:56 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/03 11:35:44 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <iostream>
 
-class Claptrap
+class ClapTrap
 {
 	private:
 		std::string	_name;
@@ -24,38 +24,38 @@ class Claptrap
 	public:
 
 		/**
-		 * @brief Construct a new Claptrap object
+		 * @brief Construct a new ClapTrap object
 		 * 
 		 */
-		Claptrap();
+		ClapTrap();
 
 		/**
-		 * @brief Construct a new Claptrap object
+		 * @brief Construct a new ClapTrap object
 		 * 
 		 * @param name 
 		 */
-		Claptrap(std::string name);
+		ClapTrap(std::string name);
 
 		/**
-		 * @brief Construct a new Claptrap object
+		 * @brief Construct a new ClapTrap object
 		 * 
 		 * @param src 
 		 */
-		Claptrap(const Claptrap &claptrap);
+		ClapTrap(const ClapTrap &ClapTrap);
 
 		/**
-		 * @brief Destroy the Claptrap object
+		 * @brief Destroy the ClapTrap object
 		 * 
 		 */
-		~Claptrap();
+		~ClapTrap();
 
 		/**
 		 * @brief Overload of = operator
 		 * 
 		 * @param src 
-		 * @return Claptrap& 
+		 * @return ClapTrap& 
 		 */
-		Claptrap &operator=(const Claptrap &src);
+		ClapTrap &operator=(const ClapTrap &src);
 
 		/**
 		 * @brief Attack a target

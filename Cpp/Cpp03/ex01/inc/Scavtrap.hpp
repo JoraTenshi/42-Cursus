@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 16:56:06 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/01 17:55:25 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/03 11:39:09 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,42 +15,42 @@
 #include <iostream>
 #include "Claptrap.hpp"
 
-class Scavtrap : public Claptrap
+class ScavTrap : public ClapTrap
 {
 	public:
 		/**
-		 * @brief Construct a new Scavtrap object
+		 * @brief Construct a new ScavTrap object
 		 * 
 		 */
-		Scavtrap();
+		ScavTrap();
 
 		/**
-		 * @brief Construct a new Scavtrap object
+		 * @brief Construct a new ScavTrap object
 		 * 
 		 * @param name 
 		 */
-		Scavtrap(std::string name);
+		ScavTrap(std::string name);
 
 		/**
-		 * @brief Construct a new Scavtrap object
+		 * @brief Construct a new ScavTrap object
 		 * 
 		 * @param src 
 		 */
-		Scavtrap(const Scavtrap &scavtrap);
+		ScavTrap(const ScavTrap &ScavTrap);
 
 		/**
-		 * @brief Destroy the Scavtrap object
+		 * @brief Destroy the ScavTrap object
 		 * 
 		 */
-		~Scavtrap();
+		~ScavTrap();
 
 		/**
 		 * @brief Overload of = operator
 		 * 
 		 * @param src 
-		 * @return Scavtrap& 
+		 * @return ScavTrap& 
 		 */
-		Scavtrap &operator=(const Scavtrap &scavtrap);
+		ScavTrap &operator=(const ScavTrap &ScavTrap);
 
 		/**
 		 * @brief 

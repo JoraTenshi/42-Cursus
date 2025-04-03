@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:04:49 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/01 18:09:12 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/03 11:40:20 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,42 +15,42 @@
 #include <iostream>
 #include "Claptrap.hpp"
 
-class Fragtrap : public Claptrap
+class FragTrap : public ClapTrap
 {
 	public:
 		/**
-		 * @brief Construct a new Fragtrap object
+		 * @brief Construct a new FragTrap object
 		 * 
 		 */
-		Fragtrap();
+		FragTrap();
 
 		/**
-		 * @brief Construct a new Fragtrap object
+		 * @brief Construct a new FragTrap object
 		 * 
 		 * @param name 
 		 */
-		Fragtrap(std::string name);
+		FragTrap(std::string name);
 
 		/**
-		 * @brief Construct a new Fragtrap object
+		 * @brief Construct a new FragTrap object
 		 * 
 		 * @param src 
 		 */
-		Fragtrap(const Fragtrap &fragtrap);
+		FragTrap(const FragTrap &FragTrap);
 
 		/**
-		 * @brief Destroy the Fragtrap object
+		 * @brief Destroy the FragTrap object
 		 * 
 		 */
-		~Fragtrap();
+		~FragTrap();
 
 		/**
 		 * @brief Overload of = operator
 		 * 
 		 * @param src 
-		 * @return Fragtrap& 
+		 * @return FragTrap& 
 		 */
-		Fragtrap &operator=(const Fragtrap &fragtrap);
+		FragTrap &operator=(const FragTrap &FragTrap);
 
 		/**
 		 * @brief He is a very good boy and highfives
