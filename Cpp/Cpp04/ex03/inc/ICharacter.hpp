@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 13:37:31 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/03 14:36:17 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/03 15:08:53 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,4 @@ class ICharacter
 		 * @param target 
 		 */
 		virtual void use(int idx, ICharacter& target) = 0;
-
-		/**
-		 * @brief Get the Materia object
-		 * 
-		 * @param idx 
-		 * @return AMateria* 
-		 */
-		virtual AMateria* getMateria(int idx) const = 0;
 };

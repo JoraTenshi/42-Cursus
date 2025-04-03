@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 13:54:54 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/03 14:20:17 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/03 15:01:05 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,9 @@ AMateria & AMateria::operator=(AMateria const & src)
 std::string const & AMateria::getType() const
 {
 	return this->_type;
+}
+
+void AMateria::use(ICharacter& target)
+{
+	(void)target;
 }

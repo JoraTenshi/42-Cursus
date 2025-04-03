@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 13:39:58 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/03 14:20:01 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/03 15:06:03 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ class Character : public ICharacter
 		 * @brief Destroy the Character object
 		 * 
 		 */
-		~Character();
+		virtual ~Character();
 		
 		/**
 		 * @brief Overload of = operator
@@ -84,12 +84,4 @@ class Character : public ICharacter
 		 * @param target 
 		 */
 		void use(int idx, ICharacter& target);
-
-		/**
-		 * @brief Get the Materia object
-		 * 
-		 * @param index 
-		 * @return AMateria* 
-		 */
-		AMateria* getMateria(int index) const;
 };
