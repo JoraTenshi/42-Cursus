@@ -1,4 +1,4 @@
-CNAMES = 
+CNAMES = main Bureaucrat AForm PresidentialPardonForm RobotomyRequestForm ShrubberyCreationForm Intern
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 
 
@@ -8,7 +8,7 @@ OBJ = obj/
 CFILES = $(addprefix $(SRC), $(addsuffix .cpp, $(CNAMES)))
 OFILES = $(addprefix $(OBJ), $(addsuffix .o, $(CNAMES)))
 
-NAME = 
+NAME = bureaucratnformsninterns
 all: $(NAME)
 
 $(NAME): $(OFILES)
