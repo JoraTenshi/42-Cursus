@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 13:49:20 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/03 15:16:12 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/10 10:38:15 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int main()
 	tmp = src->createMateria("ice"); //inventory full
 	noctis->equip(tmp);
 	noctis->unequip(2);
+	delete tmp;
 	
 	ICharacter* shtola = new Character("Y'shtola Rhul");
 	noctis->use(0, *shtola);
