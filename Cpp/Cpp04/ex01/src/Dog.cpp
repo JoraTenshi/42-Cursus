@@ -15,6 +15,7 @@
 Dog::Dog() : Animal("Dog")
 {
 	std::cout << "Dog default constructor called" << std::endl;
+	_brain = new Brain();
 }
 
 Dog::Dog(const Dog &src) : Animal(src)
@@ -31,6 +32,7 @@ Dog::Dog(Brain &brain): Animal("Dog")
 Dog::~Dog()
 {
 	std::cout << "Dog destructor called" << std::endl;
+	delete _brain
 }
 
 Dog &Dog::operator=(const Dog &src)
@@ -39,11 +41,12 @@ Dog &Dog::operator=(const Dog &src)
 	if (this != &src)
 	{
 		this->_type = src._type;
+		this->_brain = src._brain
 	}
 	return *this;
 }
 
 void Dog::makeSound() const
 {
-	std::cout << "Dog says: Woof" << std::endl;
+	std::cout << PURPLE << "Dog says: Woof" << DEFAULT << std::endl;
 }

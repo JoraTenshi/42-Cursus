@@ -17,36 +17,12 @@
 class WrongCat : public WrongAnimal
 {
 	public:
-		/**
-		 * @brief Construct a new WrongCat object
-		 * 
-		 */
+
 		WrongCat();
-		
-		/**
-		 * @brief Construct a new WrongCat object
-		 * 
-		 * @param src 
-		 */
 		WrongCat(const WrongCat &src);
-		
-		/**
-		 * @brief Destroy the WrongCat object
-		 * 
-		 */
-		virtual ~WrongCat();
-		
-		/**
-		 * @brief Overload of = operator
-		 * 
-		 * @param src 
-		 * @return WrongCat& 
-		 */
+		~WrongCat();
+
 		WrongCat &operator=(const WrongCat &src);
-		
-		/**
-		 * @brief Display the sound of the animal
-		 * 
-		 */
+
 		void makeSound() const;
 };

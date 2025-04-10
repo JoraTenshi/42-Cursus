@@ -15,6 +15,7 @@
 WrongAnimal::WrongAnimal()
 {
 	std::cout << "WrongAnimal default constructor called" << std::endl;
+	this->type = "WrongAnimal";
 }
 
 WrongAnimal::WrongAnimal(std::string type)

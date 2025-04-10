@@ -13,6 +13,7 @@
 #pragma once
 
 #include <iostream>
+#include "Colors.hpp"
 
 class Animal
 {
@@ -21,57 +22,15 @@ class Animal
 
 	public:
 
-		/**
-		 * @brief Construct a new Animal object
-		 * 
-		 */
 		Animal();
-
-		/**
-		 * @brief Construct a new Animal object
-		 * 
-		 * @param type 
-		 */
 		Animal(std::string type);
-
-		/**
-		 * @brief Construct a new Animal object
-		 * 
-		 * @param src 
-		 */
 		Animal(const Animal &src);
-
-		/**
-		 * @brief Destroy the Animal object
-		 * 
-		 */
 		virtual ~Animal();
-		
-		/**
-		 * @brief Overload of = opertaor
-		 * 
-		 * @param rhs 
-		 * @return Animal& 
-		 */
+
 		Animal &operator=(const Animal &src);
 
-		/**
-		 * @brief Display the sound of the animal
-		 * 
-		 */
 		virtual void makeSound() const;
 
-		/**
-		 * @brief Get the Type object
-		 * 
-		 * @return std::string 
-		 */
 		std::string getType() const;
-
-		/**
-		 * @brief Set the Type object
-		 * 
-		 * @param type 
-		 */
 		void setType(std::string type);
 };
