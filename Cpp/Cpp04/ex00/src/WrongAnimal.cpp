@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 12:39:29 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/03 12:53:34 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/11 12:03:59 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 WrongAnimal::WrongAnimal()
 {
 	std::cout << "WrongAnimal default constructor called" << std::endl;
-	this->type = "WrongAnimal";
+	this->_type = "WrongAnimal";
 }
 
 WrongAnimal::WrongAnimal(std::string type)
@@ -50,5 +50,5 @@ std::string WrongAnimal::getType() const
 
 void WrongAnimal::makeSound() const
 {
-	std::cout << "Cats don't woof man" << std::endl;
+	std::cout << CYAN << "Cats don't woof man" << DEFAULT << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 12:32:46 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/03 12:43:41 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/11 12:02:46 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ Cat &Cat::operator=(const Cat &src)
 
 void Cat::makeSound() const
 {
-	std::cout << "Cat says: Meow" << std::endl;
+	std::cout << PURPLE << "Cat says: Meow" << DEFAULT << std::endl;
 }

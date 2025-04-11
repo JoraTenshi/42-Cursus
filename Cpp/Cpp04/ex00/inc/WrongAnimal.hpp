@@ -6,13 +6,14 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 12:22:09 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/03 12:27:04 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/11 12:03:51 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include "colors.hpp"
 
 class WrongAnimal
 {

@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 13:19:25 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/03 14:35:46 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/11 12:10:02 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include "ICharacter.hpp"
+#include "Colors.hpp"
 
 class ICharacter;
 

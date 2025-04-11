@@ -50,5 +50,5 @@ std::string WrongAnimal::getType() const
 
 void WrongAnimal::makeSound() const
 {
-	std::cout << "Cats don't woof man" << std::endl;
+	std::cout << PURPLE <<"WrongAnimal says: Oh boy, this is exciting" << DEFAULT << std::endl;
 }

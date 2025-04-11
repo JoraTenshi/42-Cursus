@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 12:23:10 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/03 12:23:24 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/11 12:02:31 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class WrongCat : public WrongAnimal
 		 * @brief Destroy the WrongCat object
 		 * 
 		 */
-		virtual ~WrongCat();
+		~WrongCat();
 		
 		/**
 		 * @brief Overload of = operator

@@ -13,6 +13,7 @@
 #pragma once
 
 #include <iostream>
+#include "Colors.hpp"
 
 class Brain
 {
@@ -21,47 +22,12 @@ class Brain
 
 	public:
 
-		/**
-		 * @brief Construct a new Brain object
-		 * 
-		 */
 		Brain();
-
-		/**
-		 * @brief Construct a new Brain object
-		 * 
-		 * @param src 
-		 */
 		Brain(const Brain &src);
+		~Brain();
 
-		/**
-		 * @brief Destroy the Brain object
-		 * 
-		 */
-		virtual ~Brain();
-		
-		/**
-		 * @brief Overload of = opertaor
-		 * 
-		 * @param rhs 
-		 * @return Brain& 
-		 */
 		Brain &operator=(const Brain &src);
 
-		/**
-		 * @brief Adds an idea to ideas array
-		 * 
-		 * @param idea 
-		 * @return true 
-		 * @return false 
-		 */
 		bool addIdea(std::string idea);
-
-		/**
-		 * @brief Get the idea at index
-		 * 
-		 * @param index 
-		 * @return std::string 
-		 */
 		std::string getIdea(int index);
 };

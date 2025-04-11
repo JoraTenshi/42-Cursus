@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 14:22:52 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/03 14:42:00 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/11 12:12:15 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,5 @@ AMateria* Cure::clone() const
 
 void Cure::use(ICharacter& target)
 {
-	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+	std::cout << GREEN << "* heals " << target.getName() << "'s wounds *" << DEFAULT << std::endl;
 }

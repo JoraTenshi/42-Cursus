@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 12:38:57 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/03 13:01:46 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/11 12:06:03 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Dog::Dog(Brain &brain): Animal("Dog")
 Dog::~Dog()
 {
 	std::cout << "Dog destructor called" << std::endl;
-	delete _brain
+	delete _brain;
 }
 
 Dog &Dog::operator=(const Dog &src)
@@ -41,12 +41,12 @@ Dog &Dog::operator=(const Dog &src)
 	if (this != &src)
 	{
 		this->_type = src._type;
-		this->_brain = src._brain
+		this->_brain = src._brain;
 	}
 	return *this;
 }
 
 void Dog::makeSound() const
 {
-	std::cout << PURPLE << "Dog says: Woof" << DEFAULT << std::endl;
+	std::cout << RED << "Dog says: Woof" << DEFAULT << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 14:29:36 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/03 14:32:32 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/11 12:13:13 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,11 @@ void MateriaSource::learnMateria(AMateria* m)
 		if (this->_inventory[i] == NULL)
 		{
 			this->_inventory[i] = m;
-			std::cout << "Materia source learned " << m->getType() << std::endl;
+			std::cout << ORANGE << "Materia source learned " << m->getType() << DEFAULT << std::endl;
 			return ;
 		}
 	}
-	std::cout << "Materia source inventory is full" << std::endl;
+	std::cout << RED << "Materia source inventory is full" << DEFAULT << std::endl;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
@@ -74,10 +74,10 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 	{
 		if (this->_inventory[i] && this->_inventory[i]->getType() == type)
 		{
-			std::cout << "Materia source created " << type << std::endl;
+			std::cout << ORANGE << "Materia source created " << type << DEFAULT << std::endl;
 			return (this->_inventory[i]->clone());
 		}
 	}
-	std::cout << "Materia source not created " << type << std::endl;
+	std::cout << RED << "Materia source not created " << type << DEFAULT << std::endl;
 	return (NULL);
 }

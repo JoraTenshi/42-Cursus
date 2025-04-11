@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 12:21:39 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/03 12:22:48 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/11 12:02:27 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class Dog : public Animal
 		 * @brief Destroy the Dog object
 		 * 
 		 */
-		virtual ~Dog();
+		~Dog();
 		
 		/**
 		 * @brief Overload of = operator

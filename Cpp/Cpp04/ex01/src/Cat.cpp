@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 12:32:46 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/03 13:00:40 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/11 12:05:42 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Cat::Cat(Brain &brain): Animal("Cat")
 Cat::~Cat()
 {
 	std::cout << "Cat destructor called" << std::endl;
-	delete _brain
+	delete _brain;
 }
 
 Cat &Cat::operator=(const Cat &src)
@@ -42,7 +42,7 @@ Cat &Cat::operator=(const Cat &src)
 	if (this != &src)
 	{
 		this->_type = src._type;
-		this->_brain = src._brain
+		this->_brain = src._brain;
 	}
 	return *this;
 }

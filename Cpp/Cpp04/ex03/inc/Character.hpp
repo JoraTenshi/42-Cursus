@@ -6,13 +6,14 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 13:39:58 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/03 15:06:03 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/11 12:10:14 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "ICharacter.hpp"
+#include "Colors.hpp"
 
 class Character : public ICharacter
 {

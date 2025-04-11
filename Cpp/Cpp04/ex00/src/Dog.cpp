@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 12:38:57 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/03 12:43:47 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/11 12:02:57 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ Dog &Dog::operator=(const Dog &src)
 
 void Dog::makeSound() const
 {
-	std::cout << "Dog says: Woof" << std::endl;
+	std::cout << RED << "Dog says: Woof" << DEFAULT << std::endl;
 }
