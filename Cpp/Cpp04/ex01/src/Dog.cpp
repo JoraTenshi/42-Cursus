@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 12:38:57 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/11 12:06:03 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/15 11:17:41 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ Dog::Dog() : Animal("Dog")
 Dog::Dog(const Dog &src) : Animal(src)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
+	_brain = new Brain(*src._brain);
 }
 
 Dog::Dog(Brain &brain): Animal("Dog")
