@@ -6,23 +6,25 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:16:08 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/16 13:29:33 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/22 15:20:27 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include <iomanip>
+#include <string>
 #include <limits>
-#include "colors.h"
+#include <stdlib.h>
+#include "colors.hpp"
 
-#define INT_MAX 	std::numeric_limits<int>::max()
-#define INT_MIN 	std::numeric_limits<int>::min()
-#define FLOAT_MAX 	std::numeric_limits<float>::max()
-#define FLOAT_MIN 	std::numeric_limits<float>::min()
-#define DOUBLE_MAX 	std::numeric_limits<double>::max()
-#define DOUBLE_MIN 	std::numeric_limits<double>::min()
-
+#define INT_MAX std::numeric_limits<int>::max()
+#define INT_MIN std::numeric_limits<int>::min()
+#define FLOAT_MAX std::numeric_limits<float>::max()
+#define FLOAT_MIN std::numeric_limits<float>::min()
+#define DOUBLE_MAX std::numeric_limits<double>::max()
+#define DOUBLE_MIN std::numeric_limits<double>::min()
 
 class ScalarConverter
 {

@@ -1,6 +1,6 @@
-CNAMES = 
+CNAMES = main Serializer
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 SRC = src/
 OBJ = obj/
@@ -8,7 +8,7 @@ OBJ = obj/
 CFILES = $(addprefix $(SRC), $(addsuffix .cpp, $(CNAMES)))
 OFILES = $(addprefix $(OBJ), $(addsuffix .o, $(CNAMES)))
 
-NAME =
+NAME = serializer
 all: $(NAME)
 
 $(NAME): $(OFILES)
