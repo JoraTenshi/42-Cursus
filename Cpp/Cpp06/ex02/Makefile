@@ -1,4 +1,4 @@
-CNAMES = main 
+CNAMES = main Base
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
@@ -8,7 +8,7 @@ OBJ = obj/
 CFILES = $(addprefix $(SRC), $(addsuffix .cpp, $(CNAMES)))
 OFILES = $(addprefix $(OBJ), $(addsuffix .o, $(CNAMES)))
 
-NAME = 
+NAME = identifier
 
 all: $(NAME)
 
