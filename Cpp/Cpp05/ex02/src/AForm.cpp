@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 11:04:50 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/08 12:46:09 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/05/05 20:03:16 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void AForm::beSigned(const Bureaucrat &bureaucrat)
 	else
 	{
 		_isSigned = true;
-		std::cout << bureaucrat.getName() << " has signed " << getName() << std::endl;
+		std::cout << GREEN << bureaucrat.getName() << " has signed " << getName() << DEFAULT << std::endl;
 	}
 }
 

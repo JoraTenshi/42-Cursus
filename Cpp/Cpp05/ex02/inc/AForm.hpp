@@ -6,13 +6,14 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 10:59:38 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/08 12:36:31 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/05/05 20:02:29 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "Bureaucrat.hpp"
+#include "colors.hpp"
 #include <iostream>
 
 class Bureaucrat;

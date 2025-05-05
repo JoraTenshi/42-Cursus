@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 10:48:07 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/09 10:43:45 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/05/05 19:59:55 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int main()
 	AForm	*presidentialpardonform;
 	AForm	*errorform;
 
-	std::cout << elon << std::endl;
-	std::cout << musk << std::endl;
+	std::cout << PURPLE << elon << DEFAULT << std::endl;
+	std::cout << ORANGE << musk << DEFAULT << std::endl;
 
 	shrubberyform = intern.makeForm("shrubbery creation", "tree");
 	robotomyform = intern.makeForm("robotomy request", "Arale");

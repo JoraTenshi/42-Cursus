@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:00:33 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/08 12:13:12 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/05/05 20:04:50 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,5 @@ void PresidentialPardonForm::execute(Bureaucrat const &bureaucrat) const
 		throw AForm::FormNotSignedException();
 	if (bureaucrat.getGrade() > this->getGradeToExecute())
 		throw AForm::GradeTooLowException();
-	std::cout << this->_target << " has been pardoned by Hatsune Miku." << std::endl;
+	std::cout << LIGHT_PURPLE << this->_target << " has been pardoned by Hatsune Miku." << DEFAULT << std::endl;
 }

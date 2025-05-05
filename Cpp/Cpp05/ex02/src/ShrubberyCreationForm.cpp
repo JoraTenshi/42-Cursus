@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:18:38 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/08 12:49:24 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/05/05 20:04:03 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,5 @@ void ShrubberyCreationForm::execute(Bureaucrat const &bureaucrat) const
 	file << "  _ -  | |   -_" << std::endl;
 	file << "      // \\\\" << std::endl;
 	file.close();
-	std::cout << "Shrubbery created in file: " << filename << std::endl;
+	std::cout << GREEN << "Shrubbery created in file: " << filename << DEFAULT << std::endl;
 }

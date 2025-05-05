@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 10:18:51 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/09 10:45:49 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/05/05 20:01:52 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,30 +40,43 @@ const char *Intern::FormNotFoundException::what() const throw()
 	return "Form not found";
 }
 
-AForm *Intern::makeForm(std::string formName, std::string target)
+static int formName(std::string name)
 {
-	int i = 0;
+	if (name == "shrubbery creation")
+		return (0);
+	else if (name == "robotomy request")
+		return (1);
+	else if (name == "presidential pardon")
+		return (2);
+	else
+		throw Intern::FormNotFoundException();
+}
+
+AForm *Intern::makeForm(std::string name, std::string target)
+{
+	int	form = -1;
 
 	try
 	{
-		std::string formNames[3] = {"robotomy request", "presidential pardon", "shrubbery creation"};
-		AForm *forms[3] = {new RobotomyRequestForm(target), new PresidentialPardonForm(target), new ShrubberyCreationForm(target)};
-		
-		while (i < 3)
-		{
-			if (formName == formNames[i])
-			{
-				std::cout << "Intern creates " << formName << std::endl;
-				return forms[i];
-			}
-			i++;
-		}
-		throw FormNotFoundException();
-		delete forms[i];
+		form = formName(name);
 	}
-	catch(const std::exception& e)
+	catch(const std::exception &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << RED << e.what() << DEFAULT << std::endl;
+		return (NULL);
 	}
-	return NULL;
+	switch (form)
+	{
+		case 0:
+			std::cout << GREEN << "Intern creates " << name << " form" << DEFAULT << std::endl;
+			return (new ShrubberyCreationForm(target));
+		case 1:
+			std::cout << CYAN << "Intern creates " << name << " form" << DEFAULT << std::endl;
+			return (new RobotomyRequestForm(target));
+		case 2:
+			std::cout << BLUE << "Intern creates " << name << " form" << DEFAULT << std::endl;
+			return (new PresidentialPardonForm(target));
+		default:
+			return (NULL);
+	}
 }
