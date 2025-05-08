@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 10:18:51 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/05/05 20:01:52 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/05/08 11:21:33 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,18 @@ const char *Intern::FormNotFoundException::what() const throw()
 
 static int formName(std::string name)
 {
-	if (name == "shrubbery creation")
-		return (0);
-	else if (name == "robotomy request")
-		return (1);
-	else if (name == "presidential pardon")
-		return (2);
-	else
-		throw Intern::FormNotFoundException();
+	std::string names[3] = 
+	{
+		"shrubbery creation",
+		"robotomy request",
+		"presidential pardon"
+	};
+
+	for (int i = 0; i < 3; i++)
+	{
+		if (name == names[i])
+			return (i);
+	}
 }
 
 AForm *Intern::makeForm(std::string name, std::string target)

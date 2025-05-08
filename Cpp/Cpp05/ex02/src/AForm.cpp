@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 11:04:50 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/05/05 20:03:16 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/05/08 11:22:57 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ void AForm::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > _gradeToSign)
 		throw AForm::GradeTooLowException();
+	else if (_isSigned)
+		throw AForm::FormAlreadySignedException();
 	else
 	{
 		_isSigned = true;
