@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 14:29:36 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/11 12:13:13 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/04/28 12:08:34 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void MateriaSource::learnMateria(AMateria* m)
 			return ;
 		}
 	}
+	delete m;
 	std::cout << RED << "Materia source inventory is full" << DEFAULT << std::endl;
 }
 

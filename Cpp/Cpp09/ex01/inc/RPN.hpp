@@ -1,16 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/22 18:14:39 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/05/06 09:42:04 by jcallejo         ###   ########.fr       */
+/*   Created: 2025/04/28 09:02:51 by jcallejo          #+#    #+#             */
+/*   Updated: 2025/04/28 11:07:13 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Base.hpp"
+#pragma once
 
-Base::~Base() {}
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <stack>
+#include "colors.hpp"
 
+class RPN
+{
+	private:
+		std::stack<int> _stack;
+
+	public:
+		RPN();
+		RPN(const RPN& src);
+		~RPN();
+		
+		RPN& operator=(const RPN& other);
+
+		void calculate(const std::string &op);
+};
