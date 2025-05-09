@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:09:08 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/05/05 20:04:29 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/05/09 09:58:54 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,13 @@ std::string RobotomyRequestForm::getTarget() const
 
 void RobotomyRequestForm::execute(Bureaucrat const &bureaucrat) const
 {
+	srand(time(0));
 	if (bureaucrat.getGrade() > this->getGradeToExecute())
 		throw AForm::GradeTooLowException();
 	if (!this->getIsSigned())
 		throw AForm::FormNotSignedException();
-	if (rand() % 100 < 50)
+	int a = rand();
+	if (a % 100 < 50)
 		std::cout << ORANGE << this->_target << " has been robotomized successfully" << DEFAULT << std::endl;
 	else
 		std::cout << RED << "Robotomy failed for " << this->_target << DEFAULT << std::endl;

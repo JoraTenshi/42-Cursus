@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 10:48:07 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/05/05 20:03:35 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/05/09 09:56:15 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int main()
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << RED << e.what() << DEFAULT << std::endl;
 	}
 
 	try
@@ -73,6 +73,16 @@ int main()
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
+	}
+	
+	try
+	{
+		form3.beSigned(elon);
+		
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << RED << e.what() << DEFAULT << '\n';
 	}
 	
 	return 0;

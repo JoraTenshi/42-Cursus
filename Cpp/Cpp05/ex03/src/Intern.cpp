@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 10:18:51 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/05/08 11:21:33 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/05/09 09:53:46 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,9 @@ static int formName(std::string name)
 	for (int i = 0; i < 3; i++)
 	{
 		if (name == names[i])
-			return (i);
+			return i;
 	}
+	throw Intern::FormNotFoundException();
 }
 
 AForm *Intern::makeForm(std::string name, std::string target)
