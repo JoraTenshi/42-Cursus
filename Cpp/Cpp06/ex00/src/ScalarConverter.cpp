@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:17:42 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/05/06 09:38:05 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/05/15 09:53:36 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int myInt(std::string toConvert)
 	if (i != len)
 		return 0;
 	n = atol(toConvert.c_str());
-	if (n < 33 || n > 126)
+	if (n < 32 || n > 126)
 		std::cout << "char: Non displayable" << std::endl;
 	else 
 		std::cout << "char: " << static_cast<char>(n) << std::endl;
@@ -76,16 +76,23 @@ static int myFloat(std::string toConvert)
 {
 	int 	i = 0;
 	int 	len = toConvert.length();
+	int		point = 0;
 	double	n;
 	
 	if (toConvert[i] == '-')
 		i++;
-	while (i < len && (std::isdigit(toConvert[i]) || toConvert[i] == '.' || toConvert[i] == 'f')) 
+	while (i < len && (std::isdigit(toConvert[i]) || toConvert[i] == '.' || toConvert[i] == 'f'))
+	{
+		if (toConvert[i] == '.')
+			point++;
 		i++;
+	}
+	if (point > 1)
+		return 0;
 	if (i != len)
 		return 0;
 	n = atof(toConvert.c_str());
-	if (n < 33 || n > 126)
+	if (n < 32 || n > 126)
 		std::cout << "char: Non displayable" << std::endl;
 	else 
 		std::cout << "char: " << static_cast<char>(n) << std::endl;
@@ -130,5 +137,5 @@ void ScalarConverter::convert(const std::string &toConvert)
 {
 	if (special(toConvert) || myInt(toConvert) || myChar(toConvert) || myFloat(toConvert))
 		return ;
-	std::cout << "Error: Cannot convert" << std::endl;
+	std::cout << RED << "Error: Cannot convert" << DEFAULT << std::endl;
 }

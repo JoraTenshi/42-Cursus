@@ -7,16 +7,17 @@ OBJ = obj/
 
 CFILES = $(addprefix $(SRC), $(addsuffix .cpp, $(CNAMES)))
 OFILES = $(addprefix $(OBJ), $(addsuffix .o, $(CNAMES)))
+HEADER = inc/BitcoinExchange.hpp inc/colors.hpp
 
 NAME = btc
 
 all: $(NAME)
 
-$(NAME): $(OFILES)
+$(NAME): $(OFILES) $(HEADER)
 	@c++ $(CFLAGS) $(OFILES) -o $(NAME)
 	@echo "Exercise compiled"
 
-$(OFILES): $(CFILES)
+$(OFILES): $(CFILES) $(HEADER)
 	@mkdir -p $(OBJ)
 	@c++ $(CFLAGS) -c $(CFILES)
 	@mv *.o $(OBJ)

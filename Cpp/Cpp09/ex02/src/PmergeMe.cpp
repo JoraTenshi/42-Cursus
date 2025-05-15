@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:59:32 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/05/09 10:53:26 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/05/14 12:25:54 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,14 @@ void PmergeMe::sortVector()
 {
 	if (_vec.size() < 2 || isVecSorted(_vec))
 		return ;
-	
+	// Implement sorting algorithm here
 }
 
 void PmergeMe::sortList()
 {
 	if (_list.size() < 2 || isListSorted(_list))
 		return ;
+	// Implement sorting algorithm here
 }
 
 std::vector<int> PmergeMe::getVector() const
