@@ -7,7 +7,7 @@ OBJ = obj/
 
 CFILES = $(addprefix $(SRC), $(addsuffix .cpp, $(CNAMES)))
 OFILES = $(addprefix $(OBJ), $(addsuffix .o, $(CNAMES)))
-HEADER = inc/Base.hpp inc/A.hpp inc/B.hpp inc/C.hpp inc/colors.hpp
+HEADER = inc/Base.hpp inc/colors.hpp
 
 NAME = identifier
 
