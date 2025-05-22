@@ -1,8 +1,21 @@
-version: "3.8"
+
+networks:
+  inception:
+    name: inception
 
 services:
   ningx:
+    container_name: nginx
     build:
-    container_name:
+      context: ./requirements/nginx/.
+    image: nginx
     ports:
+      - "443:443"
+    networks:
+      - inception
+    env_file:
+      - .env_general
+    volumes:
+      - wp-data:/domains
+    restart: always
 

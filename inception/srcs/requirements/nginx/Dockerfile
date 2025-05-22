@@ -6,22 +6,28 @@ FROM alpine:3.20
 ENV TERM xterm
 
 #Commands to install needed packages
-RUN apk update && apk upgrade  && apk add nginx && apk add openssl
+RUN apk update && apk upgrade  && apk add nginx && apk add openssl && apk add envsubst
 
 #Key storage for ssl
 RUN mkdir -p /etc/nginx/ssl
 
-#Actual ssl command to set it up
-RUN openssl req -x509 -nodes -out /etc/nginx/ssl/inception.crt -keyout /etc/nginx/ssl/inception.key -subj "/C=ES/ST=Andalucia/L=Malaga/O=42/OU=42/CN=jcallejo.42.ft/UID=jcallejo"
+#Actual Nginx config with data user
+RUN adduser -D -H -S -G www-data www-data
+RUN sed -i 's/user nginx;/user www-data;/' /etc/nginx/nginx.conf
+RUN sed -i 's/keepalive_timeout 65;/keepalive_timeout 5;/' /etc/nginx/nginx.conf
 
-#Directory for Nginx files
-RUN mkdir -p /var/run/nginx
+#Copy the script and give it permissions
+COPY tools/config.sh
+RUN chmod +x config.sh
 
-#Copy modified conf for Nginx conf file
-COPY conf/nginx.conf /etc/nginx/nginx.conf
+#Copy the Nginx config file
+COPY conf/nginx_base.conf
 
-#Rights for ssl
-#RUN [ "chmod", "755", "/var/www/html" ]
-#RUN [ "chown", "-R", "www-data:www-data", "/var/www/html" ]
+#Clean cache
+RUN rm -f /var/cache/apk/*
 
-RUN [ "nginx", "-g", "daemon off;" ]
+#Expose port to work with
+EXPOSE 442
+
+#Start Nginx
+ENTRYPOINT [ "./config.sh"]
