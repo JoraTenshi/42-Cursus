@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:59:15 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/05/07 11:05:12 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/05/23 13:00:49 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <list>
 #include <iterator>
 #include <cstdlib>
+#include <sys/time.h>
 #include "colors.hpp"
 
 class PmergeMe
@@ -32,14 +33,13 @@ class PmergeMe
 		PmergeMe &operator=(const PmergeMe &src);
 		~PmergeMe();
 
-		void sortVector();
-		void sortList();
-
 		std::vector<int> getVector() const;
+		std::vector<int> sortVector(std::vector<int> vec);
+		
 		std::list<int> getList() const;
+		std::list<int> sortList(std::list<int> list);
 		
 };
 
-std::ostream &operator<<(std::ostream &o, const PmergeMe &src);
 std::ostream &operator<<(std::ostream &o, const std::vector<int> &vec);
 std::ostream &operator<<(std::ostream &o, const std::list<int> &lst);
