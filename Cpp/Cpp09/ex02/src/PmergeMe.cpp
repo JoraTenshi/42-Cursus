@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:59:32 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/05/14 12:25:54 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/05/23 13:57:34 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,11 @@ PmergeMe::PmergeMe() {}
 
 PmergeMe::PmergeMe(char **argv)
 {
-	for (int i = 1; argv[i]; ++i)
+	while (*argv)
 	{
-		int num = std::atoi(argv[i]);
-		if (num < 0)
-			throw std::invalid_argument("Negative numbers are not allowed");
-		_vec.push_back(num);
-		_list.push_back(num);
+		_vec.push_back(atoi(*argv));
+		_list.push_back(atoi(*argv));
+		argv++;
 	}
 }
 
@@ -43,42 +41,109 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &src)
 	return *this;
 }
 
-static int isVecSorted(std::vector<int> &vec)
+static std::list<int> mergeList(std::list<int> list1, std::list<int> list2)
 {
-	for (size_t i = 1; i < vec.size(); ++i)
+	std::list<int> tmp;
+
+	while(!list1.empty() && !list2.empty())
 	{
-		if (vec[i] < vec[i - 1])
-			return 0;
+		if (list1.front() < list2.front())
+		{
+			tmp.push_back(list1.front());
+			list1.pop_front();
+		}
+		else
+		{
+			tmp.push_back(list2.front());
+			list2.pop_front();
+		}
 	}
-	return 1;
-}
 
-static int isListSorted(std::list<int> &lst)
-{
-	std::list<int>::iterator it = lst.begin();
-	int prev = *it;
-	++it;
-	for (; it != lst.end(); ++it)
+	while (!list1.empty())
 	{
-		if (*it < prev)
-			return 0;
-		prev = *it;
+		tmp.push_back(list1.front());
+		list1.pop_front();
 	}
-	return 1;
+
+	while (!list2.empty())
+	{
+		tmp.push_back(list2.front());
+		list2.pop_front();
+	}
+
+	return tmp;
 }
 
-void PmergeMe::sortVector()
+static std::vector<int> mergeVector(std::vector<int> vec1, std::vector<int> vec2)
 {
-	if (_vec.size() < 2 || isVecSorted(_vec))
-		return ;
-	// Implement sorting algorithm here
+	std::vector<int> tmp;
+
+	while(!vec1.empty() && !vec2.empty())
+	{
+		if (vec1.front() < vec2.front())
+		{
+			tmp.push_back(vec1.front());
+			vec1.erase(vec1.begin()+ 0);
+		}
+		else
+		{
+			tmp.push_back(vec2.front());
+			vec2.erase(vec2.begin() + 0);
+		}
+	}
+
+	while (!vec1.empty())
+	{
+		tmp.push_back(vec1.front());
+		vec1.erase(vec1.begin() + 0);
+	}
+
+	while (!vec2.empty())
+	{
+		tmp.push_back(vec2.front());
+		vec2.erase(vec2.begin() + 0);
+	}
+
+	return tmp;
 }
 
-void PmergeMe::sortList()
+std::vector<int> PmergeMe::sortVector(std::vector<int> vec)
 {
-	if (_list.size() < 2 || isListSorted(_list))
-		return ;
-	// Implement sorting algorithm here
+	if (vec.size() < 2)
+		return vec;
+
+	std::vector<int> vec1;
+	
+	for(size_t i = 0; i != vec.size() / 2; i++)
+		vec1.push_back(vec[i]);
+
+	std::vector<int> vec2;
+
+	for(size_t i = vec.size() / 2; i != vec.size(); i++)
+		vec2.push_back(vec[i]);
+
+	vec1 = sortVector(vec1);
+	vec2 = sortVector(vec2);
+	
+	return mergeVector(vec1, vec2);
+}
+
+std::list<int> PmergeMe::sortList(std::list<int> list)
+{
+	if (list.size() < 2)
+		return list;
+	std::list<int> list1, list2;
+	std::list<int>::iterator it = list.begin();
+	for (size_t i = 0; i < list.size() / 2; i++)
+		list1.push_back(*it++);
+	while (it != list.end())
+	{
+		list2.push_back(*it);
+		it++;
+	}
+	list1 = sortList(list1);
+	list2 = sortList(list2);
+	return mergeList(list1, list2);
 }
 
 std::vector<int> PmergeMe::getVector() const
@@ -89,4 +154,35 @@ std::vector<int> PmergeMe::getVector() const
 std::list<int> PmergeMe::getList() const
 {
 	return _list;
+}
+
+
+std::ostream &operator<<(std::ostream &out, const std::vector<int> &v)
+{
+	std::vector<int>::const_iterator iterator = v.begin();
+	std::vector<int>::const_iterator end = v.end();
+
+	while (iterator != end)
+	{
+		out << *iterator;
+		++iterator;
+		if (iterator != end)
+			out << " ";
+	}
+	return (out);
+}
+
+std::ostream &operator<<(std::ostream &out, const std::list<int> &l)
+{
+	std::list<int>::const_iterator iterator = l.begin();
+	std::list<int>::const_iterator end = l.end();
+
+	while (iterator != end)
+	{
+		out << *iterator;
+		++iterator;
+		if (iterator != end)
+			out << " ";
+	}
+	return (out);
 }
