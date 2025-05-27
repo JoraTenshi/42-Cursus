@@ -19,3 +19,16 @@ services:
       - wp-data:/domains
     restart: always
 
+
+volumes:
+  wp-data:
+    driver_opts:
+      type: none
+      device: /home/jcallejo/data/volumes/web
+      o: bind
+
+  db-data:
+    driver_opts:
+      type: none
+      device: /home/jcallejo/data/volumes/db
+      o: bind
