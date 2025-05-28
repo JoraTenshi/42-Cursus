@@ -19,6 +19,18 @@ services:
       - wp-data:/domains
     restart: always
 
+  mariadb:
+    container_name: mariadb
+    build:
+      context: ./requirements/mariadb/.
+    image: mariadb
+    networks:
+      - inception
+    env_file:
+      - .env_db
+    volumes:
+      - db-data:/var/lib/mysql
+    restart: always
 
 volumes:
   wp-data:
