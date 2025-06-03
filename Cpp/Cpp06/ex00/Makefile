@@ -10,6 +10,7 @@ OFILES = $(addprefix $(OBJ), $(addsuffix .o, $(CNAMES)))
 HEADER = inc/ScalarConverter.hpp inc/colors.hpp
 
 NAME =scalarConverter
+
 all: $(NAME)
 
 $(NAME): $(OFILES) $(HEADER)

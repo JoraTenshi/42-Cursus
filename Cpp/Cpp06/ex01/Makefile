@@ -10,6 +10,7 @@ OFILES = $(addprefix $(OBJ), $(addsuffix .o, $(CNAMES)))
 HEADER = inc/Serializer.hpp inc/colors.hpp
 
 NAME = serializer
+
 all: $(NAME)
 
 $(NAME): $(OFILES) $(HEADER)
