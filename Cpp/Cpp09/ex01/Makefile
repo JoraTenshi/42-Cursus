@@ -9,7 +9,7 @@ CFILES = $(addprefix $(SRC), $(addsuffix .cpp, $(CNAMES)))
 OFILES = $(addprefix $(OBJ), $(addsuffix .o, $(CNAMES)))
 HEADER = inc/RPN.hpp inc/colors.hpp
 
-NAME = rpn
+NAME = RPN
 
 all: $(NAME)
 

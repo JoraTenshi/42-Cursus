@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:05:46 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/05/07 10:32:12 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/06/06 11:00:00 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ RPN& RPN::operator=(const RPN& other)
 	return *this;
 }
 
-static int topop(std::stack<int>&s)
+int RPN::topop(void)
 {
-	int top = s.top();
-	s.pop();
+	int top = this->_stack.top();
+	this->_stack.pop();
 	return top;
 }
 
@@ -42,31 +42,31 @@ void RPN::calculate(const std::string &op)
 	int num1;
 	int num2;
 
-	for (int i = 0; i < (int)op.length(); i++)
+	for (int i = 0; i < (int)op.size(); i++)
 	{
 		if (isspace(op[i]))
 			continue;
-		if (!isdigit(op[i]) && op[i] != '+' && op[i] != '-' && op[i] != '*' && op[i] != '/')
+		if (!(op[i] >= '0' && op[i] <= '9') && op[i] != '+' && op[i] != '-' && op[i] != '*' && op[i] != '/')
 			return std::cerr << RED << "Error: Invalid character in expression." << DEFAULT << std::endl, (void)-1;
-		if (isdigit(op[i]))
-			this->_stack.push(op[i] - '0');
+		if (op[i] >= '0' && op[i] <= '9')
+			this->_stack.push((int)op[i] - '0');
 		if (op[i] == '+' || op[i] == '-' || op[i] == '*' || op[i] == '/')
 		{
-			if (this->_stack.size() != 2)
+			if (this->_stack.size() < 2)
 				return std::cerr << RED << "Error: Not enough operands." << DEFAULT << std::endl, (void)-1;
-			num1 = topop(this->_stack);
-			num2 = topop(this->_stack);
+			num2 = topop();
+			num1 = topop();
 			if (op[i] == '+')
-				this->_stack.push(num2 + num1);
+				this->_stack.push(num1 + num2);
 			else if (op[i] == '-')
-				this->_stack.push(num2 - num1);
+				this->_stack.push(num1 - num2);
 			else if (op[i] == '*')
-				this->_stack.push(num2 * num1);
+				this->_stack.push(num1 * num2);
 			else if (op[i] == '/')
 			{
 				if (num1 == 0)
 					return std::cerr << RED << "Error: Division by zero." << DEFAULT << std::endl, (void)-1;
-				this->_stack.push(num2 / num1);
+				this->_stack.push(num1 / num2);
 			}
 		}
 	}

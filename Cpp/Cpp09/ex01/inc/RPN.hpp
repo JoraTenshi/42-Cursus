@@ -6,7 +6,7 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:02:51 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/04/28 11:07:13 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/06/06 10:55:11 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,5 @@ class RPN
 		RPN& operator=(const RPN& other);
 
 		void calculate(const std::string &op);
+		int topop(void);
 };

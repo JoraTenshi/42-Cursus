@@ -6,13 +6,15 @@
 /*   By: jcallejo <jcallejo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:59:15 by jcallejo          #+#    #+#             */
-/*   Updated: 2025/05/23 13:00:49 by jcallejo         ###   ########.fr       */
+/*   Updated: 2025/06/06 10:13:42 by jcallejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include <string>
+#include <cstring>
 #include <vector>
 #include <list>
 #include <iterator>

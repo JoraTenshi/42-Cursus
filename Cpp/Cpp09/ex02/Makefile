@@ -9,7 +9,7 @@ CFILES = $(addprefix $(SRC), $(addsuffix .cpp, $(CNAMES)))
 OFILES = $(addprefix $(OBJ), $(addsuffix .o, $(CNAMES)))
 HEADER = inc/PmergeMe.hpp inc/colors.hpp
 
-NAME = pmergeme
+NAME = PmergeMe
 
 all: $(NAME)
 
