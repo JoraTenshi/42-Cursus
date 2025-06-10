@@ -1,6 +1,6 @@
 CNAMES = main RPN
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = src/
 OBJ = obj/
