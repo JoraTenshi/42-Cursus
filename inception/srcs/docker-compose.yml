@@ -32,6 +32,23 @@ services:
       - db-data:/var/lib/mysql
     restart: always
 
+  wordpress:
+    container_name: wordpress
+    build:
+      context: ./requirements/wordpress/.
+    image: wordpress
+    depends_on:
+      - mariadb
+    networks:
+      - inception
+    env_file:
+      - .env_general
+      - .env_db
+      - .env_wordpress
+    volumes:
+      - wp-data:/domains
+    restart: always
+
 volumes:
   wp-data:
     driver_opts:
