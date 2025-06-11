@@ -64,7 +64,7 @@ void RPN::calculate(const std::string &op)
 				this->_stack.push(num1 * num2);
 			else if (op[i] == '/')
 			{
-				if (num1 == 0)
+				if (num2 == 0)
 					return std::cerr << RED << "Error: Division by zero." << DEFAULT << std::endl, (void)-1;
 				this->_stack.push(num1 / num2);
 			}

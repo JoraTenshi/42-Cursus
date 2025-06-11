@@ -4,13 +4,14 @@ networks:
     name: inception
 
 services:
-  ningx:
+  nginx:
     container_name: nginx
     build:
       context: ./requirements/nginx/.
     image: nginx
     ports:
       - "443:443"
+      - "80:80"
     networks:
       - inception
     env_file:

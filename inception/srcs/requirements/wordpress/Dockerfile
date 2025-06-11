@@ -1,35 +1,41 @@
-#Alpine for Wordpress
+# Alpine Linux with WordPress and PHP
 FROM alpine:3.20
 
-#Enviromental variables setting
+# Set environment variables
 ENV TERM xterm
-ENV WORDPRESS_CLI_VERSION=2.10.0
-ENV PHP_VERSION=8.2
+ENV WORDPRESS_CLI_VERSION 2.10.0
 
-#Necesarry install of packages
-RUN apk upgrade && apk upgrade && apk add --no-cache php${PHP_VERSION} && apk add php${PHP_VERSION}-phar && apk add php${PHP_VERSION}-phar && apk add php${PHP_VERSION}-curl \
-    apk add php${PHP_VERSION}-mysqli && apk add php${PHP_VERSION}-tokenizer && apk add php${PHP_VERSION}-fpm && apk add php${PHP_VERSION}-iconv && apk add php${PHP_VERSION}-mbstring \
-    apk add php${PHP_VERSION}-openssl && apk add php${PHP_VERSION}-xml && apk add php${PHP_VERSION}-opcache && apk add php${PHP_VERSION}-opcache && apk add php${PHP_VERSION}-json \
-    apk add mariadb-client && apk add curl
+# Update and install packages
+RUN apk update && apk upgrade
+RUN apk add --no-cache \
+    php php-phar php-curl php-mysqli php-tokenizer php-fpm \
+    php-iconv php-mbstring php-openssl php-xml php-opcache php-json \
+    mariadb-client curl
 
-#Install wordpress per se
-RUN curl -o /usr/local/bin/wp - fL "https://github.com/wp-cli/wp-cli/releases/download/v{$WORDPRESS_CLI_VERSION}/wp-cli-${WORDPRESS_CLI_VERSION}.phar" && chmod +x /usr/local/bin/wp
+    
+# Install WordPress CLI
+RUN curl -o /usr/local/bin/wp -fL "https://github.com/wp-cli/wp-cli/releases/download/v${WORDPRESS_CLI_VERSION}/wp-cli-${WORDPRESS_CLI_VERSION}.phar" && \
+    chmod +x /usr/local/bin/wp
 
-#Install and configure PHP
-RUN adduser -D -H -S -G www-data www-data && sed -i 's/^listen = s*/listen = 0.0.0.0:9000' /etc/php${PHP_VERSION}/php-fpm.d/www.conf && \
-    sed -i "s/user = nobody/user = www-data/" /etc/php${PHP_VERSION}/php-fpm.d/www-conf && sed -i "s/group = nobody/group = www-data" /etc/php${PHP_VERSION}/php-fpm.d/www-conf && \
-    sed -i "s/memory_limit = 128M/memory_limit = 256M" /etc/php${PHP_VERSION}/php.ini && ln -fs /usr/bin/php${PHP_VERSION} /usr/bin/php && ln -s /usr/bin/php-fpm${PHP_VERSION} /usr/bin/php-fpm
+# Configure PHP-FPM
+RUN adduser -D -H -S -G www-data www-data && \
+    sed -i 's/^listen = .*/listen = 0.0.0.0:9000/' /etc/php83/php-fpm.d/www.conf && \
+    sed -i "s/user = nobody/user = www-data/" /etc/php83/php-fpm.d/www.conf && \
+    sed -i "s/group = nobody/group = www-data/" /etc/php83/php-fpm.d/www.conf && \
+    sed -i "s/memory_limit = 128M/memory_limit = 256M/" /etc/php83/php.ini && \
+    ln -fs /usr/bin/php83 /usr/bin/php && \
+    ln -s /usr/sbin/php-fpm83 /usr/sbin/php-fpm
 
-#Get the config script
+# Copy the configuration script and make it executable
 COPY tools/config.sh .
 COPY tools/home.html .
 RUN chmod +x config.sh
 
-#Cleanup
-RUN rm -rf /var/cache/apk/*
+# Clean up
+RUN rm -f /var/cache/apk/*
 
-#Expose port
+# Expose the port
 EXPOSE 9000
 
-#Start the service
+# Start the service
 ENTRYPOINT [ "./config.sh" ]

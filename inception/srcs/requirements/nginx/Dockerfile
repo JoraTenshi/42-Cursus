@@ -21,13 +21,13 @@ COPY tools/config.sh .
 RUN chmod +x config.sh
 
 #Copy the Nginx config file
-COPY conf/nginx.conf .
+COPY conf/nginx_base.conf .
 
 #Clean cache
 RUN rm -f /var/cache/apk/*
 
 #Expose port to work with
-EXPOSE 442
+EXPOSE 443
 
 #Start Nginx
 ENTRYPOINT [ "./config.sh"]

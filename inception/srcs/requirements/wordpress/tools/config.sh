@@ -1,11 +1,12 @@
 #!/bin/sh
 # Wait for the database to be available
-while ! mariadb -hmariadb -u$DB_USER -p$DB_PASS $DB_NAME &>/dev/null; do echo -e "\033[1;33mWaiting for the database to be available...\033[0m"
-sleep 5
+while ! mariadb -hmariadb -u$DB_USER -p$DB_PASS $DB_NAME &>/dev/null; do 
+	echo -e "\033[1;33mWaiting for the database to be available...\033[0m"
+	sleep 5
 done
 
 # Check if WordPress is installed
-if ! [ -f /domains/$DOMAIN_NAME/public_html/wp-config.php]; then
+if ! [ -f /domains/$DOMAIN_NAME/public_html/wp-config.php ]; then
 
     # Create WordPress folder
     echo -e "\033[1;32mCreating WordPress folder at /domains/$DOMAIN_NAME/public_html\033[0m"
@@ -19,8 +20,15 @@ if ! [ -f /domains/$DOMAIN_NAME/public_html/wp-config.php]; then
     wp core download --allow-root
 
     # Generate WordPress config file
-    echo -e "\033[1;32mGenerating WordPress configuration file...\033[0m"
-    wp config create --dbname="$DB_NAME" --dbuser="$DB_USER" --dbpass="$DB_PASS" --dbhost=mariadb --dbcharset=utf8mb4 --dbcollate=utf8mb4_general_ci --extra-php <<PHP
+   echo -e "\033[1;32mGenerating WordPress configuration file...\033[0m"
+    wp config create \
+    --dbname="$DB_NAME" \
+    --dbuser="$DB_USER" \
+    --dbpass="$DB_PASS" \
+    --dbhost=mariadb \
+    --dbcharset=utf8mb4 \
+    --dbcollate=utf8mb4_general_ci \
+    --extra-php <<PHP
     define('AUTOMATIC_UPDATER_DISABLED', true);
     define('WP_LIMIT_LOGIN_ATTEMPTS', true);
     define('WP_DEBUG', true);
@@ -30,6 +38,7 @@ if ! [ -f /domains/$DOMAIN_NAME/public_html/wp-config.php]; then
     define('WP_POST_REVISIONS', false);
     define('EMPTY_TRASH_DAYS', 7);
     define('WP_MEMORY_LIMIT', '256M');
+
 PHP
 
     # Generate WordPress salts for security.
