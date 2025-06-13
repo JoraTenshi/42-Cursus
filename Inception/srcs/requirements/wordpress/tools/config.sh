@@ -64,7 +64,7 @@ PHP
     echo -e "\033[1;32mUpdating WordPress plugins...\033[0m"
     wp plugin update --all --allow-root
 
-    # Rewrite permalinks
+        # Rewrite permalinks
     echo -e "\033[1;32mRewriting WordPress permalinks...\033[0m"
     wp rewrite structure '/%postname%/' --hard
 
@@ -79,9 +79,17 @@ PHP
         wp post delete 2 --force --allow-root
     fi
 
-else
-    echo -e "\033[1;32mWordPress is already installed. Skipping installation...\033[0m"
-fi
+    else
+    	echo -e "\033[1;32mWordPress is already installed. Skipping installation...\033[0m"
+    	cd /domains/$DOMAIN_NAME/public_html
+    fi
+
+# Get the ID of the "home" page
+HOME_ID=$(wp post list --post_type=page --pagename=home --field=ID --allow-root)
+
+# Set the front page to be the "home" page
+wp option update show_on_front page --allow-root
+wp option update page_on_front $HOME_ID --allow-root
 
 # Start PHP-FPM
 echo -e "\033[1;32mStarting PHP-FPM...\033[0m"
