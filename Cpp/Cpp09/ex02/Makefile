@@ -1,6 +1,6 @@
 CNAMES = main PmergeMe
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = src/
 OBJ = obj/
