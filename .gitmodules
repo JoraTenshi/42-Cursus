@@ -36,10 +36,46 @@
 	url = ./Philosophers
 [submodule "push_swap"]
 	path = push_swap
-	url = ./push_swap
+	url = https://github.com/JoraTenshi/push_swap
 [submodule "So_long"]
 	path = So_long
 	url = ./So_long
 [submodule "libft"]
 	path = libft
-	url = https://github.com/JoraTenshi/libft.git
+	url = https://github.com/JoraTenshi/Libft
+[submodule "so_long"]
+	path = so_long
+	url = https://github.com/JoraTenshi/So_long
+[submodule "printf"]
+	path = printf
+	url = https://github.com/JoraTenshi/ft_Printf
+[submodule "philosophers"]
+	path = philosophers
+	url = https://github.com/JoraTenshi/Philosophers
+[submodule "netpractice"]
+	path = netpractice
+	url = https://github.com/JoraTenshi/Netpractice
+[submodule "minitalk"]
+	path = minitalk
+	url = https://github.com/JoraTenshi/Minitalk
+[submodule "minishell"]
+	path = minishell
+	url = https://github.com/JoraTenshi/Minishell
+[submodule "inception"]
+	path = inception
+	url = https://github.com/JoraTenshi/Inception
+[submodule "getnextline"]
+	path = getnextline
+	url = https://github.com/JoraTenshi/Get-Next-Line
+[submodule "cub3d"]
+	path = cub3d
+	url = https://github.com/JoraTenshi/CUB3D
+[submodule "cppII"]
+	path = cppII
+	url = https://github.com/JoraTenshi/CPP-II
+[submodule "cppI"]
+	path = cppI
+	url = https://github.com/JoraTenshi/CPP-I
+[submodule "ftirc"]
+	path = ftirc
+	url = https://github.com/JoraTenshi/ft_IRC
