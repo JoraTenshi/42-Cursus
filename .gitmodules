@@ -40,3 +40,6 @@
 [submodule "So_long"]
 	path = So_long
 	url = ./So_long
+[submodule "libft"]
+	path = libft
+	url = https://github.com/JoraTenshi/libft.git
