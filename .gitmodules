@@ -1,0 +1,42 @@
+[submodule "CPP-I"]
+	path = CPP-I
+	url = ./CPP-I
+[submodule "CPP-II"]
+	path = CPP-II
+	url = ./CPP-II
+[submodule "CUB3D"]
+	path = CUB3D
+	url = ./CUB3D
+[submodule "ft_IRC"]
+	path = ft_IRC
+	url = ./ft_IRC
+[submodule "ft_Printf"]
+	path = ft_Printf
+	url = ./ft_Printf
+[submodule "Get-Next-Line"]
+	path = Get-Next-Line
+	url = ./Get-Next-Line
+[submodule "Inception"]
+	path = Inception
+	url = ./Inception
+[submodule "Libft"]
+	path = Libft
+	url = ./Libft
+[submodule "Minishell"]
+	path = Minishell
+	url = ./Minishell
+[submodule "Minitalk"]
+	path = Minitalk
+	url = ./Minitalk
+[submodule "Netpractice"]
+	path = Netpractice
+	url = ./Netpractice
+[submodule "Philosophers"]
+	path = Philosophers
+	url = ./Philosophers
+[submodule "push_swap"]
+	path = push_swap
+	url = ./push_swap
+[submodule "So_long"]
+	path = So_long
+	url = ./So_long
